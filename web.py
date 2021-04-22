@@ -30,10 +30,10 @@ provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante"
 number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 7)
 
 dia = datetime.datetime.now()
-dia = dia.day-1
-dia2 = dia-number
-df = pd.read_csv(f'2021-04-{dia}.csv', delimiter=';')
-df2 = pd.read_csv(f'2021-04-{dia2}.csv', delimiter=';')
+dia2 = datetime.datetime.now() - datetime.timedelta(days=number)
+
+df = pd.read_csv(f'2021-{dia.month}-{dia.day}.csv', delimiter=';')
+df2 = pd.read_csv(f'2021-{dia2.month}-{dia2.day}.csv', delimiter=';')
 df = df.loc[df["Ciudad de destino"] == provincia]
 df2 = df2.loc[df2["Ciudad de destino"] == provincia]
 df["Var"] = df["Precio"]
