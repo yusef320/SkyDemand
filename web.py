@@ -3,11 +3,14 @@ import pandas as pd
 import datetime
 
 st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state="expanded")
-st.title("touristData")
+
 """
+# touristData
+
 Estudia la demanda de turistica de tu ciudad y adelanta tu negocio al mercado.
 """
 expander = st.beta_expander("Sobre nosotros")
+
 
 expander.markdown("""
 
