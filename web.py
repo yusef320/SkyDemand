@@ -8,8 +8,10 @@ st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state=
 
 """
 # touristData
+
+Estudia la demanda de turistica de tu ciudad y adelanta tu negocio al mercado.
 """
-st.text(f"Estudia la demanda de turistica de tu ciudad y adelanta tu negocio al mercado.    ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")
+st.text(f"ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")  
 expander = st.beta_expander("Sobre nosotros")
 
 
