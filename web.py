@@ -3,14 +3,13 @@ import pandas as pd
 import datetime
 
 dia = datetime.datetime.now() - datetime.timedelta(days=1)
-dia2 = datetime.datetime.now() - datetime.timedelta(days=number+1)
 
 st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state="expanded")
 
 """
 # touristData
 """
-st.markdown(f"Estudia la demanda de turistica de tu ciudad y adelanta tu negocio al mercado.    ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")
+st.text(f"Estudia la demanda de turistica de tu ciudad y adelanta tu negocio al mercado.    ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")
 expander = st.beta_expander("Sobre nosotros")
 
 
@@ -33,7 +32,7 @@ Para usarlo, esocge tu ciudad y el periodo de tiempo que quieres analizar.
 
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 7)
-
+dia2 = datetime.datetime.now() - datetime.timedelta(days=number+1)
 
 df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
