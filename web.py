@@ -35,12 +35,9 @@ Para usarlo, esocge tu ciudad y el periodo de tiempo que quieres analizar.
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 7)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+1)
-try:
-    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d+1}.csv', delimiter=';')
-    df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d+1}.csv', delimiter=';')
-except:
-    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
+
+df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
     
       
 df = df.loc[df["Ciudad de destino"] == provincia]
