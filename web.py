@@ -69,7 +69,7 @@ d = df.loc[df["Es directo"]==1]
 d2 = df2.loc[df2["Es directo"]==1]
 df_vuelos = (df.groupby("País origen")["Es directo"].sum()/df2.groupby("País origen")["Es directo"].sum()-1)*100
 st.subheader("Vuelos directos por día")
-st.text("Aumento de los vuelos directos por mercado emisor")
+st.text("Aumento de los oferta por mercado emisor")
 st.bar_chart(df_vuelos)
 
 """
