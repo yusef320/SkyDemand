@@ -73,14 +73,13 @@ st.subheader("Variacion de demanda turística.")
 st.text(f"Muestra el comportamiento del mercado para {provincia} por mercado emisor.")
 
 
-
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano)
 
 d = df.loc[df["Es directo"]==1]
 d2 = df2.loc[df2["Es directo"]==1]
 df_vuelos = (df.groupby("País origen")["Es directo"].sum()/df2.groupby("País origen")["Es directo"].sum()-1)*100
-st.subheader("Vuelos directos por día")
+st.subheader("Variación de la oferta")
 st.text("Aumento de los oferta por mercado emisor")
 st.bar_chart(df_vuelos)
 
