@@ -52,19 +52,27 @@ if rang == "Mes":
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
 
-
-email = st.sidebar.text_input('Suscribite a nuestro newsletter', 'Próximamente')
-a = st.sidebar.button("Subscribir")
+expander = st.sidebar.beta_expander("Newsletter")
+expander.markdown("""
+Mantente al dia de la demanda de tu ciudad 
+y recibe un email cada vez que se produzca un 
+cambio importante
+""")
+email = st.sidebar.text_input('Suscribite a nuestro newsletter', 'ejemplo@mail.com')
+a = st.sidebar.button("Suscribir")
 if a:
     conn = smtplib.SMTP("smtp.gmail.com", 587)
     conn.ehlo()
     conn.starttls()
     conn.login(usuario,contra)
-    conn.sendmail("touristdata2021@gmail.com","PoneUnEmail@gmail.com",f"Subject:{provincia} {email}")
+    conn.sendmail(usuario,usuario,f"Subject:{provincia} {email}")
+    st.sidebar.text("¡Suscripción creada con exito!")
 
 
 st.subheader("Variacion de demanda turística.")
 st.text(f"Muestra el comportamiento del mercado para {provincia} por mercado emisor.")
+
+
 
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano)
