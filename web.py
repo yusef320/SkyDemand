@@ -58,7 +58,7 @@ if rang == "Mes":
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
 
-title = st.sidebar.text_input('Suscribite a nuestro newsletter', 'funcion no disponible')
+title = st.sidebar.text_input('Suscribite a nuestro newsletter', 'Proximamente')
 
 
 st.subheader("Variacion de demanda turística.")
