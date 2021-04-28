@@ -1,22 +1,19 @@
 import streamlit as st
 import pandas as pd
 import datetime
+import smtplib
 
-dia = datetime.datetime.now() - datetime.timedelta(days=1)
-
-st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state="expanded")
+dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
+st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state="expanded") #configuramos la página
 
 """
 # touristData
-
 Estudia la demanda de turistica de tu ciudad y adelanta tu negocio al mercado.
 """
-st.text(f"ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")  
+st.text(f"ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")
+
 expander = st.beta_expander("Sobre nosotros")
-
-
 expander.markdown("""
-
 touristData es un proyecto desarrollado
 por estudiantes del grado de
 Ciencia de Datos por la Universitat Politècnica de València
@@ -24,12 +21,9 @@ para ayudar a los pequeños negocios
 dependientes del turismo a predecir 
 cuando reabrir sus negocios o a 
 adaptar sus productos a la demanda.
-
 Para usarlo, esocge tu ciudad y el periodo de tiempo que quieres analizar.
-
 """)
 """
-
 """
 
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
@@ -38,8 +32,8 @@ dia2 = datetime.datetime.now() - datetime.timedelta(days=number+1)
 
 df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
-    
-      
+
+
 df = df.loc[df["Ciudad de destino"] == provincia]
 df2 = df2.loc[df2["Ciudad de destino"] == provincia]
 df["Var"] = df["Precio"]
@@ -58,7 +52,15 @@ if rang == "Mes":
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
 
-title = st.sidebar.text_input('Suscribite a nuestro newsletter', 'Próximamente')
+
+email = st.sidebar.text_input('Suscribite a nuestro newsletter', 'Próximamente')
+a = st.sidebar.button("Subscribir")
+if a:
+    conn = smtplib.SMTP("smtp.gmail.com", 587)
+    conn.ehlo()
+    conn.starttls()
+    conn.login(usuario,contra)
+    conn.sendmail("touristdata2021@gmail.com","PoneUnEmail@gmail.com",f"Subject:{provincia} {email}")
 
 
 st.subheader("Variacion de demanda turística.")
@@ -76,10 +78,7 @@ st.bar_chart(df_vuelos)
 
 """
 ## Estudio por mercado
-
 Escoge el mercado que más te interesa o todos y estudia como fluctua la demanda
-
-
 """
 
 mercado = st.selectbox("Elige un mercado",("Todos","Reino Unido","Alemania", "Francia"))
