@@ -58,6 +58,8 @@ if rang == "Mes":
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
 
+title = st.text_input('Movie title', 'Life of Brian')
+st.sidebar.write('The current movie title is', title)
 
 st.subheader("Variacion de demanda turística.")
 st.text(f"Muestra el comportamiento del mercado para {provincia} por mercado emisor.")
