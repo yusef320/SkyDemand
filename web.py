@@ -3,15 +3,25 @@ import pandas as pd
 import datetime
 import smtplib
 
+st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state="expanded", ) #configuramos la página
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style,unsafe_allow_html=True)
+
+usuario = 'touristdata2021@gmail.com'
+contra = 'XR5N4SuJ8T-BzdV'
+
 dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
-st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state="expanded") #configuramos la página
+
 
 """
 # touristData
 Estudia la demanda de turistica de tu ciudad y adelanta tu negocio al mercado.
 """
 st.text(f"ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")
-
 expander = st.beta_expander("Sobre nosotros")
 expander.markdown("""
 touristData es un proyecto desarrollado
@@ -58,21 +68,33 @@ Mantente al dia de la demanda de tu ciudad
 y recibe un email cada vez que se produzca un 
 cambio importante
 """)
-email = st.sidebar.text_input('Suscribite a nuestro newsletter', 'ejemplo@mail.com')
+email = st.sidebar.text_input(f'Suscribite a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
-if a:
+
+@st.cache
+def enviar(email, provincia):
     conn = smtplib.SMTP("smtp.gmail.com", 587)
     conn.ehlo()
     conn.starttls()
     conn.login(usuario,contra)
-    conn.sendmail(usuario,usuario,f"Subject:{provincia} {email}")
-    st.sidebar.text("¡Suscripción creada con exito!")
+    conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
+    conn.quit()
+
+if a:
+    email1 = email.split("@")
+    if email == "ejemplo@mail.com":
+        st.sidebar.text("Introduce un email")
+        a = False
+    elif len(email1) == 2:
+        enviar(email, provincia)
+        st.sidebar.text("¡Suscripción creada con exito!")
+    else:
+        a = False
+        st.sidebar.text("Email incorrecto, intentelo de nuevo.")
 
 
 st.subheader("Variacion de demanda turística.")
 st.text(f"Muestra el comportamiento del mercado para {provincia} por mercado emisor.")
-
-
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano)
 
@@ -87,7 +109,6 @@ st.bar_chart(df_vuelos)
 ## Estudio por mercado
 Escoge el mercado que más te interesa o todos y estudia como fluctua la demanda
 """
-
 mercado = st.selectbox("Elige un mercado",("Todos","Reino Unido","Alemania", "Francia"))
 if mercado != "Todos":
     df = df.loc[df["País origen"]==mercado]
@@ -101,4 +122,5 @@ col1.subheader("Demanda por ciudad")
 col1.bar_chart(j)
 col2.subheader("")
 col2.write(j)
+
 
