@@ -7,6 +7,7 @@ st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state=
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
         </style>
         """
 st.markdown(hide_menu_style,unsafe_allow_html=True)
