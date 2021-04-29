@@ -1,0 +1,1185 @@
+Fecha;Mes;Fecha de busqueda;Precio;Moneda;Es directo;Aerolinea;Origen;Destino;Ciudad origen;País origen
+2021-06-03;6;2021-04-03;63;€;False;Lufthansa;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-03;6;2021-04-03;123;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-04;6;2021-04-03;46;€;False;Lufthansa;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-04;6;2021-04-03;75;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-07;6;2021-04-03;26;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-12;6;2021-04-03;28;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-14;6;2021-04-03;22;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-16;6;2021-04-03;40;€;False;Lufthansa;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-16;6;2021-04-03;58;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-19;6;2021-04-03;13;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-21;6;2021-04-03;13;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-26;6;2021-04-03;61;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-28;6;2021-04-03;28;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-01;7;2021-04-03;52;€;False;Lufthansa;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-01;7;2021-04-03;78;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-05;7;2021-04-03;46;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-12;7;2021-04-03;52;€;False;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-12;7;2021-04-03;55;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-17;7;2021-04-03;81;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-19;7;2021-04-03;54;€;False;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-19;7;2021-04-03;66;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-24;7;2021-04-03;67;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-26;7;2021-04-03;53;€;False;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-07-26;7;2021-04-03;54;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-02;8;2021-04-03;44;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-06;8;2021-04-03;59;€;False;Lufthansa;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-06;8;2021-04-03;130;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-07;8;2021-04-03;55;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-09;8;2021-04-03;44;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-14;8;2021-04-03;81;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-15;8;2021-04-03;54;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-16;8;2021-04-03;44;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-22;8;2021-04-03;45;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-23;8;2021-04-03;46;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-08-28;8;2021-04-03;47;€;True;Ryanair;FRA;VLC;Fráncfort del Meno;Alemania
+2021-06-01;6;2021-04-03;95;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-02;6;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-03;6;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-04;6;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-06;6;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-07;6;2021-04-03;95;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-08;6;2021-04-03;75;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-09;6;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-10;6;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-11;6;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-15;6;2021-04-03;75;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-16;6;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-17;6;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-18;6;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-24;6;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-25;6;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-28;6;2021-04-03;95;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-29;6;2021-04-03;75;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-01;7;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-02;7;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-04;7;2021-04-03;171;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-05;7;2021-04-03;153;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-08;7;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-09;7;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-10;7;2021-04-03;201;€;False;Iberia;DUS;VLC;Düsseldorf;Alemania
+2021-07-15;7;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-16;7;2021-04-03;95;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-18;7;2021-04-03;95;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-19;7;2021-04-03;83;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-20;7;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-27;7;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-28;7;2021-04-03;75;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-07-29;7;2021-04-03;83;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-01;8;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-02;8;2021-04-03;75;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-03;8;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-04;8;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-05;8;2021-04-03;78;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-08;8;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-09;8;2021-04-03;75;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-10;8;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-12;8;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-13;8;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-15;8;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-16;8;2021-04-03;75;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-17;8;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-22;8;2021-04-03;55;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-23;8;2021-04-03;75;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-25;8;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-26;8;2021-04-03;65;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-08-27;8;2021-04-03;85;€;True;eurowings;DUS;VLC;Düsseldorf;Alemania
+2021-06-01;6;2021-04-03;21;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-02;6;2021-04-03;85;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-03;6;2021-04-03;95;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-04;6;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-05;6;2021-04-03;43;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-07;6;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-08;6;2021-04-03;22;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-09;6;2021-04-03;85;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-10;6;2021-04-03;95;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-11;6;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-12;6;2021-04-03;23;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-14;6;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-15;6;2021-04-03;155;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-16;6;2021-04-03;85;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-17;6;2021-04-03;95;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-18;6;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-21;6;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-22;6;2021-04-03;35;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-23;6;2021-04-03;47;€;False;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-23;6;2021-04-03;110;€;True;eurowings;BER;VLC;Berlín;Alemania
+2021-06-24;6;2021-04-03;46;€;False;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-25;6;2021-04-03;48;€;False;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-26;6;2021-04-03;123;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-06-28;6;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-29;6;2021-04-03;155;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-01;7;2021-04-03;95;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-02;7;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-05;7;2021-04-03;49;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-07-06;7;2021-04-03;35;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-07-07;7;2021-04-03;95;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-08;7;2021-04-03;38;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-07-09;7;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-12;7;2021-04-03;35;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-07-13;7;2021-04-03;155;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-14;7;2021-04-03;95;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-15;7;2021-04-03;38;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-07-19;7;2021-04-03;39;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-07-20;7;2021-04-03;28;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-07-21;7;2021-04-03;31;€;False;Ryanair;BER;VLC;Berlín;Alemania
+2021-07-21;7;2021-04-03;139;€;True;eurowings;BER;VLC;Berlín;Alemania
+2021-07-22;7;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-23;7;2021-04-03;105;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-24;7;2021-04-03;43;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-07-26;7;2021-04-03;54;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-07-27;7;2021-04-03;22;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-07-28;7;2021-04-03;85;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-07-29;7;2021-04-03;35;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-08-02;8;2021-04-03;38;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-08-03;8;2021-04-03;22;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-08-04;8;2021-04-03;85;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-05;8;2021-04-03;85;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-06;8;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-09;8;2021-04-03;38;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-08-10;8;2021-04-03;155;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-11;8;2021-04-03;85;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-12;8;2021-04-03;38;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-08-13;8;2021-04-03;105;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-14;8;2021-04-03;64;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-08-15;8;2021-04-03;69;€;False;Ryanair;BER;VLC;Berlín;Alemania
+2021-08-16;8;2021-04-03;39;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-08-17;8;2021-04-03;155;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-19;8;2021-04-03;38;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-08-21;8;2021-04-03;47;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-08-23;8;2021-04-03;48;€;True;easyJet;BER;VLC;Berlín;Alemania
+2021-08-24;8;2021-04-03;155;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-25;8;2021-04-03;95;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-08-26;8;2021-04-03;31;€;False;easyJet;BER;VLC;Berlín;Alemania
+2021-08-26;8;2021-04-03;47;€;True;Ryanair;BER;VLC;Berlín;Alemania
+2021-08-27;8;2021-04-03;115;€;False;eurowings;BER;VLC;Berlín;Alemania
+2021-06-01;6;2021-04-03;140;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-02;6;2021-04-03;71;€;False;Vueling Airlines;MUC;VLC;Múnich;Alemania
+2021-06-02;6;2021-04-03;106;€;True;Lufthansa;MUC;VLC;Múnich;Alemania
+2021-06-03;6;2021-04-03;81;€;False;KLM;MUC;VLC;Múnich;Alemania
+2021-06-03;6;2021-04-03;130;€;True;Lufthansa;MUC;VLC;Múnich;Alemania
+2021-06-04;6;2021-04-03;72;€;False;Vueling Airlines;MUC;VLC;Múnich;Alemania
+2021-06-04;6;2021-04-03;106;€;True;Lufthansa;MUC;VLC;Múnich;Alemania
+2021-06-05;6;2021-04-03;77;€;False;Air France;MUC;VLC;Múnich;Alemania
+2021-06-05;6;2021-04-03;132;€;True;Lufthansa;MUC;VLC;Múnich;Alemania
+2021-06-06;6;2021-04-03;78;€;False;Vueling Airlines;MUC;VLC;Múnich;Alemania
+2021-06-06;6;2021-04-03;106;€;True;Lufthansa;MUC;VLC;Múnich;Alemania
+2021-06-08;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-09;6;2021-04-03;84;€;False;TAP Air Portugal;MUC;VLC;Múnich;Alemania
+2021-06-09;6;2021-04-03;102;€;True;Lufthansa;MUC;VLC;Múnich;Alemania
+2021-06-10;6;2021-04-03;95;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-11;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-14;6;2021-04-03;140;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-15;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-16;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-17;6;2021-04-03;95;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-18;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-21;6;2021-04-03;140;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-22;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-23;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-24;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-25;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-28;6;2021-04-03;140;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-29;6;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-01;7;2021-04-03;95;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-02;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-05;7;2021-04-03;140;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-06;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-07;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-08;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-09;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-12;7;2021-04-03;140;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-13;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-14;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-15;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-26;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-07-27;7;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-08-02;8;2021-04-03;185;€;False;easyJet;MUC;VLC;Múnich;Alemania
+2021-08-02;8;2021-04-03;263;€;True;Lufthansa;MUC;VLC;Múnich;Alemania
+2021-08-03;8;2021-04-03;240;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-08-11;8;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-08-12;8;2021-04-03;83;€;False;Lufthansa;MUC;VLC;Múnich;Alemania
+2021-08-12;8;2021-04-03;117;€;True;eurowings;MUC;VLC;Múnich;Alemania
+2021-08-13;8;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-08-24;8;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-08-25;8;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-08-26;8;2021-04-03;95;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-08-27;8;2021-04-03;120;€;False;eurowings;MUC;VLC;Múnich;Alemania
+2021-06-02;6;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-03;6;2021-04-03;50;€;False;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-06-03;6;2021-04-03;105;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-04;6;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-05;6;2021-04-03;105;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-07;6;2021-04-03;155;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-08;6;2021-04-03;20;€;True;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-06-09;6;2021-04-03;105;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-10;6;2021-04-03;95;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-11;6;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-12;6;2021-04-03;37;€;True;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-06-14;6;2021-04-03;155;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-15;6;2021-04-03;85;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-16;6;2021-04-03;105;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-17;6;2021-04-03;95;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-18;6;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-19;6;2021-04-03;205;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-22;6;2021-04-03;105;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-23;6;2021-04-03;105;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-24;6;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-24;6;2021-04-03;125;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-25;6;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-26;6;2021-04-03;125;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-28;6;2021-04-03;155;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-06-29;6;2021-04-03;95;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-01;7;2021-04-03;95;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-02;7;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-04;7;2021-04-03;67;€;False;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-07-09;7;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-10;7;2021-04-03;185;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-12;7;2021-04-03;135;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-13;7;2021-04-03;105;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-15;7;2021-04-03;105;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-16;7;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-17;7;2021-04-03;72;€;False;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-07-17;7;2021-04-03;80;€;True;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-07-21;7;2021-04-03;105;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-22;7;2021-04-03;95;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-23;7;2021-04-03;105;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-07-24;7;2021-04-03;81;€;True;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-07-29;7;2021-04-03;85;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-02;8;2021-04-03;135;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-03;8;2021-04-03;42;€;False;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-08-03;8;2021-04-03;58;€;True;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-08-04;8;2021-04-03;58;€;False;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-08-04;8;2021-04-03;126;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-05;8;2021-04-03;85;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-06;8;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-07;8;2021-04-03;95;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-13;8;2021-04-03;105;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-14;8;2021-04-03;40;€;True;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-08-15;8;2021-04-03;60;€;False;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-08-20;8;2021-04-03;105;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-21;8;2021-04-03;41;€;True;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-08-24;8;2021-04-03;85;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-25;8;2021-04-03;95;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-26;8;2021-04-03;85;€;True;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-27;8;2021-04-03;115;€;False;eurowings;HAM;VLC;Hamburgo;Alemania
+2021-08-28;8;2021-04-03;49;€;True;Ryanair;HAM;VLC;Hamburgo;Alemania
+2021-06-04;6;2021-04-03;35;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-06-10;6;2021-04-03;35;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-06-11;6;2021-04-03;44;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-06-12;6;2021-04-03;35;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-06-13;6;2021-04-03;56;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-06-14;6;2021-04-03;26;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-06-18;6;2021-04-03;43;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-06-21;6;2021-04-03;28;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-06-22;6;2021-04-03;50;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-06-23;6;2021-04-03;47;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-06-25;6;2021-04-03;42;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-06-28;6;2021-04-03;35;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-01;7;2021-04-03;53;€;False;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-07-01;7;2021-04-03;118;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-02;7;2021-04-03;103;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-04;7;2021-04-03;55;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-05;7;2021-04-03;55;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-09;7;2021-04-03;46;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-10;7;2021-04-03;71;€;False;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-07-10;7;2021-04-03;100;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-11;7;2021-04-03;38;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-12;7;2021-04-03;38;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-14;7;2021-04-03;47;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-16;7;2021-04-03;62;€;False;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-16;7;2021-04-03;71;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-17;7;2021-04-03;56;€;False;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-07-17;7;2021-04-03;101;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-18;7;2021-04-03;46;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-07-23;7;2021-04-03;86;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-08-01;8;2021-04-03;78;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-08-02;8;2021-04-03;41;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-08-04;8;2021-04-03;35;€;True;Brussels Airlines;BRU;VLC;Bruselas;Bélgica
+2021-08-05;8;2021-04-03;47;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-08-06;8;2021-04-03;52;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-08-07;8;2021-04-03;58;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-08-08;8;2021-04-03;78;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-08-11;8;2021-04-03;47;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-08-13;8;2021-04-03;73;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-08-20;8;2021-04-03;47;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-08-21;8;2021-04-03;35;€;True;Vueling Airlines;BRU;VLC;Bruselas;Bélgica
+2021-08-22;8;2021-04-03;47;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-08-29;8;2021-04-03;78;€;True;Ryanair;BRU;VLC;Bruselas;Bélgica
+2021-06-05;6;2021-04-03;25;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-06-08;6;2021-04-03;27;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-06-10;6;2021-04-03;75;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-06-12;6;2021-04-03;24;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-06-14;6;2021-04-03;39;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-06-22;6;2021-04-03;32;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-06-23;6;2021-04-03;54;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-06-25;6;2021-04-03;55;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-01;7;2021-04-03;65;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-01;7;2021-04-03;137;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-03;7;2021-04-03;67;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-04;7;2021-04-03;54;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-05;7;2021-04-03;34;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-06;7;2021-04-03;56;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-09;7;2021-04-03;63;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-10;7;2021-04-03;45;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-13;7;2021-04-03;42;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-15;7;2021-04-03;42;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-16;7;2021-04-03;63;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-17;7;2021-04-03;34;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-18;7;2021-04-03;59;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-19;7;2021-04-03;42;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-20;7;2021-04-03;35;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-22;7;2021-04-03;42;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-24;7;2021-04-03;29;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-26;7;2021-04-03;29;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-07-27;7;2021-04-03;35;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-08-02;8;2021-04-03;46;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-08-03;8;2021-04-03;166;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-08-04;8;2021-04-03;54;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-08-05;8;2021-04-03;41;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-08-06;8;2021-04-03;60;€;False;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-08-07;8;2021-04-03;34;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-08-12;8;2021-04-03;51;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-08-21;8;2021-04-03;34;€;True;Ryanair;CRL;VLC;Bruselas;Bélgica
+2021-06-01;6;2021-04-03;46;€;False;Ryanair;VIE;VLC;Viena;Austria
+2021-06-01;6;2021-04-03;169;€;True;eurowings;VIE;VLC;Viena;Austria
+2021-06-02;6;2021-04-03;43;€;False;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-02;6;2021-04-03;79;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-06-03;6;2021-04-03;44;€;False;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-04;6;2021-04-03;38;€;False;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-05;6;2021-04-03;44;€;False;Ryanair;VIE;VLC;Viena;Austria
+2021-06-06;6;2021-04-03;22;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-07;6;2021-04-03;165;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-06-08;6;2021-04-03;125;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-06-09;6;2021-04-03;25;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-10;6;2021-04-03;47;€;False;Ryanair;VIE;VLC;Viena;Austria
+2021-06-11;6;2021-04-03;125;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-06-13;6;2021-04-03;24;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-14;6;2021-04-03;330;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-06-15;6;2021-04-03;125;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-06-16;6;2021-04-03;25;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-17;6;2021-04-03;165;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-06-18;6;2021-04-03;49;€;False;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-20;6;2021-04-03;30;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-21;6;2021-04-03;165;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-06-22;6;2021-04-03;47;€;False;Ryanair;VIE;VLC;Viena;Austria
+2021-06-22;6;2021-04-03;190;€;True;eurowings;VIE;VLC;Viena;Austria
+2021-06-23;6;2021-04-03;23;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-24;6;2021-04-03;56;€;False;Ryanair;VIE;VLC;Viena;Austria
+2021-06-25;6;2021-04-03;50;€;False;Ryanair;VIE;VLC;Viena;Austria
+2021-06-27;6;2021-04-03;40;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-06-28;6;2021-04-03;165;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-06-29;6;2021-04-03;145;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-07-01;7;2021-04-03;86;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-02;7;2021-04-03;76;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-04;7;2021-04-03;70;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-05;7;2021-04-03;43;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-06;7;2021-04-03;165;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-07-07;7;2021-04-03;105;€;False;Ryanair;VIE;VLC;Viena;Austria
+2021-07-07;7;2021-04-03;111;€;True;eurowings;VIE;VLC;Viena;Austria
+2021-07-08;7;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-09;7;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-11;7;2021-04-03;28;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-12;7;2021-04-03;28;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-13;7;2021-04-03;165;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-07-14;7;2021-04-03;35;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-15;7;2021-04-03;54;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-16;7;2021-04-03;35;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-18;7;2021-04-03;30;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-07-19;7;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-20;7;2021-04-03;165;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-07-21;7;2021-04-03;39;€;True;Wizz Air;VIE;VLC;Viena;Austria
+2021-07-22;7;2021-04-03;54;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-23;7;2021-04-03;27;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-25;7;2021-04-03;21;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-26;7;2021-04-03;27;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-27;7;2021-04-03;165;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-07-28;7;2021-04-03;27;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-07-29;7;2021-04-03;34;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-03;8;2021-04-03;125;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-08-04;8;2021-04-03;54;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-05;8;2021-04-03;49;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-06;8;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-08;8;2021-04-03;53;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-09;8;2021-04-03;27;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-10;8;2021-04-03;63;€;False;Ryanair;VIE;VLC;Viena;Austria
+2021-08-10;8;2021-04-03;118;€;True;eurowings;VIE;VLC;Viena;Austria
+2021-08-11;8;2021-04-03;85;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-08-12;8;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-13;8;2021-04-03;105;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-08-15;8;2021-04-03;54;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-16;8;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-17;8;2021-04-03;95;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-08-18;8;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-19;8;2021-04-03;125;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-08-23;8;2021-04-03;53;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-24;8;2021-04-03;145;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-08-25;8;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-26;8;2021-04-03;54;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-08-27;8;2021-04-03;125;€;False;eurowings;VIE;VLC;Viena;Austria
+2021-08-29;8;2021-04-03;44;€;True;Ryanair;VIE;VLC;Viena;Austria
+2021-06-01;6;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-02;6;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-03;6;2021-04-03;95;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-07;6;2021-04-03;145;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-08;6;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-09;6;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-10;6;2021-04-03;95;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-14;6;2021-04-03;145;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-15;6;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-16;6;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-28;6;2021-04-03;145;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-29;6;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-01;7;2021-04-03;71;€;False;Wizz Air;CPH;VLC;Copenhague;Dinamarca
+2021-07-05;7;2021-04-03;125;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-06;7;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-07;7;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-08;7;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-19;7;2021-04-03;56;€;False;Ryanair;CPH;VLC;Copenhague;Dinamarca
+2021-07-20;7;2021-04-03;47;€;False;Ryanair;CPH;VLC;Copenhague;Dinamarca
+2021-07-21;7;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-22;7;2021-04-03;125;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-26;7;2021-04-03;67;€;False;Ryanair;CPH;VLC;Copenhague;Dinamarca
+2021-07-27;7;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-28;7;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-07-29;7;2021-04-03;125;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-09;8;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-10;8;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-11;8;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-16;8;2021-04-03;59;€;False;Ryanair;CPH;VLC;Copenhague;Dinamarca
+2021-08-17;8;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-18;8;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-23;8;2021-04-03;105;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-24;8;2021-04-03;85;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-25;8;2021-04-03;95;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-08-26;8;2021-04-03;95;€;False;eurowings;CPH;VLC;Copenhague;Dinamarca
+2021-06-18;6;2021-04-03;68;€;False;Blue Air;HEL;VLC;Helsinki;Finlandia
+2021-07-12;7;2021-04-03;89;€;False;Blue Air;HEL;VLC;Helsinki;Finlandia
+2021-07-28;7;2021-04-03;94;€;False;Finnair;HEL;VLC;Helsinki;Finlandia
+2021-06-04;6;2021-04-03;24;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-05;6;2021-04-03;43;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-07;6;2021-04-03;33;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-11;6;2021-04-03;30;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-12;6;2021-04-03;44;€;False;Volotea;TLS;VLC;Toulouse;Francia
+2021-06-14;6;2021-04-03;33;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-18;6;2021-04-03;25;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-19;6;2021-04-03;51;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-21;6;2021-04-03;32;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-25;6;2021-04-03;37;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-26;6;2021-04-03;48;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-06-28;6;2021-04-03;36;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-02;7;2021-04-03;34;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-03;7;2021-04-03;42;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-05;7;2021-04-03;28;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-09;7;2021-04-03;34;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-10;7;2021-04-03;60;€;False;Volotea;TLS;VLC;Toulouse;Francia
+2021-07-12;7;2021-04-03;31;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-16;7;2021-04-03;37;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-17;7;2021-04-03;61;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-19;7;2021-04-03;45;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-23;7;2021-04-03;38;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-24;7;2021-04-03;66;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-07-26;7;2021-04-03;65;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-08-02;8;2021-04-03;68;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-08-06;8;2021-04-03;69;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-08-07;8;2021-04-03;55;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-08-09;8;2021-04-03;64;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-08-13;8;2021-04-03;59;€;False;Volotea;TLS;VLC;Toulouse;Francia
+2021-08-14;8;2021-04-03;55;€;False;Ryanair;TLS;VLC;Toulouse;Francia
+2021-08-16;8;2021-04-03;54;€;False;Volotea;TLS;VLC;Toulouse;Francia
+2021-08-20;8;2021-04-03;34;€;False;Volotea;TLS;VLC;Toulouse;Francia
+2021-08-21;8;2021-04-03;61;€;False;easyJet;TLS;VLC;Toulouse;Francia
+2021-08-23;8;2021-04-03;59;€;False;Volotea;TLS;VLC;Toulouse;Francia
+2021-08-27;8;2021-04-03;55;€;False;Volotea;TLS;VLC;Toulouse;Francia
+2021-08-28;8;2021-04-03;55;€;False;Volotea;TLS;VLC;Toulouse;Francia
+2021-06-01;6;2021-04-03;55;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-01;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-05;6;2021-04-03;55;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-05;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-08;6;2021-04-03;65;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-08;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-09;6;2021-04-03;61;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-09;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-10;6;2021-04-03;57;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-10;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-12;6;2021-04-03;55;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-12;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-15;6;2021-04-03;54;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-15;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-17;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-19;6;2021-04-03;56;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-19;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-21;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-22;6;2021-04-03;54;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-22;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-23;6;2021-04-03;64;€;True;Air France;CDG;VLC;París;Francia
+2021-06-24;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-06-25;6;2021-04-03;65;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-25;6;2021-04-03;71;€;True;Air France;CDG;VLC;París;Francia
+2021-06-26;6;2021-04-03;60;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-26;6;2021-04-03;85;€;True;Air France;CDG;VLC;París;Francia
+2021-06-29;6;2021-04-03;57;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-06-29;6;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-07-01;7;2021-04-03;73;€;True;Air France;CDG;VLC;París;Francia
+2021-07-02;7;2021-04-03;75;€;False;easyJet;CDG;VLC;París;Francia
+2021-07-02;7;2021-04-03;81;€;True;Air France;CDG;VLC;París;Francia
+2021-07-03;7;2021-04-03;68;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-03;7;2021-04-03;110;€;True;Air France;CDG;VLC;París;Francia
+2021-07-06;7;2021-04-03;71;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-06;7;2021-04-03;131;€;True;Air France;CDG;VLC;París;Francia
+2021-07-08;7;2021-04-03;80;€;False;Air France;CDG;VLC;París;Francia
+2021-07-08;7;2021-04-03;85;€;True;Air France;CDG;VLC;París;Francia
+2021-07-10;7;2021-04-03;71;€;False;easyJet;CDG;VLC;París;Francia
+2021-07-10;7;2021-04-03;151;€;True;Air France;CDG;VLC;París;Francia
+2021-07-11;7;2021-04-03;76;€;False;Air France;CDG;VLC;París;Francia
+2021-07-11;7;2021-04-03;150;€;True;Air France;CDG;VLC;París;Francia
+2021-07-12;7;2021-04-03;68;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-12;7;2021-04-03;153;€;True;Air France;CDG;VLC;París;Francia
+2021-07-13;7;2021-04-03;57;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-13;7;2021-04-03;120;€;True;Air France;CDG;VLC;París;Francia
+2021-07-14;7;2021-04-03;73;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-14;7;2021-04-03;120;€;True;Air France;CDG;VLC;París;Francia
+2021-07-17;7;2021-04-03;65;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-17;7;2021-04-03;159;€;True;Air France;CDG;VLC;París;Francia
+2021-07-20;7;2021-04-03;59;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-20;7;2021-04-03;138;€;True;Air France;CDG;VLC;París;Francia
+2021-07-23;7;2021-04-03;87;€;False;Air France;CDG;VLC;París;Francia
+2021-07-23;7;2021-04-03;138;€;True;Air France;CDG;VLC;París;Francia
+2021-07-24;7;2021-04-03;71;€;False;easyJet;CDG;VLC;París;Francia
+2021-07-24;7;2021-04-03;159;€;True;Air France;CDG;VLC;París;Francia
+2021-07-25;7;2021-04-03;76;€;False;Air France;CDG;VLC;París;Francia
+2021-07-25;7;2021-04-03;131;€;True;Air France;CDG;VLC;París;Francia
+2021-07-26;7;2021-04-03;68;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-26;7;2021-04-03;153;€;True;Air France;CDG;VLC;París;Francia
+2021-07-27;7;2021-04-03;58;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-07-27;7;2021-04-03;131;€;True;Air France;CDG;VLC;París;Francia
+2021-07-28;7;2021-04-03;76;€;False;Air France;CDG;VLC;París;Francia
+2021-07-28;7;2021-04-03;85;€;True;Air France;CDG;VLC;París;Francia
+2021-07-29;7;2021-04-03;76;€;False;Air France;CDG;VLC;París;Francia
+2021-07-29;7;2021-04-03;113;€;True;Air France;CDG;VLC;París;Francia
+2021-08-01;8;2021-04-03;79;€;False;Air France;CDG;VLC;París;Francia
+2021-08-01;8;2021-04-03;154;€;True;Air France;CDG;VLC;París;Francia
+2021-08-03;8;2021-04-03;67;€;False;easyJet;CDG;VLC;París;Francia
+2021-08-03;8;2021-04-03;131;€;True;Air France;CDG;VLC;París;Francia
+2021-08-04;8;2021-04-03;76;€;False;Air France;CDG;VLC;París;Francia
+2021-08-04;8;2021-04-03;85;€;True;Air France;CDG;VLC;París;Francia
+2021-08-06;8;2021-04-03;80;€;False;Air France;CDG;VLC;París;Francia
+2021-08-06;8;2021-04-03;159;€;True;Air France;CDG;VLC;París;Francia
+2021-08-07;8;2021-04-03;75;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-08-07;8;2021-04-03;183;€;True;Air France;CDG;VLC;París;Francia
+2021-08-10;8;2021-04-03;66;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-08-10;8;2021-04-03;105;€;True;Air France;CDG;VLC;París;Francia
+2021-08-11;8;2021-04-03;73;€;True;Air France;CDG;VLC;París;Francia
+2021-08-14;8;2021-04-03;66;€;False;easyJet;CDG;VLC;París;Francia
+2021-08-14;8;2021-04-03;138;€;True;Air France;CDG;VLC;París;Francia
+2021-08-17;8;2021-04-03;51;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-08-17;8;2021-04-03;73;€;True;Air France;CDG;VLC;París;Francia
+2021-08-21;8;2021-04-03;51;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-08-21;8;2021-04-03;77;€;True;Air France;CDG;VLC;París;Francia
+2021-08-24;8;2021-04-03;51;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-08-24;8;2021-04-03;66;€;True;Air France;CDG;VLC;París;Francia
+2021-08-25;8;2021-04-03;62;€;True;Air France;CDG;VLC;París;Francia
+2021-08-27;8;2021-04-03;65;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-08-27;8;2021-04-03;94;€;True;Air France;CDG;VLC;París;Francia
+2021-08-28;8;2021-04-03;58;€;False;Vueling Airlines;CDG;VLC;París;Francia
+2021-08-28;8;2021-04-03;73;€;True;Air France;CDG;VLC;París;Francia
+2021-06-01;6;2021-04-03;47;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-05;6;2021-04-03;36;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-08;6;2021-04-03;41;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-09;6;2021-04-03;39;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-10;6;2021-04-03;53;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-12;6;2021-04-03;41;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-15;6;2021-04-03;41;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-17;6;2021-04-03;32;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-19;6;2021-04-03;60;€;False;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-19;6;2021-04-03;68;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-21;6;2021-04-03;49;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-22;6;2021-04-03;52;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-23;6;2021-04-03;42;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-24;6;2021-04-03;44;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-25;6;2021-04-03;62;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-26;6;2021-04-03;57;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-29;6;2021-04-03;41;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-01;7;2021-04-03;64;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-02;7;2021-04-03;76;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-03;7;2021-04-03;71;€;False;easyJet;ORY;VLC;París;Francia
+2021-07-03;7;2021-04-03;76;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-06;7;2021-04-03;63;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-08;7;2021-04-03;69;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-10;7;2021-04-03;75;€;False;transavia;ORY;VLC;París;Francia
+2021-07-10;7;2021-04-03;84;€;True;Alitalia;ORY;VLC;París;Francia
+2021-07-11;7;2021-04-03;76;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-12;7;2021-04-03;63;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-13;7;2021-04-03;62;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-14;7;2021-04-03;69;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-17;7;2021-04-03;64;€;False;transavia;ORY;VLC;París;Francia
+2021-07-17;7;2021-04-03;75;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-20;7;2021-04-03;60;€;False;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-20;7;2021-04-03;62;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-23;7;2021-04-03;64;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-24;7;2021-04-03;73;€;False;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-24;7;2021-04-03;76;€;True;Alitalia;ORY;VLC;París;Francia
+2021-07-25;7;2021-04-03;58;€;True;transavia;ORY;VLC;París;Francia
+2021-07-26;7;2021-04-03;53;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-27;7;2021-04-03;58;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-28;7;2021-04-03;52;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-29;7;2021-04-03;70;€;False;Vueling Airlines;ORY;VLC;París;Francia
+2021-07-29;7;2021-04-03;71;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-01;8;2021-04-03;78;€;False;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-01;8;2021-04-03;90;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-03;8;2021-04-03;60;€;False;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-03;8;2021-04-03;63;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-04;8;2021-04-03;55;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-05;8;2021-04-03;59;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-06;8;2021-04-03;64;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-07;8;2021-04-03;71;€;False;transavia;ORY;VLC;París;Francia
+2021-08-07;8;2021-04-03;85;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-10;8;2021-04-03;52;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-11;8;2021-04-03;39;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-14;8;2021-04-03;40;€;True;transavia;ORY;VLC;París;Francia
+2021-08-17;8;2021-04-03;36;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-21;8;2021-04-03;30;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-24;8;2021-04-03;33;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-25;8;2021-04-03;30;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-27;8;2021-04-03;31;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-08-28;8;2021-04-03;36;€;True;Vueling Airlines;ORY;VLC;París;Francia
+2021-06-01;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-05;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-08;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-09;6;2021-04-03;501;€;False;Aero4M;BVA;VLC;París;Francia
+2021-06-10;6;2021-04-03;48;€;False;Ryanair;BVA;VLC;París;Francia
+2021-06-12;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-15;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-19;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-22;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-23;6;2021-04-03;70;€;False;Ryanair;BVA;VLC;París;Francia
+2021-06-25;6;2021-04-03;55;€;False;Ryanair;BVA;VLC;París;Francia
+2021-06-26;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-29;6;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-02;7;2021-04-03;56;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-03;7;2021-04-03;36;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-06;7;2021-04-03;24;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-10;7;2021-04-03;43;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-10;7;2021-04-03;73;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-11;7;2021-04-03;111;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-12;7;2021-04-03;59;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-13;7;2021-04-03;40;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-14;7;2021-04-03;45;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-17;7;2021-04-03;43;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-17;7;2021-04-03;54;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-20;7;2021-04-03;33;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-24;7;2021-04-03;45;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-25;7;2021-04-03;64;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-26;7;2021-04-03;59;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-27;7;2021-04-03;20;€;True;Ryanair;BVA;VLC;París;Francia
+2021-07-28;7;2021-04-03;57;€;False;Ryanair;BVA;VLC;París;Francia
+2021-07-29;7;2021-04-03;54;€;False;Ryanair;BVA;VLC;París;Francia
+2021-08-01;8;2021-04-03;55;€;False;Ryanair;BVA;VLC;París;Francia
+2021-08-03;8;2021-04-03;43;€;False;Ryanair;BVA;VLC;París;Francia
+2021-08-03;8;2021-04-03;53;€;True;Ryanair;BVA;VLC;París;Francia
+2021-08-04;8;2021-04-03;54;€;False;Ryanair;BVA;VLC;París;Francia
+2021-08-07;8;2021-04-03;54;€;False;Ryanair;BVA;VLC;París;Francia
+2021-08-07;8;2021-04-03;64;€;True;Ryanair;BVA;VLC;París;Francia
+2021-08-10;8;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-08-11;8;2021-04-03;525;€;False;Aero4M;BVA;VLC;París;Francia
+2021-08-14;8;2021-04-03;45;€;True;Ryanair;BVA;VLC;París;Francia
+2021-08-17;8;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-08-21;8;2021-04-03;22;€;True;Ryanair;BVA;VLC;París;Francia
+2021-08-24;8;2021-04-03;18;€;True;Ryanair;BVA;VLC;París;Francia
+2021-08-25;8;2021-04-03;54;€;False;Ryanair;BVA;VLC;París;Francia
+2021-08-27;8;2021-04-03;56;€;False;Ryanair;BVA;VLC;París;Francia
+2021-08-28;8;2021-04-03;27;€;True;Ryanair;BVA;VLC;París;Francia
+2021-06-02;6;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-06-06;6;2021-04-03;19;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-06-09;6;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-06-13;6;2021-04-03;19;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-06-16;6;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-06-20;6;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-06-23;6;2021-04-03;23;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-06-25;6;2021-04-03;32;€;False;Ryanair;MRS;VLC;Marsella;Francia
+2021-06-27;6;2021-04-03;19;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-04;7;2021-04-03;22;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-07;7;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-09;7;2021-04-03;59;€;False;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-11;7;2021-04-03;22;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-12;7;2021-04-03;41;€;False;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-14;7;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-17;7;2021-04-03;61;€;False;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-18;7;2021-04-03;19;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-21;7;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-25;7;2021-04-03;19;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-07-28;7;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-01;8;2021-04-03;26;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-04;8;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-08;8;2021-04-03;29;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-11;8;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-15;8;2021-04-03;22;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-18;8;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-22;8;2021-04-03;19;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-25;8;2021-04-03;17;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-29;8;2021-04-03;19;€;True;Ryanair;MRS;VLC;Marsella;Francia
+2021-08-08;8;2021-04-03;70;€;False;Alitalia;NCE;VLC;Niza;Francia
+2021-06-04;6;2021-04-03;38;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-06-11;6;2021-04-03;38;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-06-18;6;2021-04-03;53;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-06-21;6;2021-04-03;29;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-06-25;6;2021-04-03;43;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-06-28;6;2021-04-03;38;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-07-02;7;2021-04-03;43;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-07-08;7;2021-04-03;20;€;True;Ryanair;NTE;VLC;Nantes;Francia
+2021-07-09;7;2021-04-03;84;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-07-12;7;2021-04-03;38;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-07-16;7;2021-04-03;53;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-07-17;7;2021-04-03;77;€;False;easyJet;NTE;VLC;Nantes;Francia
+2021-07-18;7;2021-04-03;28;€;True;Ryanair;NTE;VLC;Nantes;Francia
+2021-07-19;7;2021-04-03;62;€;False;Volotea;NTE;VLC;Nantes;Francia
+2021-07-19;7;2021-04-03;74;€;True;Volotea;NTE;VLC;Nantes;Francia
+2021-07-29;7;2021-04-03;42;€;True;Ryanair;NTE;VLC;Nantes;Francia
+2021-08-01;8;2021-04-03;152;€;True;Ryanair;NTE;VLC;Nantes;Francia
+2021-06-09;6;2021-04-03;94;€;False;KLM;LUX;VLC;Luxemburgo;Luxemburgo
+2021-06-13;6;2021-04-03;55;€;False;Ryanair;LUX;VLC;Luxemburgo;Luxemburgo
+2021-06-18;6;2021-04-03;58;€;False;Ryanair;LUX;VLC;Luxemburgo;Luxemburgo
+2021-06-21;6;2021-04-03;52;€;False;TAP Air Portugal;LUX;VLC;Luxemburgo;Luxemburgo
+2021-06-22;6;2021-04-03;58;€;False;Ryanair;LUX;VLC;Luxemburgo;Luxemburgo
+2021-07-15;7;2021-04-03;57;€;False;Ryanair;LUX;VLC;Luxemburgo;Luxemburgo
+2021-06-01;6;2021-04-03;77;€;False;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-01;6;2021-04-03;80;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-02;6;2021-04-03;50;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-03;6;2021-04-03;55;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-05;6;2021-04-03;64;€;False;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-05;6;2021-04-03;71;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-06;6;2021-04-03;55;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-07;6;2021-04-03;55;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-08;6;2021-04-03;64;€;True;transavia;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-09;6;2021-04-03;55;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-10;6;2021-04-03;60;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-11;6;2021-04-03;52;€;False;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-11;6;2021-04-03;59;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-21;6;2021-04-03;200;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-24;6;2021-04-03;55;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-25;6;2021-04-03;83;€;False;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-25;6;2021-04-03;85;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-26;6;2021-04-03;80;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-28;6;2021-04-03;68;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-29;6;2021-04-03;84;€;True;transavia;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-01;7;2021-04-03;68;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-02;7;2021-04-03;60;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-06;7;2021-04-03;80;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-09;7;2021-04-03;111;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-10;7;2021-04-03;80;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-15;7;2021-04-03;80;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-16;7;2021-04-03;100;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-20;7;2021-04-03;80;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-22;7;2021-04-03;80;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-07-24;7;2021-04-03;86;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-03;8;2021-04-03;72;€;False;easyJet;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-03;8;2021-04-03;79;€;True;KLM;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-05;8;2021-04-03;39;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-08;8;2021-04-03;50;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-09;8;2021-04-03;40;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-12;8;2021-04-03;45;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-13;8;2021-04-03;37;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-19;8;2021-04-03;40;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-26;8;2021-04-03;40;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-27;8;2021-04-03;45;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-08-29;8;2021-04-03;55;€;True;Vueling Airlines;AMS;VLC;Ámsterdam;Países Bajos
+2021-06-04;6;2021-04-03;22;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-07;6;2021-04-03;23;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-10;6;2021-04-03;59;€;False;transavia;EIN;VLC;Eindhoven;Países Bajos
+2021-06-10;6;2021-04-03;71;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-11;6;2021-04-03;35;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-14;6;2021-04-03;22;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-18;6;2021-04-03;35;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-21;6;2021-04-03;22;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-25;6;2021-04-03;50;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-26;6;2021-04-03;73;€;False;transavia;EIN;VLC;Eindhoven;Países Bajos
+2021-06-26;6;2021-04-03;123;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-27;6;2021-04-03;28;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-28;6;2021-04-03;43;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-29;6;2021-04-03;68;€;True;transavia;EIN;VLC;Eindhoven;Países Bajos
+2021-07-01;7;2021-04-03;47;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-02;7;2021-04-03;56;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-04;7;2021-04-03;56;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-05;7;2021-04-03;56;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-07;7;2021-04-03;56;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-08;7;2021-04-03;56;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-09;7;2021-04-03;66;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-10;7;2021-04-03;93;€;False;transavia;EIN;VLC;Eindhoven;Países Bajos
+2021-07-10;7;2021-04-03;161;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-12;7;2021-04-03;86;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-14;7;2021-04-03;86;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-15;7;2021-04-03;66;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-16;7;2021-04-03;66;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-17;7;2021-04-03;90;€;False;transavia;EIN;VLC;Eindhoven;Países Bajos
+2021-07-17;7;2021-04-03;172;€;True;Wizz Air;EIN;VLC;Eindhoven;Países Bajos
+2021-07-18;7;2021-04-03;78;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-19;7;2021-04-03;103;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-22;7;2021-04-03;72;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-23;7;2021-04-03;66;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-25;7;2021-04-03;78;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-28;7;2021-04-03;66;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-07-29;7;2021-04-03;47;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-02;8;2021-04-03;72;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-05;8;2021-04-03;31;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-08;8;2021-04-03;38;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-09;8;2021-04-03;56;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-13;8;2021-04-03;32;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-15;8;2021-04-03;22;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-16;8;2021-04-03;32;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-19;8;2021-04-03;22;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-20;8;2021-04-03;38;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-23;8;2021-04-03;32;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-27;8;2021-04-03;35;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-08-29;8;2021-04-03;38;€;True;Ryanair;EIN;VLC;Eindhoven;Países Bajos
+2021-06-01;6;2021-04-03;103;€;False;Air France;LHR;VLC;Londres;Reino Unido
+2021-06-02;6;2021-04-03;102;€;False;TAP Air Portugal;LHR;VLC;Londres;Reino Unido
+2021-06-03;6;2021-04-03;99;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-06-04;6;2021-04-03;135;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-06-05;6;2021-04-03;85;€;False;Alitalia;LHR;VLC;Londres;Reino Unido
+2021-06-07;6;2021-04-03;102;€;False;TAP Air Portugal;LHR;VLC;Londres;Reino Unido
+2021-06-08;6;2021-04-03;158;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-06-09;6;2021-04-03;102;€;False;TAP Air Portugal;LHR;VLC;Londres;Reino Unido
+2021-06-10;6;2021-04-03;63;€;False;Blue Air;LHR;VLC;Londres;Reino Unido
+2021-06-11;6;2021-04-03;102;€;False;TAP Air Portugal;LHR;VLC;Londres;Reino Unido
+2021-06-12;6;2021-04-03;102;€;False;TAP Air Portugal;LHR;VLC;Londres;Reino Unido
+2021-06-13;6;2021-04-03;75;€;False;Blue Air;LHR;VLC;Londres;Reino Unido
+2021-06-14;6;2021-04-03;69;€;False;Blue Air;LHR;VLC;Londres;Reino Unido
+2021-06-15;6;2021-04-03;84;€;False;Alitalia;LHR;VLC;Londres;Reino Unido
+2021-06-16;6;2021-04-03;102;€;False;TAP Air Portugal;LHR;VLC;Londres;Reino Unido
+2021-06-17;6;2021-04-03;85;€;False;Alitalia;LHR;VLC;Londres;Reino Unido
+2021-06-18;6;2021-04-03;85;€;False;Alitalia;LHR;VLC;Londres;Reino Unido
+2021-06-19;6;2021-04-03;86;€;False;Alitalia;LHR;VLC;Londres;Reino Unido
+2021-06-21;6;2021-04-03;158;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-06-22;6;2021-04-03;182;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-06-23;6;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-06-24;6;2021-04-03;99;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-06-25;6;2021-04-03;87;€;False;Alitalia;LHR;VLC;Londres;Reino Unido
+2021-06-25;6;2021-04-03;115;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-06-27;6;2021-04-03;67;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-06-28;6;2021-04-03;158;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-06-29;6;2021-04-03;182;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-01;7;2021-04-03;99;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-02;7;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-07-03;7;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-07-03;7;2021-04-03;124;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-07-04;7;2021-04-03;76;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-07-05;7;2021-04-03;134;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-06;7;2021-04-03;158;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-07;7;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-08;7;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-09;7;2021-04-03;135;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-12;7;2021-04-03;158;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-13;7;2021-04-03;135;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-14;7;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-15;7;2021-04-03;135;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-16;7;2021-04-03;109;€;False;Alitalia;LHR;VLC;Londres;Reino Unido
+2021-07-16;7;2021-04-03;140;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-07-17;7;2021-04-03;125;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-07-17;7;2021-04-03;186;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-07-18;7;2021-04-03;102;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-07-19;7;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-07-19;7;2021-04-03;121;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-07-20;7;2021-04-03;101;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-07-21;7;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-22;7;2021-04-03;393;€;False;TAP Air Portugal;LHR;VLC;Londres;Reino Unido
+2021-07-23;7;2021-04-03;510;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-24;7;2021-04-03;318;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-07-24;7;2021-04-03;843;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-07-26;7;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-27;7;2021-04-03;134;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-28;7;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-07-29;7;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-02;8;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-02;8;2021-04-03;128;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-08-03;8;2021-04-03;134;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-04;8;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-05;8;2021-04-03;99;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-06;8;2021-04-03;134;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-09;8;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-10;8;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-11;8;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-12;8;2021-04-03;99;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-13;8;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-13;8;2021-04-03;153;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-08-14;8;2021-04-03;101;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-14;8;2021-04-03;202;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-08-16;8;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-17;8;2021-04-03;135;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-18;8;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-19;8;2021-04-03;98;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-20;8;2021-04-03;102;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-20;8;2021-04-03;102;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-08-21;8;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-21;8;2021-04-03;177;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-08-23;8;2021-04-03;111;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-24;8;2021-04-03;98;€;False;British Airways;LHR;VLC;Londres;Reino Unido
+2021-08-25;8;2021-04-03;105;€;False;KLM;LHR;VLC;Londres;Reino Unido
+2021-08-26;8;2021-04-03;99;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-27;8;2021-04-03;134;€;False;eurowings;LHR;VLC;Londres;Reino Unido
+2021-08-29;8;2021-04-03;71;€;True;British Airways;LHR;VLC;Londres;Reino Unido
+2021-06-01;6;2021-04-03;45;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-02;6;2021-04-03;56;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-06-03;6;2021-04-03;48;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-05;6;2021-04-03;50;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-07;6;2021-04-03;48;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-09;6;2021-04-03;54;€;False;Wizz Air;LTN;VLC;Londres;Reino Unido
+2021-06-10;6;2021-04-03;59;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-11;6;2021-04-03;64;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-06-12;6;2021-04-03;45;€;False;Blue Air;LTN;VLC;Londres;Reino Unido
+2021-06-13;6;2021-04-03;51;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-14;6;2021-04-03;50;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-15;6;2021-04-03;56;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-16;6;2021-04-03;40;€;False;Blue Air;LTN;VLC;Londres;Reino Unido
+2021-06-17;6;2021-04-03;57;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-18;6;2021-04-03;53;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-06-19;6;2021-04-03;50;€;False;Blue Air;LTN;VLC;Londres;Reino Unido
+2021-06-27;6;2021-04-03;52;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-07-01;7;2021-04-03;59;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-07-02;7;2021-04-03;57;€;False;Wizz Air UK;LTN;VLC;Londres;Reino Unido
+2021-07-03;7;2021-04-03;55;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-07-04;7;2021-04-03;55;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-07-09;7;2021-04-03;67;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-07-10;7;2021-04-03;70;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-07-15;7;2021-04-03;69;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-07-16;7;2021-04-03;69;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-07-17;7;2021-04-03;67;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-07-18;7;2021-04-03;69;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-07-19;7;2021-04-03;62;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-07-20;7;2021-04-03;81;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-07-22;7;2021-04-03;139;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-07-24;7;2021-04-03;226;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-07-29;7;2021-04-03;69;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-08-02;8;2021-04-03;55;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-08-04;8;2021-04-03;50;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-08-10;8;2021-04-03;69;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-08-13;8;2021-04-03;67;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-08-14;8;2021-04-03;75;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-08-19;8;2021-04-03;77;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-08-20;8;2021-04-03;51;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-08-21;8;2021-04-03;73;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-08-24;8;2021-04-03;60;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-08-25;8;2021-04-03;197;€;False;Ryanair;LTN;VLC;Londres;Reino Unido
+2021-08-29;8;2021-04-03;65;€;False;easyJet;LTN;VLC;Londres;Reino Unido
+2021-06-01;6;2021-04-03;39;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-02;6;2021-04-03;39;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-03;6;2021-04-03;39;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-04;6;2021-04-03;265;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-05;6;2021-04-03;39;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-07;6;2021-04-03;34;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-09;6;2021-04-03;34;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-10;6;2021-04-03;47;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-11;6;2021-04-03;34;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-12;6;2021-04-03;34;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-13;6;2021-04-03;29;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-14;6;2021-04-03;34;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-15;6;2021-04-03;32;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-16;6;2021-04-03;57;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-17;6;2021-04-03;32;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-18;6;2021-04-03;48;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-19;6;2021-04-03;44;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-20;6;2021-04-03;147;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-21;6;2021-04-03;44;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-23;6;2021-04-03;45;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-24;6;2021-04-03;102;€;False;TAP Air Portugal;LGW;VLC;Londres;Reino Unido
+2021-06-25;6;2021-04-03;98;€;False;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-25;6;2021-04-03;140;€;True;TAP Air Portugal;LGW;VLC;Londres;Reino Unido
+2021-06-26;6;2021-04-03;73;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-27;6;2021-04-03;34;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-06-28;6;2021-04-03;36;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-29;6;2021-04-03;35;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-01;7;2021-04-03;53;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-02;7;2021-04-03;65;€;False;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-02;7;2021-04-03;68;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-03;7;2021-04-03;68;€;False;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-03;7;2021-04-03;71;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-04;7;2021-04-03;59;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-06;7;2021-04-03;52;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-07;7;2021-04-03;50;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-08;7;2021-04-03;57;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-09;7;2021-04-03;71;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-10;7;2021-04-03;72;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-11;7;2021-04-03;46;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-13;7;2021-04-03;51;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-14;7;2021-04-03;53;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-15;7;2021-04-03;57;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-16;7;2021-04-03;62;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-17;7;2021-04-03;62;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-18;7;2021-04-03;59;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-07-19;7;2021-04-03;68;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-20;7;2021-04-03;58;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-22;7;2021-04-03;123;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-24;7;2021-04-03;147;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-07-29;7;2021-04-03;62;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-08-02;8;2021-04-03;62;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-08-04;8;2021-04-03;62;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-08-10;8;2021-04-03;67;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-08-11;8;2021-04-03;65;€;False;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-08-11;8;2021-04-03;67;€;True;Ryanair;LGW;VLC;Londres;Reino Unido
+2021-08-13;8;2021-04-03;71;€;False;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-08-13;8;2021-04-03;76;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-08-14;8;2021-04-03;56;€;True;Vueling Airlines;LGW;VLC;Londres;Reino Unido
+2021-08-16;8;2021-04-03;55;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-08-19;8;2021-04-03;47;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-08-20;8;2021-04-03;55;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-08-21;8;2021-04-03;45;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-08-22;8;2021-04-03;40;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-08-24;8;2021-04-03;50;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-08-25;8;2021-04-03;36;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-08-28;8;2021-04-03;39;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-08-29;8;2021-04-03;50;€;True;easyJet;LGW;VLC;Londres;Reino Unido
+2021-06-01;6;2021-04-03;24;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-06-12;6;2021-04-03;26;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-06-19;6;2021-04-03;25;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-06-22;6;2021-04-03;46;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-06-24;6;2021-04-03;75;€;False;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-06-26;6;2021-04-03;55;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-06-28;6;2021-04-03;76;€;False;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-06-29;6;2021-04-03;45;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-07-06;7;2021-04-03;41;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-07-20;7;2021-04-03;24;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-07-23;7;2021-04-03;66;€;False;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-07-24;7;2021-04-03;43;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-07-27;7;2021-04-03;24;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-08-01;8;2021-04-03;57;€;False;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-08-03;8;2021-04-03;24;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-08-07;8;2021-04-03;50;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-08-14;8;2021-04-03;41;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-08-24;8;2021-04-03;60;€;True;Ryanair;EDI;VLC;Edimburgo;Reino Unido
+2021-06-04;6;2021-04-03;31;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-07;6;2021-04-03;25;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-10;6;2021-04-03;49;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-11;6;2021-04-03;39;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-14;6;2021-04-03;145;€;False;eurowings;MAN;VLC;Mánchester;Reino Unido
+2021-06-16;6;2021-04-03;59;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-18;6;2021-04-03;43;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-18;6;2021-04-03;45;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-19;6;2021-04-03;49;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-24;6;2021-04-03;59;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-25;6;2021-04-03;45;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-01;7;2021-04-03;99;€;False;eurowings;MAN;VLC;Mánchester;Reino Unido
+2021-07-02;7;2021-04-03;44;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-05;7;2021-04-03;25;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-06;7;2021-04-03;51;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-07;7;2021-04-03;24;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-08;7;2021-04-03;52;€;False;easyJet;MAN;VLC;Mánchester;Reino Unido
+2021-07-09;7;2021-04-03;43;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-10;7;2021-04-03;52;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-11;7;2021-04-03;49;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-14;7;2021-04-03;50;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-15;7;2021-04-03;61;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-22;7;2021-04-03;134;€;False;eurowings;MAN;VLC;Mánchester;Reino Unido
+2021-07-23;7;2021-04-03;78;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-23;7;2021-04-03;90;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-25;7;2021-04-03;75;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-26;7;2021-04-03;71;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-28;7;2021-04-03;84;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-07-29;7;2021-04-03;134;€;False;eurowings;MAN;VLC;Mánchester;Reino Unido
+2021-08-02;8;2021-04-03;78;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-04;8;2021-04-03;50;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-04;8;2021-04-03;59;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-06;8;2021-04-03;60;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-09;8;2021-04-03;51;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-11;8;2021-04-03;51;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-12;8;2021-04-03;94;€;False;eurowings;MAN;VLC;Mánchester;Reino Unido
+2021-08-13;8;2021-04-03;44;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-16;8;2021-04-03;21;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-19;8;2021-04-03;94;€;False;eurowings;MAN;VLC;Mánchester;Reino Unido
+2021-08-20;8;2021-04-03;51;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-23;8;2021-04-03;44;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-25;8;2021-04-03;23;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-26;8;2021-04-03;45;€;False;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-08-27;8;2021-04-03;24;€;True;Ryanair;MAN;VLC;Mánchester;Reino Unido
+2021-06-01;6;2021-04-03;144;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-06-07;6;2021-04-03;144;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-06-08;6;2021-04-03;104;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-06-10;6;2021-04-03;56;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-10;6;2021-04-03;108;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-14;6;2021-04-03;144;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-06-15;6;2021-04-03;104;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-06-17;6;2021-04-03;52;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-17;6;2021-04-03;108;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-18;6;2021-04-03;50;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-18;6;2021-04-03;126;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-19;6;2021-04-03;61;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-19;6;2021-04-03;108;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-20;6;2021-04-03;54;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-20;6;2021-04-03;108;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-21;6;2021-04-03;144;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-06-22;6;2021-04-03;47;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-22;6;2021-04-03;124;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-23;6;2021-04-03;63;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-23;6;2021-04-03;126;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-24;6;2021-04-03;55;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-24;6;2021-04-03;126;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-25;6;2021-04-03;50;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-06-25;6;2021-04-03;126;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-06-28;6;2021-04-03;144;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-06-29;6;2021-04-03;104;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-07-05;7;2021-04-03;42;€;False;Ryanair;PRG;VLC;Praga;República Checa
+2021-07-06;7;2021-04-03;144;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-07-10;7;2021-04-03;59;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-07-10;7;2021-04-03;108;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-07-14;7;2021-04-03;48;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-07-14;7;2021-04-03;127;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-07-16;7;2021-04-03;59;€;False;Smart Wings;PRG;VLC;Praga;República Checa
+2021-07-16;7;2021-04-03;127;€;True;Ryanair;PRG;VLC;Praga;República Checa
+2021-08-02;8;2021-04-03;269;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-08-03;8;2021-04-03;219;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-08-09;8;2021-04-03;104;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-08-10;8;2021-04-03;85;€;False;eurowings;PRG;VLC;Praga;República Checa
+2021-06-09;6;2021-04-03;84;€;False;TAP Air Portugal;ARN;VLC;Estocolmo;Suecia
+2021-06-16;6;2021-04-03;98;€;False;Norwegian;ARN;VLC;Estocolmo;Suecia
+2021-06-17;6;2021-04-03;99;€;False;KLM;ARN;VLC;Estocolmo;Suecia
+2021-06-21;6;2021-04-03;90;€;False;Norwegian;ARN;VLC;Estocolmo;Suecia
+2021-06-25;6;2021-04-03;99;€;False;KLM;ARN;VLC;Estocolmo;Suecia
+2021-07-07;7;2021-04-03;83;€;False;SAS;ARN;VLC;Estocolmo;Suecia
+2021-06-01;6;2021-04-03;73;€;False;KLM;ZRH;VLC;Zúrich;Suiza
+2021-06-01;6;2021-04-03;108;€;True;SWISS;ZRH;VLC;Zúrich;Suiza
+2021-06-02;6;2021-04-03;99;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-03;6;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-04;6;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-07;6;2021-04-03;159;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-08;6;2021-04-03;122;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-09;6;2021-04-03;99;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-10;6;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-11;6;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-14;6;2021-04-03;158;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-15;6;2021-04-03;122;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-16;6;2021-04-03;99;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-17;6;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-18;6;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-21;6;2021-04-03;159;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-22;6;2021-04-03;122;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-23;6;2021-04-03;99;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-24;6;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-25;6;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-28;6;2021-04-03;158;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-06-29;6;2021-04-03;122;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-01;7;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-02;7;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-05;7;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-06;7;2021-04-03;158;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-07;7;2021-04-03;122;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-08;7;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-09;7;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-13;7;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-14;7;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-15;7;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-16;7;2021-04-03;158;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-19;7;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-20;7;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-21;7;2021-04-03;123;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-22;7;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-23;7;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-26;7;2021-04-03;123;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-27;7;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-28;7;2021-04-03;123;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-07-29;7;2021-04-03;141;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-08-02;8;2021-04-03;84;€;False;KLM;ZRH;VLC;Zúrich;Suiza
+2021-08-02;8;2021-04-03;129;€;True;SWISS;ZRH;VLC;Zúrich;Suiza
+2021-08-18;8;2021-04-03;99;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-08-19;8;2021-04-03;99;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-08-20;8;2021-04-03;140;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-08-26;8;2021-04-03;113;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
+2021-08-27;8;2021-04-03;141;€;False;eurowings;ZRH;VLC;Zúrich;Suiza
