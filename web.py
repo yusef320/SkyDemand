@@ -72,7 +72,6 @@ cambio importante
 email = st.sidebar.text_input(f'Suscribite a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
 
-@st.cache
 def enviar(email, provincia):
     conn = smtplib.SMTP("smtp.gmail.com", 587)
     conn.ehlo()
@@ -83,10 +82,11 @@ def enviar(email, provincia):
 
 if a:
     email1 = email.split("@")
+    email2 = email1[2].split(".") 
     if email == "ejemplo@mail.com":
         st.sidebar.text("Introduce un email")
         a = False
-    elif len(email1) == 2:
+    elif len(email1) == 2 and len(email2) ==2 :
         enviar(email, provincia)
         st.sidebar.text("¡Suscripción creada con exito!")
     else:
