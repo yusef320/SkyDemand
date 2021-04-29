@@ -81,12 +81,11 @@ def enviar(email, provincia):
     conn.quit()
 
 if a:
-    email1 = email.split("@")
-    email2 = email1[2].split(".") 
+    email1 = email.split("@") 
     if email == "ejemplo@mail.com":
         st.sidebar.text("Introduce un email")
         a = False
-    elif len(email1) == 2 and len(email2) ==2 :
+    elif len(email1) == 2:
         enviar(email, provincia)
         st.sidebar.text("¡Suscripción creada con exito!")
     else:
