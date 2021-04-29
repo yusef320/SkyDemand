@@ -62,7 +62,8 @@ if rang == "Mes":
     elif mes == "Agosto":
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
-
+st.sidebar.text()
+st.sidebar.text()
 expander = st.sidebar.beta_expander("Newsletter")
 expander.markdown("""
 Mantente al dia de la demanda de tu ciudad 
