@@ -84,7 +84,7 @@ def enviar(email, provincia):
     conn.starttls()
     conn.login(usuario,contra)
     conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
-    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de tourisData sobre {prov}\n\nUn saludo,\nel equipo de touristData")
+    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de tourisData sobre {provincia}\n\nUn saludo,\nel equipo de touristData")
     conn.quit()
 
 if a:
