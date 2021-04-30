@@ -69,7 +69,8 @@ expander = st.sidebar.beta_expander("Newsletter")
 expander.markdown("""
 Mantente al dia de la demanda de tu ciudad 
 y recibe un email cada vez que se produzca un 
-cambio importante
+cambio importante en los principales mercados 
+emisores: Reino Unido, Alemania o Francia.
 """)
 email = st.sidebar.text_input(f'Suscribite a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
