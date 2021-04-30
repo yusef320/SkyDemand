@@ -12,11 +12,14 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style,unsafe_allow_html=True)
 
-usuario = 'touristdata2021@gmail.com'
-contra = 'XR5N4SuJ8T-BzdV'
-
-dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
-
+try:
+    dia = datetime.datetime.now() #dia de ayer
+    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+    i=0
+except:
+    dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
+    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+    i=1
 
 """
 # touristData
@@ -39,9 +42,7 @@ Para usarlo, esocge tu ciudad y el periodo de tiempo que quieres analizar.
 
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 7)
-dia2 = datetime.datetime.now() - datetime.timedelta(days=number+1)
-
-df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
 
 
@@ -74,6 +75,8 @@ emisores: Reino Unido, Alemania o Francia.
 """)
 email = st.sidebar.text_input(f'Suscribite a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
+usuario = 'touristdata2021@gmail.com'
+contra = 'XR5N4SuJ8T-BzdV'
 
 def enviar(email, provincia):
     conn = smtplib.SMTP("smtp.gmail.com", 587)
@@ -81,16 +84,23 @@ def enviar(email, provincia):
     conn.starttls()
     conn.login(usuario,contra)
     conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
+    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de tourisData sobre {prov}\n\nUn saludo,\nel equipo de touristData")
     conn.quit()
 
 if a:
-    email1 = email.split("@") 
+    email1 = email.split("@")
+    email2 = email1[1]
     if email == "ejemplo@mail.com":
         st.sidebar.text("Introduce un email")
         a = False
     elif len(email1) == 2:
-        enviar(email, provincia)
-        st.sidebar.text("¡Suscripción creada con exito!")
+        email2 = email1[1].split(".")
+        if len(email2) >= 2:
+            enviar(email, provincia)
+            st.sidebar.text("¡Suscripción creada con exito!")
+        else:
+            a = False
+            st.sidebar.text("Email incorrecto, intentelo de nuevo.")          
     else:
         a = False
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
