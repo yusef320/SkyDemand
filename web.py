@@ -168,7 +168,7 @@ st.line_chart(dat,use_container_width=True)
 col1, col2 = st.beta_columns([5, 3])
 j = (df.groupby("Ciudad origen")["Var"].mean()/df2.groupby("Ciudad origen")["Var"].mean()-1)*100
 col1.subheader("Demanda por ciudad")
-col1.text("(Varia en función de los rango de dias y el mes escogido)")
+col1.markdown("(Varia en función de los rango de dias y el mes escogido)")
 col1.bar_chart(j, use_container_width=True)
 col2.subheader("")
 col2.write(j)
