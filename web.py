@@ -122,11 +122,27 @@ st.bar_chart(df_vuelos, use_container_width=True)
 ## Estudio por mercado
 Escoge el mercado que más te interesa o todos y estudia como fluctua la demanda
 """
-mercado = st.selectbox("Elige un mercado",("Todos","Reino Unido","Alemania", "Francia"))
-if mercado != "Todos":
-    df = df.loc[df["País origen"]==mercado]
-    df2 = df2.loc[df2["País origen"]==mercado]
-
+mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia"))
+df = df.loc[df["País origen"]==mercado]
+df2 = df2.loc[df2["País origen"]==mercado]
+        
+datos = []
+fec = []
+for p in range(0,12):
+    dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
+    dia2 = datetime.datetime.now() - datetime.timedelta(days=p+i+1)
+    d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+    d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
+    d = d.loc[d["Ciudad de destino"] == prov]
+    d2 = d2.loc[d2["Ciudad de destino"] == prov]
+    df_verano = (d.groupby("País origen")["Precio"].mean()/d2.groupby("País origen")["Precio"].mean()-1)*100
+    s= round(df_verano[mercado],2)
+    fecha = f"{dia.month:02d}-{dia.day:02d}"
+    datos.append(s)
+    fec.append(fecha)
+st.subheader(f"Variación de la demanda de {mercado} de los ultimos 11 días")
+dat = pd.Series(data=datos, index=fec, name="Variación")
+st.area_chart(dat,use_container_width=True)
 
 
 col1, col2 = st.beta_columns([5, 3])
