@@ -75,8 +75,8 @@ emisores: Reino Unido, Alemania o Francia.
 """)
 email = st.sidebar.text_input(f'Suscribite a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
-usuario = 'touristdata2021@gmail.com'
-contra = 'XR5N4SuJ8T-BzdV'
+usuario = st.secrets["usuario"]
+contra = st.secrets["contra"]
 
 def enviar(email, provincia):
     conn = smtplib.SMTP("smtp.gmail.com", 587)
