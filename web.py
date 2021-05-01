@@ -107,7 +107,7 @@ if a:
         
 datos = []
 fec = []
-for p in range(0,12):
+for p in range(0,13):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
     dia2 = datetime.datetime.now() - datetime.timedelta(days=p+i+1)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
@@ -118,7 +118,7 @@ for p in range(0,12):
     datos.append(s)
     fec.append(fecha)
 
-st.subheader(f"Variación de la demanda para {provincia} de los ultimos 11 días")
+st.subheader(f"Variación de la demanda para {provincia} de los ultimos 11 días.")
 st.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas.")
 dat = pd.Series(data=datos, index=fec, name="Variación")
 st.line_chart(dat,use_container_width=True)
@@ -132,13 +132,13 @@ st.bar_chart(df_verano, use_container_width=True)
 d = df.loc[df["Es directo"]==1]
 d2 = df2.loc[df2["Es directo"]==1]
 df_vuelos = (df.groupby("País origen")["Es directo"].sum()/df2.groupby("País origen")["Es directo"].sum()-1)*100
-st.subheader("Variación de la oferta")
+st.subheader("Variación de la oferta.")
 st.markdown(f"Aqui puede observar si se estan aumentando las plazas por parte de las aerolineas hacia {provincia} (Varia en función de los rango de dias y el mes escogido).")
 st.bar_chart(df_vuelos, use_container_width=True)
 
 """
 ## Estudio por mercado
-Escoge el mercado que más te interesa o todos y estudia como fluctua la demanda
+Escoge el mercado que más te interesa o todos y estudia como fluctua la demanda.
 """
 mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia"))
 df = df.loc[df["País origen"]==mercado]
@@ -146,7 +146,7 @@ df2 = df2.loc[df2["País origen"]==mercado]
         
 datos = []
 fec = []
-for p in range(0,12):
+for p in range(0,13):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
     dia2 = datetime.datetime.now() - datetime.timedelta(days=p+i+1)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
@@ -158,8 +158,8 @@ for p in range(0,12):
     fecha = f"{dia.month:02d}-{dia.day:02d}"
     datos.append(s)
     fec.append(fecha)
-st.subheader(f"Variación de la demanda de {mercado}")
-st.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}")
+st.subheader(f"Variación de la demanda de {mercado}.")
+st.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}.")
 dat = pd.Series(data=datos, index=fec, name="Variación")
 st.line_chart(dat,use_container_width=True)
 
