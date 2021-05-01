@@ -41,7 +41,7 @@ Para usarlo, esocge tu ciudad y el periodo de tiempo que quieres analizar.
 """
 
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
-number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 7)
+number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 10)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
 
