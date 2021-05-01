@@ -133,8 +133,8 @@ for p in range(0,12):
     dia2 = datetime.datetime.now() - datetime.timedelta(days=p+i+1)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
-    d = d.loc[d["Ciudad de destino"] == prov]
-    d2 = d2.loc[d2["Ciudad de destino"] == prov]
+    d = d.loc[d["Ciudad de destino"] == provincia]
+    d2 = d2.loc[d2["Ciudad de destino"] == provincia]
     df_verano = (d.groupby("País origen")["Precio"].mean()/d2.groupby("País origen")["Precio"].mean()-1)*100
     s= round(df_verano[mercado],2)
     fecha = f"{dia.month:02d}-{dia.day:02d}"
