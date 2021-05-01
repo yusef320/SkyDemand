@@ -142,7 +142,7 @@ for p in range(0,12):
     fec.append(fecha)
 st.subheader(f"Variación de la demanda de {mercado} de los ultimos 11 días")
 dat = pd.Series(data=datos, index=fec, name="Variación")
-st.area_chart(dat,use_container_width=True)
+st.line_chart(dat,use_container_width=True)
 
 
 col1, col2 = st.beta_columns([5, 3])
