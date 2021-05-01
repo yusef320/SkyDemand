@@ -118,7 +118,7 @@ for p in range(0,13):
     datos.append(s)
     fec.append(fecha)
 
-st.subheader(f"Variación de la demanda para {provincia} de los ultimos 11 días.")
+st.subheader(f"Variación de la demanda para {provincia}.")
 st.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas.")
 dat = pd.Series(data=datos, index=fec, name="Variación")
 st.line_chart(dat,use_container_width=True)
