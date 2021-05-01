@@ -67,7 +67,7 @@ if rang == "Mes":
 st.sidebar.text("")
 st.sidebar.text("")
 expander = st.sidebar.beta_expander("Newsletter")
-expander.markdown("""
+expander.markdown(""" 
 Mantente al dia de la demanda de tu ciudad 
 y recibe un email cada vez que se produzca un 
 cambio importante en los principales mercados 
@@ -125,8 +125,7 @@ st.line_chart(dat,use_container_width=True)
 
 
 st.subheader("Variacion de demanda por mercado emisor.")
-st.text(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas")
-st.text("(Varia en función de los rango de dias y el mes escogido)")
+st.markdown(f"""Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. (Varia en función de los rango de dias y el mes escogido)""")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
 
