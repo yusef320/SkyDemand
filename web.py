@@ -104,6 +104,23 @@ if a:
     else:
         a = False
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
+        
+datos = []
+fec = []
+for p in range(0,12):
+    dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
+    dia2 = datetime.datetime.now() - datetime.timedelta(days=p+i+1)
+    d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+    d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
+    df_verano = (d.groupby("Ciudad de destino")["Precio"].mean()/d2.groupby("Ciudad de destino")["Precio"].mean()-1)*100
+    s= round(df_verano[provincia],2)
+    fecha = f"{dia.month:02d}-{dia.day:02d}"
+    datos.append(s)
+    fec.append(fecha)
+
+st.subheader(f"Variación de la demanda para {provincia} de los ultimos 11 días")
+dat = pd.Series(data=datos, index=fec, name="Variación")
+st.line_chart(dat,use_container_width=True)
 
 
 st.subheader("Variacion de demanda turística.")
