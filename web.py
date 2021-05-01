@@ -116,7 +116,7 @@ d2 = df2.loc[df2["Es directo"]==1]
 df_vuelos = (df.groupby("País origen")["Es directo"].sum()/df2.groupby("País origen")["Es directo"].sum()-1)*100
 st.subheader("Variación de la oferta")
 st.text("Aumento de los oferta por mercado emisor")
-st.bar_chart(df_vuelos)
+st.bar_chart(df_vuelos, use_container_width=True)
 
 """
 ## Estudio por mercado
@@ -132,7 +132,7 @@ if mercado != "Todos":
 col1, col2 = st.beta_columns([5, 3])
 j = (df.groupby("Ciudad origen")["Var"].mean()/df2.groupby("Ciudad origen")["Var"].mean()-1)*100
 col1.subheader("Demanda por ciudad")
-col1.bar_chart(j)
+col1.bar_chart(j, use_container_width=True)
 col2.subheader("")
 col2.write(j)
 
