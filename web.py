@@ -125,7 +125,8 @@ st.line_chart(dat,use_container_width=True)
 
 
 st.subheader("Variacion de demanda por mercado emisor.")
-st.text(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. (Varia en función de los rango de dias y el mes escogido)")
+st.text(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas")
+st.text("(Varia en función de los rango de dias y el mes escogido)")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
 
@@ -133,7 +134,8 @@ d = df.loc[df["Es directo"]==1]
 d2 = df2.loc[df2["Es directo"]==1]
 df_vuelos = (df.groupby("País origen")["Es directo"].sum()/df2.groupby("País origen")["Es directo"].sum()-1)*100
 st.subheader("Variación de la oferta")
-st.text(f"Aqui puede observar si se estan aumentando las plazas por parte de las aerolineas hacia {provincia} (Varia en función de los rango de dias y el mes escogido)")
+st.text(f"Aqui puede observar si se estan aumentando las plazas por parte de las aerolineas hacia {provincia}.")
+st.text("(Varia en función de los rango de dias y el mes escogido)")
 st.bar_chart(df_vuelos, use_container_width=True)
 
 """
@@ -159,6 +161,7 @@ for p in range(0,12):
     datos.append(s)
     fec.append(fecha)
 st.subheader(f"Variación de la demanda de {mercado} de los ultimos 11 días")
+st.text(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}")
 dat = pd.Series(data=datos, index=fec, name="Variación")
 st.line_chart(dat,use_container_width=True)
 
