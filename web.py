@@ -109,7 +109,7 @@ if a:
 st.subheader("Variacion de demanda turística.")
 st.text(f"Muestra el comportamiento del mercado para {provincia} por mercado emisor.")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
-st.bar_chart(df_verano)
+st.bar_chart(df_verano, True)
 
 d = df.loc[df["Es directo"]==1]
 d2 = df2.loc[df2["Es directo"]==1]
