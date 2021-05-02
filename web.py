@@ -116,8 +116,8 @@ for p in range(0,14):
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
     if rang == "Mes":
-        d = d.loc[df["Mes"]==x]
-        d2 = d2.loc[df2["Mes"]==x]
+        d = d.loc[d["Mes"]==x]
+        d2 = d2.loc[d2["Mes"]==x]
     df_verano = (d.groupby("Ciudad de destino")["Precio"].mean()/d2.groupby("Ciudad de destino")["Precio"].mean()-1)*100
     s= round(df_verano[provincia],2)
     fecha = f"{dia.month:02d}-{dia.day:02d}"
@@ -160,8 +160,8 @@ for p in range(0,14):
     d = d.loc[d["Ciudad de destino"] == provincia]
     d2 = d2.loc[d2["Ciudad de destino"] == provincia]
     if rang == "Mes":
-        d = d.loc[df["Mes"]==x]
-        d2 = d2.loc[df2["Mes"]==x]
+        d = d.loc[d["Mes"]==x]
+        d2 = d2.loc[d2["Mes"]==x]
     df_verano = (d.groupby("País origen")["Precio"].mean()/d2.groupby("País origen")["Precio"].mean()-1)*100
     s= round(df_verano[mercado],2)
     fecha = f"{dia.month:02d}-{dia.day:02d}"
