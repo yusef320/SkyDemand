@@ -131,7 +131,7 @@ for p in range(0,15):
     fec.append(fecha)
 
 st.subheader(f"Variación de la demanda para {provincia}.")
-st.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos por aerolines.")
+st.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos ofrecidos.")
 dat = pd.Series(data=datos, index=fec, name="Demanda")
 var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
 p = pd.concat([dat, var], axis=1)
