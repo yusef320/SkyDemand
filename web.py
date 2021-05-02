@@ -154,6 +154,7 @@ df2 = df2.loc[df2["País origen"]==mercado]
         
 datos = []
 fec = []
+oferta = []
 for p in range(0,15):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
     dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
@@ -165,14 +166,21 @@ for p in range(0,15):
         d = d.loc[d["Mes"]==x]
         d2 = d2.loc[d2["Mes"]==x]
     df_verano = (d.groupby("País origen")["Precio"].mean()/d2.groupby("País origen")["Precio"].mean()-1)*100
+    d = d.loc[d["Es directo"]==1]
+    d2 = d2.loc[d2["Es directo"]==1]
+    df_demanda = (d.groupby("Ciudad de destino")["Es directo"].sum()/d2.groupby("Ciudad de destino")["Es directo"].sum()-1)*100
     s= round(df_verano[mercado],2)
     fecha = f"{dia.month:02d}-{dia.day:02d}"
     datos.append(s)
     fec.append(fecha)
+    o= round(df_demanda[provincia],2)
+    oferta.append(o)
 st.subheader(f"Variación de la demanda de {mercado}.")
 st.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}.")
-dat = pd.Series(data=datos, index=fec, name="Variación")
-st.line_chart(dat,use_container_width=True)
+dat = pd.Series(data=datos, index=fec, name="Demanda")
+var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
+p = pd.concat([dat, var], axis=1)
+st.line_chart(p,use_container_width=True)
 
 
 col1, col2 = st.beta_columns([5, 3])
