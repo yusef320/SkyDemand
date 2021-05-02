@@ -25,7 +25,7 @@ except:
 # touristData
 Estudia la demanda de turística de tu ciudad y adelanta tu negocio al mercado.
 """
-st.text(f"ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")
+st.text(f"ÚLTIMA ACTUALIZACIÓN 2021-{dia.month:02d}-{dia.day:02d}")
 expander = st.beta_expander("Sobre nosotros")
 expander.markdown("""
 touristData es un proyecto desarrollado
