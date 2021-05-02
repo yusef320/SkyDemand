@@ -107,9 +107,9 @@ if a:
         
 datos = []
 fec = []
-for p in range(0,13):
+for p in range(0,14):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
-    dia2 = datetime.datetime.now() - datetime.timedelta(days=p+i+1)
+    dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
     df_verano = (d.groupby("Ciudad de destino")["Precio"].mean()/d2.groupby("Ciudad de destino")["Precio"].mean()-1)*100
