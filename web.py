@@ -23,7 +23,7 @@ except:
 
 """
 # touristData
-Estudia la demanda de turistica de tu ciudad y adelanta tu negocio al mercado.
+Estudia la demanda de turística de tu ciudad y adelanta tu negocio al mercado.
 """
 st.text(f"ULTIMA ACTUALIZACION 2021-{dia.month:02d}-{dia.day:02d}")
 expander = st.beta_expander("Sobre nosotros")
@@ -35,7 +35,7 @@ para ayudar a los pequeños negocios
 dependientes del turismo a predecir 
 cuando reabrir sus negocios o a 
 adaptar sus productos a la demanda.
-Para usarlo, esocge tu ciudad y el periodo de tiempo que quieres analizar.
+Para usarlo, escoge tu ciudad y el periodo de tiempo que quieres analizar.
 """)
 """
 """
@@ -71,12 +71,12 @@ st.sidebar.text("")
 st.sidebar.text("")
 expander = st.sidebar.beta_expander("Newsletter")
 expander.markdown(""" 
-Mantente al dia de la demanda de tu ciudad 
+Mantente al día de la demanda de tu ciudad 
 y recibe un email cada vez que se produzca un 
 cambio importante en los principales mercados 
 emisores: Reino Unido, Alemania o Francia.
 """)
-email = st.sidebar.text_input(f'Suscribite a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
+email = st.sidebar.text_input(f'Suscríbete a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
 usuario = st.secrets["usuario"]
 contra = st.secrets["contra"]
@@ -100,7 +100,7 @@ if a:
         email2 = email1[1].split(".")
         if len(email2) >= 2:
             enviar(email, provincia)
-            st.sidebar.text("¡Suscripción creada con exito!")
+            st.sidebar.text("¡Suscripción creada con éxito!")
         else:
             a = False
             st.sidebar.text("Email incorrecto, intentelo de nuevo.")          
@@ -131,7 +131,7 @@ st.line_chart(dat,use_container_width=True)
 
 
 st.subheader("Variacion de demanda por mercado emisor.")
-st.markdown(f"""Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. (Varia en función de los rango de dias y el mes escogido)""")
+st.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas.")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
 
@@ -139,7 +139,7 @@ d = df.loc[df["Es directo"]==1]
 d2 = df2.loc[df2["Es directo"]==1]
 df_vuelos = (df.groupby("País origen")["Es directo"].sum()/df2.groupby("País origen")["Es directo"].sum()-1)*100
 st.subheader("Variación de la oferta.")
-st.markdown(f"Aqui puede observar si se estan aumentando las plazas por parte de las aerolineas hacia {provincia} (Varia en función de los rango de dias y el mes escogido).")
+st.markdown(f"Aqui puede observar si se estan aumentando las plazas por parte de las aerolineas hacia {provincia}.")
 st.bar_chart(df_vuelos, use_container_width=True)
 
 """
