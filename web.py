@@ -55,12 +55,15 @@ rang = st.sidebar.radio("Escoge un rango", ["Todo el verano","Mes"])
 if rang == "Mes":
     mes = st.sidebar.radio("Escoge un mes", ["Junio","Julio","Agosto"])
     if mes == "Junio":
+        x = 6
         df = df.loc[df["Mes"]==6]
         df2 = df2.loc[df2["Mes"]==6]
     elif mes == "Julio":
+        x = 7
         df = df.loc[df["Mes"]==7]
         df2 = df2.loc[df2["Mes"]==7]
     elif mes == "Agosto":
+        x = 8
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
 
@@ -112,6 +115,9 @@ for p in range(0,14):
     dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
+    if rang == "Mes":
+        d = d.loc[df["Mes"]==x]
+        d2 = d2.loc[df2["Mes"]==x]
     df_verano = (d.groupby("Ciudad de destino")["Precio"].mean()/d2.groupby("Ciudad de destino")["Precio"].mean()-1)*100
     s= round(df_verano[provincia],2)
     fecha = f"{dia.month:02d}-{dia.day:02d}"
@@ -146,13 +152,16 @@ df2 = df2.loc[df2["País origen"]==mercado]
         
 datos = []
 fec = []
-for p in range(0,13):
+for p in range(0,14):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
-    dia2 = datetime.datetime.now() - datetime.timedelta(days=p+i+1)
+    dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
     d = d.loc[d["Ciudad de destino"] == provincia]
     d2 = d2.loc[d2["Ciudad de destino"] == provincia]
+    if rang == "Mes":
+        d = d.loc[df["Mes"]==x]
+        d2 = d2.loc[df2["Mes"]==x]
     df_verano = (d.groupby("País origen")["Precio"].mean()/d2.groupby("País origen")["Precio"].mean()-1)*100
     s= round(df_verano[mercado],2)
     fecha = f"{dia.month:02d}-{dia.day:02d}"
