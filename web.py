@@ -143,12 +143,6 @@ st.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada un
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
 
-d = df.loc[df["Es directo"]==1]
-d2 = df2.loc[df2["Es directo"]==1]
-df_vuelos = (df.groupby("País origen")["Es directo"].sum()/df2.groupby("País origen")["Es directo"].sum()-1)*100
-st.subheader("Variación de la oferta.")
-st.markdown(f"Aqui puede observar si se estan aumentando las plazas por parte de las aerolineas hacia {provincia}.")
-st.bar_chart(df_vuelos, use_container_width=True)
 
 """
 ## Estudio por mercado
