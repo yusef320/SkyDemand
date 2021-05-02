@@ -120,9 +120,9 @@ for p in range(0,15):
         d = d.loc[d["Mes"]==x]
         d2 = d2.loc[d2["Mes"]==x]
     df_var = (d.groupby("Ciudad de destino")["Precio"].mean()/d2.groupby("Ciudad de destino")["Precio"].mean()-1)*100
-    d = df.loc[df["Es directo"]==1]
-    d2 = df2.loc[df2["Es directo"]==1]
-    df_demanda = (df.groupby("Ciudad de destino")["Es directo"].sum()/df2.groupby("Ciudad de destino")["Es directo"].sum()-1)*100
+    d = d.loc[d["Es directo"]==1]
+    d2 = d2.loc[d2["Es directo"]==1]
+    df_demanda = (d.groupby("Ciudad de destino")["Es directo"].sum()/d2.groupby("Ciudad de destino")["Es directo"].sum()-1)*100
     s= round(df_var[provincia],2)
     o= round(df_demanda[provincia],2)
     fecha = f"{dia.month:02d}-{dia.day:02d}"
