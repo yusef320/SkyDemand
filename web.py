@@ -111,7 +111,7 @@ if a:
 datos = []
 fec = []
 oferta = []
-for p in range(0,16):
+for p in range(0,14):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
     dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
