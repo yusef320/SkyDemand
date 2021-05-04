@@ -111,7 +111,7 @@ if a:
 datos = []
 fec = []
 oferta = []
-for p in range(0,15):
+for p in range(0,16):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
     dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
@@ -155,7 +155,7 @@ df2 = df2.loc[df2["País origen"]==mercado]
 datos = []
 fec = []
 oferta = []
-for p in range(0,15):
+for p in range(0,16):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
     dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
