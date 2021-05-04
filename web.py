@@ -92,7 +92,6 @@ def enviar(email, provincia):
 
 if a:
     email1 = email.split("@")
-    email2 = email1[1]
     if email == "ejemplo@mail.com":
         st.sidebar.text("Introduce un email")
         a = False
