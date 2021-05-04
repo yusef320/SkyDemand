@@ -13,7 +13,7 @@ hide_menu_style = """
 st.markdown(hide_menu_style,unsafe_allow_html=True)
 
 try:
-    dia = datetime.datetime.now() #dia de ayer
+    dia = datetime.datetime.now() #hoy
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=0
 except:
@@ -111,11 +111,10 @@ if a:
 datos = []
 fec = []
 oferta = []
-for p in range(0,14):
+for p in range(0,16):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
-    dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
+    d2 = pd.read_csv(f'2021-04-18.csv', delimiter=';')
     if rang == "Mes":
         d = d.loc[d["Mes"]==x]
         d2 = d2.loc[d2["Mes"]==x]
@@ -157,9 +156,8 @@ fec = []
 oferta = []
 for p in range(0,16):
     dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
-    dia2 = datetime.datetime.now() - datetime.timedelta(days=14)
     d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
+    d2 = pd.read_csv(f'2021-04-18.csv', delimiter=';')
     d = d.loc[d["Ciudad de destino"] == provincia]
     d2 = d2.loc[d2["Ciudad de destino"] == provincia]
     if rang == "Mes":
