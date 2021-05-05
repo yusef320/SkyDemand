@@ -127,13 +127,13 @@ dependientes del turismo a predecir
 cuando reabrir sus negocios o a 
 adaptar sus productos a la demanda.
 
-### ¿Cómo usarlo?
+#### ¿Cómo usarlo?
 
 Simplemnte escoge la ciudad que quieras estudiar en el panel lateral, un rango de días 
 para los gráficos de barra y un perido de tiempo (junio, julio, agosto o todo el verano).
 Tambíen puedes ir modificando estos parámetros más adelante.
 
-### ¿Cómo funciona?
+#### ¿Cómo funciona?
 
 Comprobamos la fluctuación de los mercados a diario realizando más de 7500 búsquedas en 
 en los vuelos que ofrecen las distintas aerolíneas hacia las tres ciudades que hemos 
@@ -214,7 +214,10 @@ if a:
 
 st.subheader(f"Variación de la demanda para {provincia}.")
 expander = st.beta_expander("Más información")
-expander.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos ofrecidos.")
+expander.markdown("""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
+la cantidad de vuelos que se ofrece hacia el destino seleccionado desde el dia 18 de abril. Tambíen se ofrece una pequeña predicción futura basada
+en el comportamiento que ha tenido hasta el momento.
+""")
 st.text("")
 p = variacion(provincia,delta, "todos", rang, x)
 st.line_chart(p,use_container_width=True)
