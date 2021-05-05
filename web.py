@@ -5,6 +5,7 @@ import smtplib
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from PIL import Image 
 
 def predicciónDem(fec, datos, oferta):
     p = pd.concat([datos, oferta], axis=1)
@@ -87,7 +88,8 @@ def variacion(provincia,delta, mercado, rang, x):
 
     return p
 
-st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state="expanded", ) #configuramos la página
+img = Image.open("logo.jpg")
+st.set_page_config(layout="wide",page_title="touristData",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
