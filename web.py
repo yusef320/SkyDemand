@@ -148,20 +148,19 @@ if a:
 
 fec, datos, oferta = variacion(provincia,delta, "todos", rang, x)
 st.subheader(f"Variación de la demanda para {provincia}.")
-expander = st.beta_expander("Más información")
-expander.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos ofrecidos.")
 dat = pd.Series(data=datos, index=fec, name="Demanda")
 var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
 p = pd.concat([dat, var], axis=1)
 st.line_chart(p,use_container_width=True)
+expander = st.beta_expander("Más información")
+expander.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos ofrecidos.")
 
 
 st.subheader("Variacion de demanda por mercado emisor.")
-expander = st.beta_expander("Más información")
-expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas.")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
-
+expander = st.beta_expander("Más información")
+expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas.")
 
 """
 ## Estudio por mercado
