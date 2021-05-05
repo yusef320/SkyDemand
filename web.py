@@ -177,6 +177,7 @@ df2 = df2.loc[df2["País origen"]==mercado]
 fec, datos, oferta = variacion(provincia,delta, mercado, rang, x)
 st.subheader(f"Variación de la demanda de {mercado}.")
 expander = st.beta_expander("¿Qué significa?")
+st.text("")
 expander.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}.")
 dat = pd.Series(data=datos, index=fec, name="Demanda")
 var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
