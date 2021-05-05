@@ -95,18 +95,12 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style,unsafe_allow_html=True)
 
-try:
-    dia = datetime.datetime.now() #dia de ayer
-    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    i=0
-    delta = dia - datetime.datetime(2021,4,18)
-    delta = delta.days +1
-except:
-    dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
-    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    i=1
-    delta = dia - datetime.datetime(2021,4,18)
-    delta = delta.days +1
+
+dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
+df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+i=1
+delta = dia - datetime.datetime(2021,4,18)
+delta = delta.days +1
 
 """
 # touristData
