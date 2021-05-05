@@ -132,7 +132,7 @@ Para usarlo, escoge tu ciudad y el periodo de tiempo que quieres analizar.
 """
 
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
-number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 10)
+number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 14)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
 
@@ -204,6 +204,7 @@ if a:
 st.subheader(f"Variación de la demanda para {provincia}.")
 expander = st.beta_expander("Más información")
 expander.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos ofrecidos.")
+st.text("")
 p = variacion(provincia,delta, "todos", rang, x)
 st.line_chart(p,use_container_width=True)
 
@@ -211,6 +212,7 @@ st.line_chart(p,use_container_width=True)
 st.subheader("Variacion de demanda por mercado emisor.")
 expander = st.beta_expander("Más información")
 expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas.")
+st.text("")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
 
@@ -224,8 +226,9 @@ df = df.loc[df["País origen"]==mercado]
 df2 = df2.loc[df2["País origen"]==mercado]
 
 st.subheader(f"Variación de la demanda de {mercado}.")
-expander = st.beta_expander("¿Qué significa?")
+expander = st.beta_expander("Más información")
 expander.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}.")
+st.text("")
 p = variacion(provincia,delta, mercado, rang, x)
 st.line_chart(p,use_container_width=True)
 
