@@ -2,21 +2,66 @@ import streamlit as st
 import pandas as pd
 import datetime
 import smtplib
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+@st.cache
+def predicciónDem(fec, datos, oferta):
+    p = pd.concat([datos, oferta], axis=1)
+    p = p.dropna(axis=0, how="any")
+    demanda = []
+    train = p.drop(["Demanda"], axis=1)
+    test = p["Demanda"]
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.8, random_state=1)
+    regr = LinearRegression()
+    regr.fit(X_train, Y_train)
+    pred = regr.predict(X_train)
+    for elemento in pred:
+        demanda.append(round(elemento,2))
+    demanda.append(p["Demanda"][0])
+    dist = len(fec)-len(demanda)
+
+    for i in range(dist):
+        demanda.append(pd.np.NaN)
+
+    return pd.Series(data=demanda, index=fec, name="Predicción Demanda")
+
+def predicciónVul(fec, datos, oferta):
+    p = pd.concat([datos, oferta], axis=1)
+    p = p.dropna(axis=0, how="any")
+    demanda = []
+    train = p.drop(["Vuelos ofrecidos"], axis=1)
+    test = p["Vuelos ofrecidos"]
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.8, random_state=1)
+    regr = LinearRegression()
+    regr.fit(X_train, Y_train)
+    pred = regr.predict(X_train)
+    for elemento in pred:
+        demanda.append(round(elemento,2))
+    demanda.append(p["Vuelos ofrecidos"][0])
+    dist = len(fec)-len(demanda)
+
+    for i in range(dist):
+        demanda.append(pd.np.NaN)
+
+    return pd.Series(data=demanda, index=fec, name="Predicción Vuelos ofrecidos")
 
 @st.cache
 def variacion(provincia,delta, mercado, rang, x):
+    datos,fec,oferta  = [pd.np.NaN,pd.np.NaN,pd.np.NaN], [], [pd.np.NaN,pd.np.NaN,pd.np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
     else:
         a = "País origen"
+    for z in range(0,3):
+        dia = datetime.datetime.now() + datetime.timedelta(days=i+z)
+        fecha = f"{dia.month:02d}-{dia.day:02d}"
+        fec.append(fecha)
 
-    datos,fec,oferta  = [], [], []
     d2 = pd.read_csv(f'2021-04-18.csv', delimiter=';')
     d2 = d2.loc[d2["Ciudad de destino"] == provincia]
-
     if rang == "Mes": d2 = d2.loc[d2["Mes"]==x]
-
     for p in range(0, delta):
         dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
         d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
@@ -33,7 +78,13 @@ def variacion(provincia,delta, mercado, rang, x):
         o= round(df_demanda[mercado],2)
         oferta.append(o)
 
-    return fec, datos, oferta
+    dat = pd.Series(data=datos, index=fec, name="Demanda")
+    var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
+    pred1 = predicciónDem(fec, dat, var)
+    pred2 = predicciónVul(fec, dat, var)
+    p = pd.concat([dat, var, pred1, pred2], axis=1)
+
+    return p
 
 st.set_page_config(layout="wide",page_title="touristData",initial_sidebar_state="expanded", ) #configuramos la página
 hide_menu_style = """
@@ -146,22 +197,16 @@ if a:
         a = False
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
 
-fec, datos, oferta = variacion(provincia,delta, "todos", rang, x)
 st.subheader(f"Variación de la demanda para {provincia}.")
 expander = st.beta_expander("Más información")
 expander.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos ofrecidos.")
-st.text("")
-dat = pd.Series(data=datos, index=fec, name="Demanda")
-var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
-p = pd.concat([dat, var], axis=1)
+p = variacion(provincia,delta, "todos", rang, x)
 st.line_chart(p,use_container_width=True)
-
 
 
 st.subheader("Variacion de demanda por mercado emisor.")
 expander = st.beta_expander("Más información")
 expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas.")
-st.text("")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
 
@@ -174,21 +219,18 @@ mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia"))
 df = df.loc[df["País origen"]==mercado]
 df2 = df2.loc[df2["País origen"]==mercado]
 
-fec, datos, oferta = variacion(provincia,delta, mercado, rang, x)
 st.subheader(f"Variación de la demanda de {mercado}.")
 expander = st.beta_expander("¿Qué significa?")
-st.text("")
 expander.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}.")
-dat = pd.Series(data=datos, index=fec, name="Demanda")
-var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
-p = pd.concat([dat, var], axis=1)
+p = variacion(provincia,delta, mercado, rang, x)
 st.line_chart(p,use_container_width=True)
 
 
 col1, col2 = st.beta_columns([5, 3])
 j = (df.groupby("Ciudad origen")["Var"].mean()/df2.groupby("Ciudad origen")["Var"].mean()-1)*100
 col1.subheader("Demanda por ciudad")
-col1.markdown("Muestra la variación de demanda por ciudad.")
+expander = col1.beta_expander("Más información")
+expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
 col1.bar_chart(j, use_container_width=True)
 col2.subheader("")
 col2.text("")
