@@ -1,1 +1,5 @@
-pip install sklearn
+streamlit
+pandas
+datetime
+smtplib
+sklearn
