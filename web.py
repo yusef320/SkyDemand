@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 import datetime
 import smtplib
+import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
-@st.cache
 def predicciónDem(fec, datos, oferta):
     p = pd.concat([datos, oferta], axis=1)
     p = p.dropna(axis=0, how="any")
@@ -22,7 +22,7 @@ def predicciónDem(fec, datos, oferta):
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
-        demanda.append(pd.np.NaN)
+        demanda.append(np.NaN)
 
     return pd.Series(data=demanda, index=fec, name="Predicción Demanda")
 
@@ -42,20 +42,21 @@ def predicciónVul(fec, datos, oferta):
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
-        demanda.append(pd.np.NaN)
+        demanda.append(np.NaN)
 
     return pd.Series(data=demanda, index=fec, name="Predicción Vuelos ofrecidos")
 
 @st.cache
-def variacion(provincia,delta, mercado, rang, x,i):
-    datos,fec,oferta  = [pd.np.NaN,pd.np.NaN,pd.np.NaN], [], [pd.np.NaN,pd.np.NaN,pd.np.NaN]
+def variacion(provincia,delta, mercado, rang, x):
+    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
     else:
         a = "País origen"
-    for z in range(0,3):
-        dia = datetime.datetime.now() + datetime.timedelta(days=i+z)
+
+    for z in range(1,4):
+        dia = datetime.datetime.now() + datetime.timedelta(days=z+1)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
         fec.append(fecha)
 
