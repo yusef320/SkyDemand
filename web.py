@@ -97,11 +97,18 @@ hide_menu_style = """
 st.markdown(hide_menu_style,unsafe_allow_html=True)
 
 
-dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
-df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-i=1
-delta = dia - datetime.datetime(2021,4,18)
-delta = delta.days +1
+try:
+    dia = datetime.datetime.now() #dia de ayer
+    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+    i=0
+    delta = dia - datetime.datetime(2021,4,18)
+    delta = delta.days +1
+except:
+    dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
+    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+    i=1
+    delta = dia - datetime.datetime(2021,4,18)
+    delta = delta.days +1
 
 """
 # touristData
@@ -162,8 +169,8 @@ emisores: Reino Unido, Alemania o Francia.
 """)
 email = st.sidebar.text_input(f'Suscríbete a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
-usuario = 1
-contra = 2
+usuario = st.secrets["usuario"]
+contra = st.secrets["contra"]
 
 def enviar(email, provincia):
     conn = smtplib.SMTP("smtp.gmail.com", 587)
@@ -195,7 +202,7 @@ if a:
 st.subheader(f"Variación de la demanda para {provincia}.")
 expander = st.beta_expander("Más información")
 expander.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos ofrecidos.")
-p = variacion(provincia,delta, "todos", rang, x,i)
+p = variacion(provincia,delta, "todos", rang, x)
 st.line_chart(p,use_container_width=True)
 
 
@@ -217,7 +224,7 @@ df2 = df2.loc[df2["País origen"]==mercado]
 st.subheader(f"Variación de la demanda de {mercado}.")
 expander = st.beta_expander("¿Qué significa?")
 expander.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}.")
-p = variacion(provincia,delta, mercado, rang, x,i)
+p = variacion(provincia,delta, mercado, rang, x)
 st.line_chart(p,use_container_width=True)
 
 
