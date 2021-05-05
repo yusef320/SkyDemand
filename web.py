@@ -215,7 +215,7 @@ if a:
 st.subheader(f"Variación de la demanda para {provincia}.")
 expander = st.beta_expander("Más información")
 expander.markdown("""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
-la cantidad de vuelos que se ofrece hacia el destino seleccionado desde el dia 18 de abril. Tambíen se ofrece una pequeña predicción futura basada
+la cantidad de vuelos que se ofrece hacia el destino seleccionado (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
 en el comportamiento que ha tenido hasta el momento.
 """)
 st.text("")
