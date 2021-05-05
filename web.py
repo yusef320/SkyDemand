@@ -122,14 +122,25 @@ expander.markdown("""
 touristData es un proyecto desarrollado
 por estudiantes del grado de
 Ciencia de Datos por la Universitat Politècnica de València
-para ayudar a los pequeños negocios
+con el objetivo de ayudar a los pequeños negocios
 dependientes del turismo a predecir 
 cuando reabrir sus negocios o a 
 adaptar sus productos a la demanda.
-Para usarlo, escoge tu ciudad y el periodo de tiempo que quieres analizar.
+
+### ¿Cómo usarlo?
+
+Simplemnte escoge la ciudad que quieras estudiar en el panel lateral, un rango de días 
+para los gráficos de barra y un perido de tiempo (junio, julio, agosto o todo el verano).
+Tambíen puedes ir modificando estos parámetros más adelante.
+
+### ¿Cómo funciona?
+
+Comprobamos la fluctuación de los mercados a diario realizando más de 7500 búsquedas en 
+en los vuelos que ofrecen las distintas aerolíneas hacia las tres ciudades que hemos 
+añadido a nuestra página en un principio. Déspues mediante una serie de programas generamos 
+las distintas gráficas y modelos predictivos que podeís apreciar en la aplicación.
 """)
-"""
-"""
+
 
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 14)
