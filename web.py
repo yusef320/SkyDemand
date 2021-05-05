@@ -47,7 +47,7 @@ def predicciónVul(fec, datos, oferta):
     return pd.Series(data=demanda, index=fec, name="Predicción Vuelos ofrecidos")
 
 @st.cache
-def variacion(provincia,delta, mercado, rang, x):
+def variacion(provincia,delta, mercado, rang, x,i):
     datos,fec,oferta  = [pd.np.NaN,pd.np.NaN,pd.np.NaN], [], [pd.np.NaN,pd.np.NaN,pd.np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
@@ -200,7 +200,7 @@ if a:
 st.subheader(f"Variación de la demanda para {provincia}.")
 expander = st.beta_expander("Más información")
 expander.markdown("Muestra el comportamiento del mercado en función de las reservas realizadas y los algoritmos de las aerolíneas, y también el número de vuelos ofrecidos.")
-p = variacion(provincia,delta, "todos", rang, x)
+p = variacion(provincia,delta, "todos", rang, x,i)
 st.line_chart(p,use_container_width=True)
 
 
@@ -222,7 +222,7 @@ df2 = df2.loc[df2["País origen"]==mercado]
 st.subheader(f"Variación de la demanda de {mercado}.")
 expander = st.beta_expander("¿Qué significa?")
 expander.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}.")
-p = variacion(provincia,delta, mercado, rang, x)
+p = variacion(provincia,delta, mercado, rang, x,i)
 st.line_chart(p,use_container_width=True)
 
 
