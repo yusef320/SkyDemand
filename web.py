@@ -206,7 +206,7 @@ if a:
         a = False
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
 
-st.subheader(f"Variación de la demanda para {provincia}.")
+st.subheader(f"Variación de la llegada de turistas para {provincia}.")
 expander = st.beta_expander("Más información")
 expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
 la cantidad de vuelos que se ofrece hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
@@ -217,7 +217,7 @@ p = variacion(provincia,delta, "todos", rang, x,i)
 st.line_chart(p,use_container_width=True)
 
 
-st.subheader("Variación de demanda por mercado emisor.")
+st.subheader("Variación llegada de turistas por país de origen.")
 expander = st.beta_expander("Más información")
 expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. El porcentaje es como ha variado en {number} día/s.")
 st.text("")
@@ -226,14 +226,14 @@ st.bar_chart(df_verano, use_container_width=True)
 
 
 """
-## Estudio por mercado
-Escoge el mercado que más te interesa o todos y estudia como fluctua la demanda.
+## Estudio por país de orgen.
+Selecciona un país de la lista y obten los datos filtrados con las llegadas para el origen escogido.
 """
 mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia"))
 df = df.loc[df["País origen"]==mercado]
 df2 = df2.loc[df2["País origen"]==mercado]
 
-st.subheader(f"Variación de la demanda de {mercado}.")
+st.subheader(f"Variación llegada de turistas procedentes {mercado}.")
 expander = st.beta_expander("Más información")
 expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
 la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
