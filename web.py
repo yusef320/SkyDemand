@@ -113,7 +113,7 @@ except:
     delta = delta.days +1
 
 """
-# arrivalData
+# SkyDemand
 Estudia la demanda de turística de tu ciudad y adelanta tu negocio al mercado.
 """
 expander = st.beta_expander("¿Qué solucionamos?")
@@ -169,9 +169,8 @@ st.sidebar.text("")
 st.sidebar.text("")
 expander = st.sidebar.beta_expander("Newsletter")
 expander.markdown(""" 
-Mantente al día de la demanda de tu ciudad 
-y recibe un email cada vez que se produzca un 
-cambio importante en los principales mercados 
+Recibe un email cada vez que se produzca un 
+cambio importante (de más del 5%) en los principales mercados 
 emisores: Reino Unido, Alemania o Francia.
 """)
 email = st.sidebar.text_input(f'Suscríbete a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
