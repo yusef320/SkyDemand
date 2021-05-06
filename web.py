@@ -215,7 +215,7 @@ if a:
 st.subheader(f"Variación de la demanda para {provincia}.")
 expander = st.beta_expander("Más información")
 expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
-la cantidad de vuelos que se ofrece hacia {provincia} (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
+la cantidad de vuelos que se ofrece hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
 en el comportamiento que ha tenido hasta el momento.
 """)
 st.text("")
@@ -242,7 +242,7 @@ df2 = df2.loc[df2["País origen"]==mercado]
 st.subheader(f"Variación de la demanda de {mercado}.")
 expander = st.beta_expander("Más información")
 expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
-la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} ha (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
+la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
 en el comportamiento que ha tenido hasta el momento.""")
 st.text("")
 p = variacion(provincia,delta, mercado, rang, x)
