@@ -116,7 +116,6 @@ except:
 # touristData
 Estudia la demanda de turística de tu ciudad y adelanta tu negocio al mercado.
 """
-st.sidebar.markdown(f"ÚLTIMA ACTUALIZACIÓN 2021-{dia.month:02d}-{dia.day:02d}")
 expander = st.beta_expander("Sobre nosotros")
 expander.markdown("""
 touristData es un proyecto desarrollado
@@ -141,7 +140,7 @@ añadido a nuestra página en un principio. Déspues mediante una serie de progr
 las distintas gráficas y modelos predictivos que podeís apreciar en la aplicación.
 """)
 
-
+st.markdown(f"ÚLTIMA ACTUALIZACIÓN 2021-{dia.month:02d}-{dia.day:02d}")
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 14)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
