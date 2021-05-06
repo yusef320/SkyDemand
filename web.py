@@ -214,8 +214,8 @@ if a:
 
 st.subheader(f"Variación de la demanda para {provincia}.")
 expander = st.beta_expander("Más información")
-expander.markdown("""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
-la cantidad de vuelos que se ofrece hacia el destino seleccionado (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
+expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
+la cantidad de vuelos que se ofrece hacia {provincia} (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
 en el comportamiento que ha tenido hasta el momento.
 """)
 st.text("")
@@ -225,7 +225,7 @@ st.line_chart(p,use_container_width=True)
 
 st.subheader("Variacion de demanda por mercado emisor.")
 expander = st.beta_expander("Más información")
-expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas.")
+expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. El porcentaje es como ha variado en los ultimo/s {number}")
 st.text("")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
@@ -241,7 +241,9 @@ df2 = df2.loc[df2["País origen"]==mercado]
 
 st.subheader(f"Variación de la demanda de {mercado}.")
 expander = st.beta_expander("Más información")
-expander.markdown(f"Muestra el comportamiento del mercado para los vuelos procedentes de {mercado}.")
+expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
+la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} ha (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
+en el comportamiento que ha tenido hasta el momento.""")
 st.text("")
 p = variacion(provincia,delta, mercado, rang, x)
 st.line_chart(p,use_container_width=True)
