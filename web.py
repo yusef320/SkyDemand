@@ -48,7 +48,7 @@ def predicciónVul(fec, datos, oferta):
     return pd.Series(data=demanda, index=fec, name="Pred. vuelos ofre.")
 
 @st.cache
-def variacion(provincia,delta, mercado, rang, x):
+def variacion(provincia,delta, mercado, rang, x,i):
     datos,fec,oferta  = [np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
@@ -56,7 +56,7 @@ def variacion(provincia,delta, mercado, rang, x):
     else:
         a = "País origen"
 
-    for z in range(0,3):
+    for z in range(i,3+i):
         dia = datetime.datetime.now() + datetime.timedelta(days=z+1)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
         fec.append(fecha)
@@ -219,7 +219,7 @@ la cantidad de vuelos que se ofrece hacia {provincia} cambia (el dato base corre
 en el comportamiento que ha tenido hasta el momento.
 """)
 st.text("")
-p = variacion(provincia,delta, "todos", rang, x)
+p = variacion(provincia,delta, "todos", rang, x,i)
 st.line_chart(p,use_container_width=True)
 
 
@@ -245,7 +245,7 @@ expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación 
 la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
 en el comportamiento que ha tenido hasta el momento.""")
 st.text("")
-p = variacion(provincia,delta, mercado, rang, x)
+p = variacion(provincia,delta, mercado, rang, x,i)
 st.line_chart(p,use_container_width=True)
 
 
