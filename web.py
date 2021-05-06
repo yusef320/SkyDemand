@@ -45,7 +45,7 @@ def predicciónVul(fec, datos, oferta):
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="Pred. Vuelos of.")
+    return pd.Series(data=demanda, index=fec, name="Pred. vuelos ofre.")
 
 @st.cache
 def variacion(provincia,delta, mercado, rang, x):
