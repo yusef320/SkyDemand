@@ -130,9 +130,8 @@ Tambíen puedes ir modificando estos parámetros más adelante.
 #### ¿Cómo funciona?
 
 Comprobamos la fluctuación de los mercados a diario realizando más de 7500 búsquedas en 
-en los vuelos que ofrecen las distintas aerolíneas hacia las tres ciudades que hemos 
-añadido a nuestra página en un principio. Déspues mediante una serie de programas generamos 
-las distintas gráficas y modelos predictivos que podeís apreciar en la aplicación.
+en los vuelos que ofrecen las distintas aerolíneas hacia las dos principales vias de entrada para turistas internacionales de la Comunitat Valenciana, los aeropuertos 
+de Alicante y Valencia. Con los datos representamos como fluctua la variación de los precios y cantidad de vuelos que ofrecen las aerolineas.
 """)
 
 
