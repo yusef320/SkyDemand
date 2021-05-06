@@ -114,7 +114,7 @@ except:
 
 """
 # SkyDemand
-Estudia la demanda de turística de tu ciudad y adelanta tu negocio al mercado.
+Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado.
 """
 expander = st.beta_expander("¿Qué solucionamos?")
 expander.markdown("""
