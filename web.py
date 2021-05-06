@@ -89,7 +89,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
     return p
 
 img = Image.open("logo.jpg")
-st.set_page_config(layout="wide",page_title="touristData",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
+st.set_page_config(layout="wide",page_title="SkyDemand",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
