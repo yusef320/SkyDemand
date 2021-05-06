@@ -25,7 +25,7 @@ def predicciónDem(fec, datos, oferta):
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="Predicción Demanda")
+    return pd.Series(data=demanda, index=fec, name="Pred. Demanda")
 
 def predicciónVul(fec, datos, oferta):
     p = pd.concat([datos, oferta], axis=1)
@@ -45,7 +45,7 @@ def predicciónVul(fec, datos, oferta):
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="Predicción Vuelos ofrecidos")
+    return pd.Series(data=demanda, index=fec, name="Pred. Vuelos of.")
 
 @st.cache
 def variacion(provincia,delta, mercado, rang, x):
