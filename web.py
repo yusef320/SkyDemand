@@ -116,8 +116,11 @@ except:
 # arrivalData
 Estudia la demanda de turística de tu ciudad y adelanta tu negocio al mercado.
 """
-expander = st.beta_expander("¿Como usarlo y como funciona?")
+expander = st.beta_expander("¿Qué solucionamos?")
 expander.markdown("""
+
+COMPLETAR
+
 #### ¿Cómo usarlo?
 
 Simplemnte escoge la ciudad que quieras estudiar en el panel lateral, un rango de días 
