@@ -219,7 +219,7 @@ en el comportamiento que ha tenido hasta el momento.
 """)
 st.text("")
 p = variacion(provincia,delta, "todos", rang, x,i)
-st.line_chart(p,use_container_width=True)
+st.bokeh_chart(p,use_container_width=True)
 
 
 st.subheader("Variación de demanda por mercado emisor.")
