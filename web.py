@@ -113,7 +113,7 @@ except:
     delta = delta.days +1
 
 """
-# touristData
+# arrivalData
 Estudia la demanda de turística de tu ciudad y adelanta tu negocio al mercado.
 """
 expander = st.beta_expander("Sobre nosotros")
