@@ -219,7 +219,7 @@ en el comportamiento que ha tenido hasta el momento.
 """)
 st.text("")
 p = variacion(provincia,delta, "todos", rang, x,i)
-st.area_chart(p,use_container_width=True)
+st.line_chart(p,use_container_width=True)
 
 
 st.subheader("Variación de demanda por mercado emisor.")
@@ -256,4 +256,4 @@ expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
 col1.bar_chart(j, use_container_width=True)
 col2.subheader("")
 col2.text("")
-col2.write(j)
+col2.table(j)
