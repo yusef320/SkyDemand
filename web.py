@@ -223,9 +223,9 @@ p = variacion(provincia,delta, "todos", rang, x,i)
 st.line_chart(p,use_container_width=True)
 
 
-st.subheader("Variacion de demanda por mercado emisor.")
+st.subheader("Variación de demanda por mercado emisor.")
 expander = st.beta_expander("Más información")
-expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. El porcentaje es como ha variado en los ultimo/s {number} día/s.")
+expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. El porcentaje es como ha variado en {number} día/s.")
 st.text("")
 df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
 st.bar_chart(df_verano, use_container_width=True)
