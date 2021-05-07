@@ -17,7 +17,7 @@ def predicciónDem(fec, datos, oferta):
     demanda = []
     train = p.drop(["Fluctuación precios"], axis=1)
     test = p["Fluctuación precios"]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.8, random_state=1)
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
@@ -44,12 +44,15 @@ def predicciónVul(fec, datos, oferta):
     demanda = []
     train = p.drop(["Vuelos ofrecidos"], axis=1)
     test = p["Vuelos ofrecidos"]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.8, random_state=1)
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
+    i=0
     for elemento in pred:
+        if i >= 3: break
         demanda.append(round(elemento,2))
+        i+=1
     demanda.append(p["Vuelos ofrecidos"][0])
     dist = len(fec)-len(demanda)
 
