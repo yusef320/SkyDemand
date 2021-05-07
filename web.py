@@ -49,7 +49,7 @@ def predicciónVul(fec, datos, oferta):
 
 @st.cache
 def variacion(provincia,delta, mercado, rang, x,i):
-    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN]
+    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
