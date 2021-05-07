@@ -13,7 +13,7 @@ def predicciónDem(fec, datos, oferta):
     demanda = []
     train = p.drop(["Demanda"], axis=1)
     test = p["Demanda"]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.8, random_state=1)
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.9, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
@@ -56,8 +56,8 @@ def variacion(provincia,delta, mercado, rang, x,i):
     else:
         a = "País origen"
         
-    for z in range(1,4):
-        dia = datetime.datetime.now() + datetime.timedelta(days=z+i)
+    for z in range(1,5):
+        dia = datetime.datetime.now() + datetime.timedelta(days=z-i)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
         fec.append(fecha)
 
