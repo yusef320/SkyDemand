@@ -21,8 +21,11 @@ def predicciónDem(fec, datos, oferta):
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
+    i=0
     for elemento in pred:
+        if i >= 3: break
         demanda.append(round(elemento,2))
+        i+=1
     demanda.append(p["Fluctuación precios"][0])
     dist = len(fec)-len(demanda)
 
