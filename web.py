@@ -7,33 +7,41 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from PIL import Image 
 
+@st.cache
 def predicciónDem(fec, datos, oferta):
+    """
+    Modelo predictivo para la fluctucación de las tarifas aéreas.
+    """
     p = pd.concat([datos, oferta], axis=1)
     p = p.dropna(axis=0, how="any")
     demanda = []
-    train = p.drop(["Demanda"], axis=1)
-    test = p["Demanda"]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.9, random_state=1)
+    train = p.drop(["Fluctuación precios"], axis=1)
+    test = p["Fluctuación precios"]
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.8, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
     for elemento in pred:
         demanda.append(round(elemento,2))
-    demanda.append(p["Demanda"][0])
+    demanda.append(p["Fluctuación precios"][0])
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="Pred. Demanda")
+    return pd.Series(data=demanda, index=fec, name="Pred. fluctuación precios")
 
+@st.cache
 def predicciónVul(fec, datos, oferta):
+    """
+    Modelo predictivo para la fluctucación del número de vuelos.
+    """
     p = pd.concat([datos, oferta], axis=1)
     p = p.dropna(axis=0, how="any")
     demanda = []
     train = p.drop(["Vuelos ofrecidos"], axis=1)
     test = p["Vuelos ofrecidos"]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.9, random_state=1)
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.8, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
@@ -45,17 +53,21 @@ def predicciónVul(fec, datos, oferta):
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="Pred. vuelos ofre.")
+    return pd.Series(data=demanda, index=fec, name="Pred. de vuelos ofrecidos")
 
 @st.cache
 def variacion(provincia,delta, mercado, rang, x,i):
+    """
+    Devuelve un dataframe con la variación de las tarifas
+    y el número de vuelos asi como la predicción para ambas.
+    """
     datos,fec,oferta  = [np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
     else:
         a = "País origen"
-        
+
     for z in range(1,4):
         dia = datetime.datetime.now() + datetime.timedelta(days=z-i)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
@@ -80,13 +92,24 @@ def variacion(provincia,delta, mercado, rang, x,i):
         o= round(df_demanda[mercado],2)
         oferta.append(o)
 
-    dat = pd.Series(data=datos, index=fec, name="Demanda")
+    dat = pd.Series(data=datos, index=fec, name="Fluctuación precios")
     var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
     pred1 = predicciónDem(fec, dat, var)
     pred2 = predicciónVul(fec, dat, var)
     p = pd.concat([dat, var, pred1, pred2], axis=1)
-
     return p
+
+def enviar(email, provincia):
+    """
+    Suscribe a los emails en el newsletter
+    """
+    conn = smtplib.SMTP("smtp.gmail.com", 587)
+    conn.ehlo()
+    conn.starttls()
+    conn.login(usuario,contra)
+    conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
+    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de tourisData sobre {provincia}. Cada vez que se produzca un cambio importante en la demanda le enviaremos un informe semanal sobre como ha evolucionado el mercado.\n\nUn saludo,\n\nel equipo de touristData.")
+
 
 img = Image.open("logo.jpg")
 st.set_page_config(layout="wide",page_title="SkyDemand",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
@@ -177,15 +200,6 @@ email = st.sidebar.text_input(f'Suscríbete a nuestro newsletter sobre {provinci
 a = st.sidebar.button("Suscribir")
 usuario = st.secrets["usuario"]
 contra = st.secrets["contra"]
-
-def enviar(email, provincia):
-    conn = smtplib.SMTP("smtp.gmail.com", 587)
-    conn.ehlo()
-    conn.starttls()
-    conn.login(usuario,contra)
-    conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
-    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de tourisData sobre {provincia}. Cada vez que se produzca un cambio importante en la demanda le enviaremos un informe semanal sobre como ha evolucionado el mercado.\n\nUn saludo,\n\nel equipo de touristData.")
-    conn.quit()
 
 if a:
     email1 = email.split("@")
