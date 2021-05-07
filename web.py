@@ -33,7 +33,7 @@ def predicciónVul(fec, datos, oferta):
     demanda = []
     train = p.drop(["Vuelos ofrecidos"], axis=1)
     test = p["Vuelos ofrecidos"]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.8, random_state=1)
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.9, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
