@@ -143,7 +143,7 @@ except:
     
 
 image = Image.open('logo.png')
-st.image(image, width=300)
+st.image(image, width=250)
 """
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado.
 """
