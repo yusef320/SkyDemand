@@ -15,8 +15,8 @@ def predicciónDem(fec, datos, oferta):
     p = pd.concat([datos, oferta], axis=1)
     p = p.dropna(axis=0, how="any")
     demanda = []
-    train = p.drop(["Fluctuación precios"], axis=1)
-    test = p["Fluctuación precios"]
+    train = p.drop(["% Fluctuación precios"], axis=1)
+    test = p["% Fluctuación precios"]
     X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
@@ -26,13 +26,13 @@ def predicciónDem(fec, datos, oferta):
         if i >= 3: break
         demanda.append(round(elemento,2))
         i+=1
-    demanda.append(p["Fluctuación precios"][0])
+    demanda.append(p["% Fluctuación precios"][0])
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="Pred. fluctuación precios")
+    return pd.Series(data=demanda, index=fec, name="% Pred. fluctuación")
 
 @st.cache
 def predicciónVul(fec, datos, oferta):
@@ -42,8 +42,8 @@ def predicciónVul(fec, datos, oferta):
     p = pd.concat([datos, oferta], axis=1)
     p = p.dropna(axis=0, how="any")
     demanda = []
-    train = p.drop(["Vuelos ofrecidos"], axis=1)
-    test = p["Vuelos ofrecidos"]
+    train = p.drop(["% Vuelos ofrecidos"], axis=1)
+    test = p["% Vuelos ofrecidos"]
     X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
@@ -53,7 +53,7 @@ def predicciónVul(fec, datos, oferta):
         if i >= 3: break
         demanda.append(round(elemento,2))
         i+=1
-    demanda.append(p["Vuelos ofrecidos"][0])
+    demanda.append(p["% Vuelos ofrecidos"][0])
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
@@ -98,8 +98,8 @@ def variacion(provincia,delta, mercado, rang, x,i):
         o= round(df_demanda[mercado],2)
         oferta.append(o)
 
-    dat = pd.Series(data=datos, index=fec, name="Fluctuación precios")
-    var = pd.Series(data=oferta, index=fec, name="Vuelos ofrecidos")
+    dat = pd.Series(data=datos, index=fec, name="% Fluctuación precios")
+    var = pd.Series(data=oferta, index=fec, name="% Vuelos ofrecidos")
     pred1 = predicciónDem(fec, dat, var)
     pred2 = predicciónVul(fec, dat, var)
     p = pd.concat([dat, var, pred1, pred2], axis=1)
@@ -140,27 +140,30 @@ except:
     i=1
     delta = dia - datetime.datetime(2021,4,18)
     delta = delta.days +1
+    
 
+image = Image.open('logo.png')
+st.image(image, width=300)
 """
-# SkyDemand
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado.
 """
 expander = st.beta_expander("¿Qué solucionamos?")
 expander.markdown("""
 
-COMPLETAR
+El objetivo de nuestra web es ayudar a los pequeños y medianos negocios dependientes del turismo a comprobar y
+predecir como se comporta el sector aereo hacia su ciudad, puesto que este es la principal y casi mayoritaria
+vía de entrada de los turistas internacionales según el INE.
 
 #### ¿Cómo usarlo?
-
 Simplemnte escoge la ciudad que quieras estudiar en el panel lateral, un rango de días 
 para los gráficos de barra y un perido de tiempo (junio, julio, agosto o todo el verano).
 Tambíen puedes ir modificando estos parámetros más adelante.
 
 #### ¿Cómo funciona?
-
-Comprobamos la fluctuación de los mercados a diario realizando más de 7500 búsquedas en 
+Comprobamos la fluctuación de los mercados a diario realizando más de 7500 búsquedas diarias usando la API de SkyScanner en 
 en los vuelos que ofrecen las distintas aerolíneas hacia las dos principales vias de entrada para turistas internacionales de la Comunitat Valenciana, los aeropuertos 
-de Alicante y Valencia. Con los datos representamos como fluctua la variación de los precios y cantidad de vuelos que ofrecen las aerolineas.
+de Alicante y Valencia. Tambien esta disponible la isla de Tenerife. Con los datos representamos como fluctua la variación de los precios y cantidad de vuelos que ofrecen las aerolineas.
+
 """)
 
 
@@ -199,8 +202,9 @@ st.sidebar.text("")
 expander = st.sidebar.beta_expander("Newsletter")
 expander.markdown(""" 
 Recibe un email cada vez que se produzca un 
-cambio importante (de más del 5%) en los principales mercados 
-emisores: Reino Unido, Alemania o Francia.
+cambio importante (de más del 5%) en los principales
+paises de origen de los turistas:
+Reino Unido, Alemania o Francia.
 """)
 email = st.sidebar.text_input(f'Suscríbete a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
@@ -272,13 +276,15 @@ col2.subheader("")
 col2.text("")
 col2.dataframe(j, 400, 700)
 
-expander = st.beta_expander("Sobre nosotros")
-expander.markdown("""
-touristData es un proyecto desarrollado
+"""
+## Sobre nosotros
+
+SkyDemand es un proyecto desarrollado
 por estudiantes del grado de
 Ciencia de Datos por la Universitat Politècnica de València
 con el objetivo de ayudar a los pequeños negocios
 dependientes del turismo a predecir 
 cuando reabrir sus negocios o a 
 adaptar sus productos a la demanda.
-""")
+
+"""
