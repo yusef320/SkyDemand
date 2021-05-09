@@ -251,14 +251,14 @@ if a:
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
 
 st.subheader(f"Variación de la llegada de turistas para {provincia}.")
-st.text("")
-p = variacion(provincia,delta, "todos", rang, x,i)
-st.line_chart(p,use_container_width=True)
 f"""La gráfica muestra el porcentaje de la variación de demanda en función de la volatilidad de los precios y si 
 la cantidad de vuelos que se ofrece hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
 en el comportamiento que ha tenido hasta el momento.
-
 """
+st.text("")
+p = variacion(provincia,delta, "todos", rang, x,i)
+st.line_chart(p,use_container_width=True)
+
 
 
 st.subheader("Variación llegada de turistas por país de origen.")
