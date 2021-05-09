@@ -5,7 +5,10 @@ import smtplib
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from PIL import Image 
+from PIL import Image
+
+
+#####           FUNCIONES               ####
 
 @st.cache
 def predicciónDem(fec, datos, oferta):
@@ -23,7 +26,7 @@ def predicciónDem(fec, datos, oferta):
     pred = regr.predict(X_train)
     i=0
     for elemento in pred:
-        if i >= 3: break
+        if i >= 2: break
         demanda.append(round(elemento,2))
         i+=1
     demanda.append(p["% Fluctuación precios"][0])
@@ -50,7 +53,7 @@ def predicciónVul(fec, datos, oferta):
     pred = regr.predict(X_train)
     i=0
     for elemento in pred:
-        if i >= 3: break
+        if i >= 2: break
         demanda.append(round(elemento,2))
         i+=1
     demanda.append(p["% Vuelos ofrecidos"][0])
@@ -67,26 +70,35 @@ def variacion(provincia,delta, mercado, rang, x,i):
     Devuelve un dataframe con la variación de las tarifas
     y el número de vuelos asi como la predicción para ambas.
     """
-    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN]
+    datos,fec,oferta  = [np.NaN,np.NaN], [], [np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
     else:
         a = "País origen"
 
-    for z in range(1,4):
+    for z in range(1,3):
         dia = datetime.datetime.now() + datetime.timedelta(days=z-i)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
         fec.append(fecha)
 
     d2 = pd.read_csv(f'2021-04-18.csv', delimiter=';')
     d2 = d2.loc[d2["Ciudad de destino"] == provincia]
-    if rang == "Mes": d2 = d2.loc[d2["Mes"]==x]
+    if rang == "Mes":
+        d2 = d2.loc[d2["Mes"]==x]
+    elif rang == "Día":
+        d2 = d2.loc[d2["Mes"]==x[0]]
+        d2 = d2.loc[d2["Dia"]==x[1]]
+
     for p in range(0, delta):
         dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
         d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
         d = d.loc[d["Ciudad de destino"] == provincia]
-        if rang == "Mes": d = d.loc[d["Mes"]==x]
+        if rang == "Mes":
+            d = d.loc[d["Mes"]==x]
+        elif rang == "Día":
+            d = d.loc[d["Mes"]==x[0]]
+            d = d.loc[d["Dia"]==x[1]]
         df_verano = (d.groupby(a)["Precio"].mean()/d2.groupby(a)["Precio"].mean()-1)*100
         d = d.loc[d["Es directo"]==1]
         d2c = d2.loc[d2["Es directo"]==1]
@@ -114,8 +126,15 @@ def enviar(email, provincia):
     conn.starttls()
     conn.login(usuario,contra)
     conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
-    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de tourisData sobre {provincia}. Cada vez que se produzca un cambio importante en la demanda le enviaremos un informe semanal sobre como ha evolucionado el mercado.\n\nUn saludo,\n\nel equipo de touristData.")
+    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada vez que se produzca una fluctuacion importante en la demanda basada en el precio de los vuelos (de más del 5%) le enviaremos un informe semanal sobre como ha evolucionado el mercado dia a dia.\n\nUn saludo,\n\nel equipo de SkyDemand.")
 
+
+
+
+
+####                CUERPO DE LA PÁGINA                ####
+
+#La configuramos
 
 img = Image.open("logo.jpg")
 st.set_page_config(layout="wide",page_title="SkyDemand",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
@@ -127,9 +146,9 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style,unsafe_allow_html=True)
 
-
+#Comprobamos si hay una ultima actualización para los datos
 try:
-    dia = datetime.datetime.now() #dia de ayer
+    dia = datetime.datetime.now() #Día de hoy
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=0
     delta = dia - datetime.datetime(2021,4,18)
@@ -140,16 +159,15 @@ except:
     i=1
     delta = dia - datetime.datetime(2021,4,18)
     delta = delta.days +1
-    
 
+###
 image = Image.open('logo.png')
-st.image(image, width=250)
+st.image(image, width=300)
 """
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado.
 """
 expander = st.beta_expander("¿Qué solucionamos?")
 expander.markdown("""
-
 El objetivo de nuestra web es ayudar a los pequeños y medianos negocios dependientes del turismo a comprobar y
 predecir como se comporta el sector aereo hacia su ciudad, puesto que este es la principal y casi mayoritaria
 vía de entrada de los turistas internacionales según el INE.
@@ -158,28 +176,22 @@ vía de entrada de los turistas internacionales según el INE.
 Simplemnte escoge la ciudad que quieras estudiar en el panel lateral, un rango de días 
 para los gráficos de barra y un perido de tiempo (junio, julio, agosto o todo el verano).
 Tambíen puedes ir modificando estos parámetros más adelante.
-
 #### ¿Cómo funciona?
 Comprobamos la fluctuación de los mercados a diario realizando más de 7500 búsquedas diarias usando la API de SkyScanner en 
 en los vuelos que ofrecen las distintas aerolíneas hacia las dos principales vias de entrada para turistas internacionales de la Comunitat Valenciana, los aeropuertos 
 de Alicante y Valencia. Tambien esta disponible la isla de Tenerife. Con los datos representamos como fluctua la variación de los precios y cantidad de vuelos que ofrecen las aerolineas.
-
 """)
 
 
-st.markdown(f"ÚLTIMA ACTUALIZACIÓN 2021-{dia.month:02d}-{dia.day:02d}")
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 14)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
-
-
 df = df.loc[df["Ciudad de destino"] == provincia]
 df2 = df2.loc[df2["Ciudad de destino"] == provincia]
-df["Var"] = df["Precio"]
-df2["Var"] = df2["Precio"]
-
-rang = st.sidebar.radio("Escoge un rango", ["Todo el verano","Mes"])
+df["% var. precio"] = df["Precio"]
+df2["% var. precio"] = df2["Precio"]
+rang = st.sidebar.radio("Escoge un rango", ["Todo el verano","Mes","Día"])
 if rang == "Mes":
     mes = st.sidebar.radio("Escoge un mes", ["Junio","Julio","Agosto"])
     if mes == "Junio":
@@ -194,20 +206,29 @@ if rang == "Mes":
         x = 8
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
+elif rang == "Día":
+    date = st.sidebar.date_input("Selecciona una fecha",min_value=datetime.datetime(2021,6,1),
+                                 max_value=datetime.datetime(2021,8,31), value=datetime.datetime(2021,6,1))
+    x = [date.month, date.day]
+    df = df.loc[df["Mes"]==x[0]]
+    df2 = df2.loc[df2["Mes"]==x[0]]
+    df = df.loc[df["Dia"]==x[1]]
+    df2 = df2.loc[df2["Dia"]==x[1]]
 else:
     x=0
+
 
 st.sidebar.text("")
 st.sidebar.text("")
 expander = st.sidebar.beta_expander("Newsletter")
 expander.markdown(""" 
 Recibe un email cada vez que se produzca un 
-cambio importante (de más del 5%) en los principales
-paises de origen de los turistas:
+cambio importante (de más del 5%) en los paises de origen de los turistas:
 Reino Unido, Alemania o Francia.
 """)
 email = st.sidebar.text_input(f'Suscríbete a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
+
 usuario = st.secrets["usuario"]
 contra = st.secrets["contra"]
 
@@ -230,22 +251,24 @@ if a:
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
 
 st.subheader(f"Variación de la llegada de turistas para {provincia}.")
-expander = st.beta_expander("Más información")
-expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
-la cantidad de vuelos que se ofrece hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
-en el comportamiento que ha tenido hasta el momento.
-""")
 st.text("")
 p = variacion(provincia,delta, "todos", rang, x,i)
 st.line_chart(p,use_container_width=True)
+f"""La gráfica muestra el porcentaje de la variación de demanda en función de la volatilidad de los precios y si 
+la cantidad de vuelos que se ofrece hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
+en el comportamiento que ha tenido hasta el momento.
+"""
 
 
 st.subheader("Variación llegada de turistas por país de origen.")
-expander = st.beta_expander("Más información")
-expander.markdown(f"Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. El porcentaje es como ha variado en {number} día/s.")
+f"""Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. " \
+El porcentaje es como ha variado en {number} día/s."""
 st.text("")
-df_verano = (df.groupby("País origen")["Var"].mean()/df2.groupby("País origen")["Var"].mean()-1)*100
+df_verano = round((df.groupby("País origen")["% var. precio"].mean()/df2.groupby("País origen")["% var. precio"].mean()-1)*100 ,2)
+selec = df_verano > 0.01
+df_verano = df_verano[selec]
 st.bar_chart(df_verano, use_container_width=True)
+
 
 
 """
@@ -267,14 +290,17 @@ st.line_chart(p,use_container_width=True)
 
 
 col1, col2 = st.beta_columns([5, 3])
-j = (df.groupby("Ciudad origen")["Var"].mean()/df2.groupby("Ciudad origen")["Var"].mean()-1)*100
+j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
+selec = j > 0.1
+j = j[selec]
 col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
 expander = col1.beta_expander("Más información")
 expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
 col1.bar_chart(j, use_container_width=True)
 col2.subheader("")
 col2.text("")
-col2.dataframe(j, 400, 700)
+col2.table(j)
+
 
 """
 ## Sobre nosotros
@@ -288,3 +314,6 @@ cuando reabrir sus negocios o a
 adaptar sus productos a la demanda.
 
 """
+
+image = Image.open('agradecimientos.png')
+st.image(image)
