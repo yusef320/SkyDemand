@@ -1,5 +1,5 @@
 """
-Autor: Yusef Ahsini Ouariaghli
+Autores: Yusef Ahsini Ouariaghli, Pablo Díaz Masa Valencia
 """
 
 
@@ -15,9 +15,7 @@ import email
 
 def semanaInfo(mercados, prov):
     """
-    
-    Crea un informe de la variación diaria durante la última semana.
-    
+    Crea un informe de la variación diaria durante la última semana
     """
     text = ""
     texto = ""
@@ -40,9 +38,7 @@ def semanaInfo(mercados, prov):
 
 def emails():
     """
-    
-    Recolecta los emails suscritos al newsletter.
-    
+    Devuelve una lista con los emails suscritos al newsletter
     """
     
     host = 'TU HOST'
@@ -74,8 +70,10 @@ def emails():
     return [newslt_VLC, newslt_ALC, newslt_TCI]
 
 def subirArchivo(nombreArchivo):
+    """
+    Permite subir automaticamente un archivo a un repositorio de github.
+    """
     g = Github(login_or_token=('TOKEN DE GITHUB'))
-
     repo = g.get_user().get_repo('NOMBRE DEL REPOSITORIO')
     all_files = []
     contents = repo.get_contents('')
@@ -172,8 +170,12 @@ def vuelosEnMes(anio, mes, orgien, destino, lista):
             break
     return lista
 
-starttime = time.time() #iniciamos el tiempo para nuestro bucle temporal
-while True:
+####                Iniciamos el programa               ####
+
+starttime = time.time() #iniciamos un contador
+
+while True: #bucle temporal
+    
     today = date.today()
     print(today)
     lista = []
@@ -181,7 +183,10 @@ while True:
     aeropuertos = ["FRA", "DUS", "BER", "MUC", "HAM","NRN","STR", "BRU", "CRL", "VIE", "CPH", "HEL","TLS","CDG","ORY","BVA",
                    "MRS","NCE","NTE","LYS","LUX","AMS","EIN","LHR","LTN", "LGW", "EDI","GLA","LPL","BHX","STN","MAN",
                    "NCL","BHD","BRS","PRG","ARN","ZRH","GVA"] #principales aeropuertos europeos
-    for destino in orig: #recolcetamos los datos para cada provincia
+    
+    ####                Recolectamos los datos              ####                
+    
+    for destino in orig:
         print(f"Recolectando datos de {destino}")
         for aeropueto in aeropuertos: #estudiamos todos los aeropuertos de la lista
             print(aeropueto)
@@ -194,7 +199,7 @@ while True:
 
     print("Recolección de datos terminada")
 
-    #creamos un DataFrame con los datos de la lista
+    ####                Creamos un DataFrame y despues lo convertimos a CSV             ####
 
     df = pd.DataFrame(lista, columns=["Fecha", "Mes" ,"Fecha de busqueda", "Precio","Moneda","Es directo",
                                       "Aerolinea", "Origen", "Destino", "Ciudad origen", "País origen","Ciudad de destino"])
@@ -206,7 +211,7 @@ while True:
     df.to_csv (f"{today}.csv",sep=';', index=False, header=True)
     subirArchivo(f"{today}.csv") #subimos el archivo a nuestro repositorio de github 
     
-    #Comparamos los datos para ver si se ha producido una variación importante
+    ####                Comparamos los datos para ver si se ha producido una variación importante               ####
     
     dia = datetime.datetime.now() - datetime.timedelta(days=1)
     df2 = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
@@ -226,7 +231,8 @@ while True:
                 listaDem.append(mercado)
         var[prov] = listaDem # diccionario con todos los mercados en lo que hay variación
 
-    #enviamos los emails en caso de que se produzca una variación    
+    ####                Enviamos los emails en caso de que se produzca una variación                ####
+    
     listaMails = emails()
     conn = smtplib.SMTP("HOST", 587)
     conn.ehlo()
