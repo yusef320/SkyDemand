@@ -293,15 +293,16 @@ try:
     j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
     selec = abs(j) > 0.2
     j = j[selec]
-
+    col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
     if j.empty == False:
-        col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
         expander = col1.beta_expander("Más información")
         expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
         col1.bar_chart(j, use_container_width=True)
         col2.subheader("")
         col2.text("")
         col2.table(j)
+    else:
+        st.code("No se ha producido ninguna variación por ciudad para esta seleción.")
 except:
     st.code("No se pueden mostrar los datos para esta selección, modifiquela para solucionarlo. Disculpe las molestias.")
 
