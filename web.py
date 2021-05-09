@@ -294,13 +294,15 @@ col1, col2 = st.beta_columns([5, 3])
 j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
 selec = j > 0.1
 j = j[selec]
-col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
-expander = col1.beta_expander("Más información")
-expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
-col1.bar_chart(j, use_container_width=True)
-col2.subheader("")
-col2.text("")
-col2.table(j)
+
+if j.empty = False:
+    col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
+    expander = col1.beta_expander("Más información")
+    expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
+    col1.bar_chart(j, use_container_width=True)
+    col2.subheader("")
+    col2.text("")
+    col2.table(j)
 
 
 """
