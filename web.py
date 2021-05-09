@@ -275,7 +275,7 @@ st.bar_chart(df_verano, use_container_width=True)
 ## Estudio por país de orgen.
 Selecciona un país de la lista y obten los datos filtrados con las llegadas para el origen escogido.
 """
-mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia"))
+mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia","Países Bajos","Bélgica"))
 df = df.loc[df["País origen"]==mercado]
 df2 = df2.loc[df2["País origen"]==mercado]
 
