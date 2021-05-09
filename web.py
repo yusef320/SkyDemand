@@ -168,13 +168,13 @@ Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercad
 """
 expander = st.beta_expander("¿Qué solucionamos?")
 expander.markdown("""
-### ¿Qué ofrecemos?
+#### ¿Qué ofrecemos?
 Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
 
-### ¿Cómo se usa?
+#### ¿Cómo se usa?
 Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
 
-### ¿Cómo funciona?
+#### ¿Cómo funciona?
 Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife puesto que en esa zona hay empresas interesadas.
 Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
 """)
