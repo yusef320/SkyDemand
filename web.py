@@ -266,7 +266,7 @@ f"""Muestra el comportamiento del mercado para {provincia} por cada uno de los p
 El porcentaje es como ha variado en {number} día/s."""
 st.text("")
 df_verano = round((df.groupby("País origen")["% var. precio"].mean()/df2.groupby("País origen")["% var. precio"].mean()-1)*100 ,2)
-selec = abs(df_verano) > 0.01
+selec = abs(df_verano) > 0.2
 df_verano = df_verano[selec]
 st.bar_chart(df_verano, use_container_width=True)
 
@@ -292,7 +292,7 @@ st.line_chart(p,use_container_width=True)
 
 col1, col2 = st.beta_columns([5, 3])
 j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
-selec = abs(j) > 0.1
+selec = abs(j) > 0.2
 j = j[selec]
 
 if j.empty == False:
