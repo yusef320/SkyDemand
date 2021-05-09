@@ -166,20 +166,17 @@ st.image(image, width=300)
 """
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado.
 """
-expander = st.beta_expander("¿Qué solucionamos?")
+expander = st.beta_expander("Ábreme :)")
 expander.markdown("""
-El objetivo de nuestra web es ayudar a los pequeños y medianos negocios dependientes del turismo a comprobar y
-predecir como se comporta el sector aereo hacia su ciudad, puesto que este es la principal y casi mayoritaria
-vía de entrada de los turistas internacionales según el INE.
+###¿Qué ofrecemos?
+Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
 
-#### ¿Cómo usarlo?
-Simplemnte escoge la ciudad que quieras estudiar en el panel lateral, un rango de días 
-para los gráficos de barra y un perido de tiempo (junio, julio, agosto o todo el verano).
-Tambíen puedes ir modificando estos parámetros más adelante.
-#### ¿Cómo funciona?
-Comprobamos la fluctuación de los mercados a diario realizando más de 7500 búsquedas diarias usando la API de SkyScanner en 
-en los vuelos que ofrecen las distintas aerolíneas hacia las dos principales vias de entrada para turistas internacionales de la Comunitat Valenciana, los aeropuertos 
-de Alicante y Valencia. Tambien esta disponible la isla de Tenerife. Con los datos representamos como fluctua la variación de los precios y cantidad de vuelos que ofrecen las aerolineas.
+###¿Cómo se usa?
+Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
+
+###¿Cómo funciona?
+Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife puesto que en esa zona hay empresas interesadas.
+Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
 """)
 
 
