@@ -295,7 +295,7 @@ j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciud
 selec = j > 0.1
 j = j[selec]
 
-if j.empty = False:
+if j.empty == False:
     col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
     expander = col1.beta_expander("Más información")
     expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
