@@ -234,7 +234,6 @@ contra = st.secrets["contra"]
 
 if a:
     email1 = email.split("@")
-    email2 = email1[1]
     if email == "ejemplo@mail.com":
         st.sidebar.text("Introduce un email")
         a = False
@@ -296,13 +295,16 @@ selec = abs(j) > 0.2
 j = j[selec]
 
 if j.empty == False:
-    col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
-    expander = col1.beta_expander("Más información")
-    expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
-    col1.bar_chart(j, use_container_width=True)
-    col2.subheader("")
-    col2.text("")
-    col2.table(j)
+    try:
+        col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
+        expander = col1.beta_expander("Más información")
+        expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
+        col1.bar_chart(j, use_container_width=True)
+        col2.subheader("")
+        col2.text("")
+        col2.table(j)
+    except:
+        st.markdown("No se pueden mostrar los datos para esra selección, modifiquela para solucionarlo. Disculpe las molestias.")
 
 
 """
