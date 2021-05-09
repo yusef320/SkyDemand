@@ -279,16 +279,15 @@ mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia"))
 df = df.loc[df["País origen"]==mercado]
 df2 = df2.loc[df2["País origen"]==mercado]
 
-st.subheader(f"Variación llegada de turistas procedentes {mercado}.")
-expander = st.beta_expander("Más información")
-expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
-la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
-en el comportamiento que ha tenido hasta el momento.""")
-st.text("")
 try:
+    st.subheader(f"Variación llegada de turistas procedentes {mercado}.")
+    expander = st.beta_expander("Más información")
+    expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
+    la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
+    en el comportamiento que ha tenido hasta el momento.""")
+    st.text("")
     p = variacion(provincia,delta, mercado, rang, x,i)
     st.line_chart(p,use_container_width=True)
-
 
     col1, col2 = st.beta_columns([5, 3])
     j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
