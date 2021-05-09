@@ -166,7 +166,7 @@ st.image(image, width=300)
 """
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado.
 """
-expander = st.beta_expander("¿Qué solucionamos?")
+expander = st.beta_expander("Información sobre la web.")
 expander.markdown("""
 #### ¿Qué ofrecemos?
 Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
