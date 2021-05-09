@@ -285,17 +285,17 @@ expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación 
 la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
 en el comportamiento que ha tenido hasta el momento.""")
 st.text("")
-p = variacion(provincia,delta, mercado, rang, x,i)
-st.line_chart(p,use_container_width=True)
+try:
+    p = variacion(provincia,delta, mercado, rang, x,i)
+    st.line_chart(p,use_container_width=True)
 
 
-col1, col2 = st.beta_columns([5, 3])
-j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
-selec = abs(j) > 0.2
-j = j[selec]
+    col1, col2 = st.beta_columns([5, 3])
+    j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
+    selec = abs(j) > 0.2
+    j = j[selec]
 
-if j.empty == False:
-    try:
+    if j.empty == False:
         col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
         expander = col1.beta_expander("Más información")
         expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
@@ -303,8 +303,8 @@ if j.empty == False:
         col2.subheader("")
         col2.text("")
         col2.table(j)
-    except:
-        st.markdown("No se pueden mostrar los datos para esra selección, modifiquela para solucionarlo. Disculpe las molestias.")
+except:
+    st.markdown("No se pueden mostrar los datos para esra selección, modifiquela para solucionarlo. Disculpe las molestias.")
 
 
 """
