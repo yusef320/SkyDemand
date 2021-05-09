@@ -303,7 +303,7 @@ try:
         col2.text("")
         col2.table(j)
 except:
-    st.markdown("No se pueden mostrar los datos para esra selección, modifiquela para solucionarlo. Disculpe las molestias.")
+    st.code("No se pueden mostrar los datos para esta selección, modifiquela para solucionarlo. Disculpe las molestias.")
 
 
 """
