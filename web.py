@@ -278,7 +278,7 @@ else:
         
 col1, col2 = st.beta_columns([5, 1])
 col1.line_chart(p[0],use_container_width=True)
-color = col2..color_picker("Indicador de demanda",col)
+color = col2.color_picker("Indicador de demanda",col)
 
 if number > 1:
     days = "días"
