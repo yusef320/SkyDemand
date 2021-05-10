@@ -3,7 +3,7 @@
 SkyDemand es un proyecto desarrollado por un equipo de alumnos del Grado de Ciencia de datos por la Universidad Politécnica de 
 Valencia y la Escuela Técnica Superior de Ingeniería Informatica dentro del Datathon organizado por la Cátedra de Transparencia y gestión de datos.
 
-Entra en https://tinyurl.com/skydemand para acceder a la web.
+Entra en [skydemand.es](https://share.streamlit.io/yusef320/skydemand/main/web.py#1) para acceder a la web.
 
 ### Miembros del equipo
   
