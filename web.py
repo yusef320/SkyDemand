@@ -247,12 +247,11 @@ if a:
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
 
 st.subheader(f"Fluctuación del mercado para {provincia}.")
-expander = st.sidebar.beta_expander("Sobre la gráfica")
+expander = st.beta_expander("Sobre la gráfica")
 expander.markdown(f"""La gráfica muestra el porcentaje de la variación de demanda de vuelos a {provincia} en función de la volatilidad de los precios. 
 También estudia si la cantidad de vuelos programados a {provincia} cambia. Ofrece, además, una pequeña predicción futura basada en el 
 comportamiento que han tenido los datos hasta el momento.
 """)
-st.text("")
 p = variacion(provincia,delta, "todos", rang, x,i)
 st.line_chart(p,use_container_width=True)
 
@@ -263,10 +262,9 @@ else:
         
 
 st.subheader("Variación por país de origen.")
-expander = st.sidebar.beta_expander("Sobre la gráfica")
+expander = st.beta_expander("Sobre la gráfica")
 expander.markdown(f"""La gráfica muestra la variación del precio medio de los vuelos a {provincia} dependiendo del país de origen de los turistas. 
 El porcentaje se corresponde con la variación del precio en {number} {days}.""")
-st.text("")
 df_verano = round((df.groupby("País origen")["% var. precio"].mean()/df2.groupby("País origen")["% var. precio"].mean()-1)*100 ,2)
 selec = abs(df_verano) > 0.2
 df_verano = df_verano[selec]
