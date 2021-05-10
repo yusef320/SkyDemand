@@ -330,7 +330,7 @@ duración de los contratos
 
 
 """
-st.write("Todo nuestro código en [Github](https://github.com/yusef320/SkyDemand)")
+st.write("Todo nuestro código en [Github](https://github.com/yusef320/SkyDemand) ❤️")
 
 image = Image.open('agradecimientos.png')
 st.image(image)
