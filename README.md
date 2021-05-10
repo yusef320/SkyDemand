@@ -11,6 +11,8 @@ La página web se ha creado usando Python con la libreria Streamlit, que a su ve
 Pandas (para el manejo de los datos), Pygithub (para automatizar la subida de los archivos), Sklearn (para los modelos predictivos), Numpy y Requests (para el 
 uso de la API de SkyScanner). Para enviar los correos usamos las librerias de smtplib, imaplib y email.
 
+![image](https://user-images.githubusercontent.com/82632877/117624261-064e0b00-b175-11eb-8fb4-abcf893b331b.png)
+
 
 ### Miembros del equipo
 
