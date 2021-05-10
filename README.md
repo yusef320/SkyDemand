@@ -13,9 +13,16 @@ uso de la API de SkyScanner). Para enviar los correos usamos las librerias de sm
 
 ![image](https://user-images.githubusercontent.com/82632877/117624261-064e0b00-b175-11eb-8fb4-abcf893b331b.png)
 
+#### Descripción de los archivos
+  - web.py: página principal escrita en Pyhton 
+  - recolcetor.py: programa encargado de la recolección de datos, enviar emails al newsletter, generar los CSV y subirlos a github. Funciona las 24 horas en una instancia de AWS.
+  - fecha.csv: son los arichivos de datos recolectados en esa fecha.
+  - carpeta .streamlit: configuración del tema de la página web.
+  - .png: fotos que utiliza la web.
+
 
 ### Miembros del equipo
-
+  
   - Yusef Ahsini Ouariaghli - <ahsini30@gmaill.com>
   - Pablo Díaz Masa Valencia
   - Miguel Peris Aragón
