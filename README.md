@@ -12,8 +12,7 @@ Entra en https://tinyurl.com/skydemand para acceder a la web.
   - Miguel Peris Aragón
   - Pablo Vellosillo Montalt
   - Joan Miravet Tenés
-  - Tutor: José Alberto Conejero Casares
-
+  
 ### Estructura del proyecto
 
 La página web se ha creado usando Python con la libreria Streamlit, que a su vez ofrece el hosting para la misma. Tambien hacemos uso de las librerias 
