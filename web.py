@@ -156,12 +156,15 @@ except:
     i=1
     delta = dia - datetime.datetime(2021,4,18)
     delta = delta.days +1
+    
 
 ###
 image = Image.open('logo.png')
 st.image(image, width=300)
-"""
-Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado.
+f"""
+Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
+
+Última actualización: f'2021-{dia.month:02d}-{dia.day:02d}'
 """
 expander = st.beta_expander("Información sobre la web.")
 expander.markdown("""
