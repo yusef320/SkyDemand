@@ -5,13 +5,20 @@ Valencia y la Escuela Técnica Superior de Ingeniería Informatica dentro del Da
 
 Entra en https://tinyurl.com/skydemand para acceder a la web.
 
+### Miembros del equipo
+  
+  - Yusef Ahsini Ouariaghli - <ahsini30@gmaill.com>
+  - Pablo Díaz Masa Valencia
+  - Miguel Peris Aragón
+  - Pablo Vellosillo Montalt
+  - Joan Miravet Tenés
+  - Tutor: José Alberto Conejero Casares
+
 ### Estructura del proyecto
 
 La página web se ha creado usando Python con la libreria Streamlit, que a su vez ofrece el hosting para la misma. Tambien hacemos uso de las librerias 
 Pandas (para el manejo de los datos), Pygithub (para automatizar la subida de los archivos), Sklearn (para los modelos predictivos), Numpy y Requests (para el 
 uso de la API de SkyScanner). Para enviar los correos usamos las librerias de smtplib, imaplib y email.
-
-![image](https://user-images.githubusercontent.com/82632877/117624261-064e0b00-b175-11eb-8fb4-abcf893b331b.png)
 
 #### Descripción de los archivos
   - web.py: página principal escrita en Pyhton 
@@ -21,14 +28,8 @@ uso de la API de SkyScanner). Para enviar los correos usamos las librerias de sm
   - .png: fotos que utiliza la web.
 
 
-### Miembros del equipo
-  
-  - Yusef Ahsini Ouariaghli - <ahsini30@gmaill.com>
-  - Pablo Díaz Masa Valencia
-  - Miguel Peris Aragón
-  - Pablo Vellosillo Montalt
-  - Joan Miravet Tenés
-  - Tutor: José Alberto Conejero Casares
+![image](https://user-images.githubusercontent.com/82632877/117624261-064e0b00-b175-11eb-8fb4-abcf893b331b.png)
+
 
 ### Licencia 
 
