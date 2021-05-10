@@ -38,7 +38,7 @@ def predicciónDem(fec, datos, oferta):
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="% Pred. fluctuación")
+    return pd.Series(data=demanda, index=fec, name="Predicción precio")
 
 @st.cache
 def predicciónVul(fec, datos, oferta):
@@ -65,7 +65,7 @@ def predicciónVul(fec, datos, oferta):
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="% Pred. de vuelos ofrecidos")
+    return pd.Series(data=demanda, index=fec, name="Pred. nº de plazas")
 
 @st.cache
 def variacion(provincia,delta, mercado, rang, x,i):
@@ -113,12 +113,13 @@ def variacion(provincia,delta, mercado, rang, x,i):
         o= round(df_demanda[mercado],2)
         oferta.append(o)
 
-    dat = pd.Series(data=datos, index=fec, name="% Fluctuación precios")
-    var = pd.Series(data=oferta, index=fec, name="% Vuelos ofrecidos")
+    dat = pd.Series(data=datos, index=fec, name="Precio medio")
+    var = pd.Series(data=oferta, index=fec, name="Nº de plazas")
     pred1 = predicciónDem(fec, dat, var)
     pred2 = predicciónVul(fec, dat, var)
     p = pd.concat([dat, var, pred1, pred2], axis=1)
-    return p
+    v = pd.concat([var, pred2], axis=1)
+    return [p,v]
 
 def enviar(email, provincia):
     """
@@ -254,14 +255,14 @@ Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la of
 Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
 """)
 
-st.subheader(f"Fluctuación del mercado para {provincia}.")
+st.subheader(f"Número de plazas estimadas para {provincia}.")
 expander = st.beta_expander("Sobre la gráfica")
 expander.markdown(f"""La gráfica muestra el porcentaje de la variación de demanda de vuelos a {provincia} en función de la volatilidad de los precios. 
 También estudia si la cantidad de vuelos programados a {provincia} cambia. Ofrece, además, una pequeña predicción futura basada en el 
 comportamiento que han tenido los datos hasta el momento.
 """)
 p = variacion(provincia,delta, "todos", rang, x,i)
-st.line_chart(p,use_container_width=True)
+st.chart(p[0],use_container_width=True)
 
 if number > 1:
     days = "días"
