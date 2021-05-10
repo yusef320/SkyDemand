@@ -129,9 +129,6 @@ def enviar(email, provincia):
     conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada vez que se produzca una fluctuacion importante en la demanda basada en el precio de los vuelos (de mas del 5%) le enviaremos un informe semanal sobre como ha evolucionado el mercado dia a dia.\n\nUn saludo,\n\nel equipo de SkyDemand.")
 
 
-
-
-
 ####                CUERPO DE LA PÁGINA                ####
 
 #La configuramos
@@ -246,20 +243,24 @@ if a:
         a = False
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
 
-st.subheader(f"Variación de la llegada de turistas para {provincia}.")
-f"""La gráfica muestra el porcentaje de la variación de demanda en función de la volatilidad de los precios y si 
-la cantidad de vuelos que se ofrece hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
-en el comportamiento que ha tenido hasta el momento.
+st.subheader(f"Fluctuación del mercado para {provincia}.")
+f"""La gráfica muestra el porcentaje de la variación de demanda de vuelos a {provincia} en función de la volatilidad de los precios. 
+También estudia si la cantidad de vuelos programados a {Provincia} cambia. Ofrece, además, una pequeña predicción futura basada en el 
+comportamiento que han tenido los datos hasta el momento.
 """
 st.text("")
 p = variacion(provincia,delta, "todos", rang, x,i)
 st.line_chart(p,use_container_width=True)
 
+if number > 1:
+    days = "días"
+else:
+    days = "día"
+        
 
-
-st.subheader("Variación llegada de turistas por país de origen.")
-f"""Muestra el comportamiento del mercado para {provincia} por cada uno de los principales paises emisores de turistas. " \
-El porcentaje es como ha variado en {number} día/s."""
+st.subheader("Variación por país de origen.")
+f"""La gráfica muestra la variación del precio medio de los vuelos a {Provincia} dependiendo del país de origen de los turistas. 
+El porcentaje se corresponde con la variación del precio en {number} {days}."""
 st.text("")
 df_verano = round((df.groupby("País origen")["% var. precio"].mean()/df2.groupby("País origen")["% var. precio"].mean()-1)*100 ,2)
 selec = abs(df_verano) > 0.2
@@ -277,11 +278,12 @@ df = df.loc[df["País origen"]==mercado]
 df2 = df2.loc[df2["País origen"]==mercado]
 
 try:
-    st.subheader(f"Variación llegada de turistas procedentes {mercado}.")
+    st.subheader(f"Fluctución del mercado procedentes {mercado}.")
     expander = st.beta_expander("Más información")
-    expander.markdown(f"""La siguiente gráfica muestra el porcentaje de variación de la demanda en función de la volatilidad de los precios y si 
-    la cantidad de vuelos que se ofrece desde {mercado} hacia {provincia} cambia (el dato base corresponde al día 18 de abril). Tambíen se ofrece una pequeña predicción futura basada
-    en el comportamiento que ha tenido hasta el momento.""")
+    expander.markdown(f"""La gráfica muestra el porcentaje de la variación de demanda de vuelos con origen {mercado} en función de la volatilidad de los precios. 
+    También estudia si la cantidad de vuelos programados desde {mercado} hacia {Provincia} cambia. Ofrece, además, una pequeña predicción futura basada en el 
+    comportamiento que han tenido los datos hasta el momento.
+    """)
     st.text("")
     p = variacion(provincia,delta, mercado, rang, x,i)
     st.line_chart(p,use_container_width=True)
@@ -290,10 +292,11 @@ try:
     j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
     selec = abs(j) > 0.2
     j = j[selec]
-    col1.subheader(f"Variación llegada de turistas por ciudad de {mercado}")
+    col1.subheader(f"Variación por ciudad de {mercado}")
     if j.empty == False:
         expander = col1.beta_expander("Más información")
-        expander.markdown("(Varia en función de los rango de dias y el mes escogido)")
+        expander.markdown(f"""La gráfica muestra la variación del precio medio de los vuelos provenientes de {mercado} segregados por ciudad de origen de los turistas. 
+        El porcentaje se corresponde con la variación del precio en {number} {days}.""")
         col1.bar_chart(j, use_container_width=True)
         col2.subheader("")
         col2.text("")
@@ -301,7 +304,7 @@ try:
     else:
         st.code("No se ha producido ninguna variación por ciudad para esta seleción.")
 except:
-    st.code("No se pueden mostrar los datos para esta selección, modifiquela para solucionarlo. Disculpe las molestias.")
+    st.code("No existen datos para esta selección, modifiquela para solucionarlo.")
 
 
 """
