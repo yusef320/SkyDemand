@@ -102,10 +102,10 @@ def variacion(provincia,delta, mercado, rang, x,i):
         elif rang == "Día":
             d = d.loc[d["Mes"]==x[0]]
             d = d.loc[d["Dia"]==x[1]]
-        df_verano = (d.groupby(a)["Precio"].mean()/d2.groupby(a)["Precio"].mean()-1)*100
+        df_verano = d.groupby(a)["Precio"].mean()
         d = d.loc[d["Es directo"]==1]
         d2c = d2.loc[d2["Es directo"]==1]
-        df_demanda = (d.groupby(a)["Es directo"].sum()/d2c.groupby(a)["Es directo"].sum()-1)*100
+        df_demanda = d.groupby(a)["Es directo"].sum()*189
         s= round(df_verano[mercado],2)
         datos.append(s)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
