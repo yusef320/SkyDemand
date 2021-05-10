@@ -262,7 +262,22 @@ También estudia si la cantidad de vuelos programados a {provincia} cambia. Ofre
 comportamiento que han tenido los datos hasta el momento.
 """)
 p = variacion(provincia,delta, "todos", rang, x,i)
+
+st.line_chart(p[1],use_container_width=True)
+
+st.subheader(f"Precio medio de las tarifas hacia {provincia}.")
 st.line_chart(p[0],use_container_width=True)
+
+if p[0]["Precio medio"][-3] > 100:
+    col = "red"
+elif p[0]["Precio medio"][-3] > 50 and p[0]["Precio medio"][-3] < 100:
+    col = "yellow"
+else:
+    col = "green"
+    
+        
+
+color = st.color_picker("Indicador de demanda",col)
 
 if number > 1:
     days = "días"
