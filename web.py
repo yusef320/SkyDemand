@@ -133,7 +133,7 @@ def enviar(email, provincia):
 
 #La configuramos
 
-img = Image.open("logo.jpg")
+img = Image.open("logopag.png")
 st.set_page_config(layout="wide",page_title="SkyDemand",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
 hide_menu_style = """
         <style>
