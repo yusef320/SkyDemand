@@ -262,7 +262,7 @@ También estudia si la cantidad de vuelos programados a {provincia} cambia. Ofre
 comportamiento que han tenido los datos hasta el momento.
 """)
 p = variacion(provincia,delta, "todos", rang, x,i)
-st.area_chart(p[0],use_container_width=True)
+st.line_chart(p[0],use_container_width=True)
 
 if number > 1:
     days = "días"
