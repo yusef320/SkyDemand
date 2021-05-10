@@ -292,7 +292,7 @@ try:
     j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
     selec = abs(j) > 0.2
     j = j[selec]
-    col1.subheader(f"Variación por ciudad de {mercado}")
+    col1.subheader(f"Variación por ciudad de {mercado}.")
     if j.empty == False:
         expander = col1.beta_expander("Más información")
         expander.markdown(f"""La gráfica muestra la variación del precio medio de los vuelos provenientes de {mercado} segregados por ciudad de origen de los turistas. 
