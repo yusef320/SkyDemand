@@ -164,7 +164,7 @@ st.image(image, width=300)
 f"""
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
 
-Última actualización: f'2021-{dia.month:02d}-{dia.day:02d}'
+Última actualización: 2021-{dia.month:02d}-{dia.day:02d}
 """
 expander = st.beta_expander("Información sobre la web.")
 expander.markdown("""
