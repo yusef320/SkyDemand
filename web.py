@@ -117,7 +117,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
     var = pd.Series(data=oferta, index=fec, name="Nº de plazas")
     pred1 = predicciónDem(fec, dat, var)
     pred2 = predicciónVul(fec, dat, var)
-    p = pd.concat([dat, var, pred1, pred2], axis=1)
+    p = pd.concat([dat, pred1], axis=1)
     v = pd.concat([var, pred2], axis=1)
     return [p,v]
 
