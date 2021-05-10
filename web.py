@@ -276,7 +276,7 @@ else:
     col = "#33FF00"
     
         
-col1, col2 = st.beta_columns([7, 1])
+col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda""",col)
 col2.line_chart(p[0],use_container_width=True)
 
