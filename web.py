@@ -268,12 +268,12 @@ st.line_chart(p[1],use_container_width=True)
 st.subheader(f"Precio medio de las tarifas hacia {provincia}.")
 st.line_chart(p[0],use_container_width=True)
 
-if p[0]["Precio medio"][-3] > 100:
-    col = "red"
-elif p[0]["Precio medio"][-3] > 50 and p[0]["Precio medio"][-3] < 100:
-    col = "yellow"
+if p[0]["Precio medio"][-3] > 150:
+    col = "#F91212"
+elif p[0]["Precio medio"][-3] > 80 and p[0]["Precio medio"][-3] < 150:
+    col = "#FFFB00"
 else:
-    col = "green"
+    col = "#33FF00"
     
         
 
