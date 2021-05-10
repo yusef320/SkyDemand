@@ -276,9 +276,10 @@ else:
     col = "#33FF00"
     
         
-col1, col2 = st.beta_columns([8, 1])
-col1.line_chart(p[0],use_container_width=True)
-color = col2.color_picker("""🚦 de demanda""",col)
+col1, col2 = st.beta_columns([7, 1])
+col1.color_picker("""Semáforo de demanda""",col)
+col2.line_chart(p[0],use_container_width=True)
+
 
 if number > 1:
     days = "días"
