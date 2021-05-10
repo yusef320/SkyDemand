@@ -169,7 +169,7 @@ except:
 # Barra lateral
 
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
-number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 14)
+number = st.sidebar.slider("Elige el rango en días entre los datos", 7, 21)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
 df = df.loc[df["Ciudad de destino"] == provincia]
@@ -266,7 +266,7 @@ p = variacion(provincia,delta, "todos", rang, x,i)
 st.line_chart(p[1],use_container_width=True)
 
 st.subheader(f"Precio medio de las tarifas hacia {provincia}.")
-st.line_chart(p[0],use_container_width=True)
+
 
 if p[0]["Precio medio"][-3] > 150:
     col = "#F91212"
@@ -276,14 +276,14 @@ else:
     col = "#33FF00"
     
         
-
-color = st.color_picker("Indicador de demanda",col)
+col1, col2 = st.beta_columns([5, 1])
+col1.line_chart(p[0],use_container_width=True)
+color = col2..color_picker("Indicador de demanda",col)
 
 if number > 1:
     days = "días"
 else:
-    days = "día"
-        
+    days = "día"     
 
 st.subheader("Variación por país de origen.")
 expander = st.beta_expander("Sobre la gráfica")
