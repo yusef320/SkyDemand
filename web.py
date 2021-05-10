@@ -21,8 +21,8 @@ def predicciónDem(fec, datos, oferta):
     p = pd.concat([datos, oferta], axis=1)
     p = p.dropna(axis=0, how="any")
     demanda = []
-    train = p.drop(["% Fluctuación precios"], axis=1)
-    test = p["% Fluctuación precios"]
+    train = p.drop(["Precio medio"], axis=1)
+    test = p["Precio medio"]
     X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
@@ -32,7 +32,7 @@ def predicciónDem(fec, datos, oferta):
         if i >= 2: break
         demanda.append(round(elemento,2))
         i+=1
-    demanda.append(p["% Fluctuación precios"][0])
+    demanda.append(p["Precio medio"][0])
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
@@ -48,8 +48,8 @@ def predicciónVul(fec, datos, oferta):
     p = pd.concat([datos, oferta], axis=1)
     p = p.dropna(axis=0, how="any")
     demanda = []
-    train = p.drop(["% Vuelos ofrecidos"], axis=1)
-    test = p["% Vuelos ofrecidos"]
+    train = p.drop(["Nº de plazas"], axis=1)
+    test = p["Nº de plazas"]
     X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
@@ -59,7 +59,7 @@ def predicciónVul(fec, datos, oferta):
         if i >= 2: break
         demanda.append(round(elemento,2))
         i+=1
-    demanda.append(p["% Vuelos ofrecidos"][0])
+    demanda.append(p["Nº de plazas"][0])
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
