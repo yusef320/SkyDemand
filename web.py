@@ -1,3 +1,5 @@
+# Autor: Yusef Ahsini Ouariaghli
+
 import streamlit as st
 import pandas as pd
 import datetime
@@ -7,8 +9,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from PIL import Image
 
-
+############################################
 #####           FUNCIONES               ####
+############################################
 
 @st.cache
 def predicciónDem(fec, datos, oferta):
@@ -129,9 +132,10 @@ def enviar(email, provincia):
     conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada vez que se produzca una fluctuacion importante en la demanda basada en el precio de los vuelos (de mas del 5%) le enviaremos un informe semanal sobre como ha evolucionado el mercado dia a dia.\n\nUn saludo,\n\nel equipo de SkyDemand.")
 
 
-####                CUERPO DE LA PÁGINA                ####
+############################################################
+####                CONFIGURAMOS LA PÁGINA              ####
+############################################################
 
-#La configuramos
 
 img = Image.open("logopag.png")
 st.set_page_config(layout="wide",page_title="SkyDemand",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
@@ -156,29 +160,12 @@ except:
     i=1
     delta = dia - datetime.datetime(2021,4,18)
     delta = delta.days +1
-    
 
-###
-image = Image.open('logo.png')
-st.image(image, width=300)
-f"""
-Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
+########################################################### 
+####                CUERPO DE LA PÁGINA                ####
+###########################################################
 
-Última actualización: 2021-{dia.month:02d}-{dia.day:02d}
-"""
-expander = st.beta_expander("Información sobre la web.")
-expander.markdown("""
-#### ¿Qué ofrecemos?
-Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
-
-#### ¿Cómo se usa?
-Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
-
-#### ¿Cómo funciona?
-Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife puesto que en esa zona hay empresas interesadas.
-Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
-""")
-
+# Barra lateral
 
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 1, 14)
@@ -214,7 +201,6 @@ elif rang == "Día":
 else:
     x=0
 
-
 st.sidebar.text("")
 st.sidebar.text("")
 expander = st.sidebar.beta_expander("Newsletter")
@@ -245,6 +231,28 @@ if a:
     else:
         a = False
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
+        
+#Parte central
+
+image = Image.open('logo.png')
+st.image(image, width=300)
+f"""
+Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
+
+Última actualización: 2021-{dia.month:02d}-{dia.day:02d}
+"""
+expander = st.beta_expander("Información sobre la web.")
+expander.markdown("""
+#### ¿Qué ofrecemos?
+Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
+
+#### ¿Cómo se usa?
+Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
+
+#### ¿Cómo funciona?
+Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife puesto que en esa zona hay empresas interesadas.
+Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
+""")
 
 st.subheader(f"Fluctuación del mercado para {provincia}.")
 expander = st.beta_expander("Sobre la gráfica")
