@@ -270,7 +270,7 @@ st.bar_chart(df_verano, use_container_width=True)
 st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
 col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
-col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][0]))
+col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
 col2.line_chart(p[0],use_container_width=True)
 st.markdown("""Verde = demanda baja,
             Amarillo = demanda media y 
@@ -305,7 +305,7 @@ st.line_chart(p2[1],use_container_width=True)
 st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
 col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
-col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][0]))#semaforo basado valores obtenidos de Google Flights
+col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2]))#semaforo basado valores obtenidos de Google Flights
 col2.line_chart(p2[0],use_container_width=True)
 st.markdown("""Verde = demanda baja, Amarillo = demanda media y Rojo = demanda alta""")
 st.markdown("*Indicador basado en el precio medio comparado con rangos de años anteriores.")
