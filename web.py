@@ -240,7 +240,7 @@ Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofr
 
 p = variacion(provincia,delta, "todos", rang, x,i)
 
-st.markdown("🢀 *Consejo: modifica los valores en el panel lateral.*❗")
+st.markdown("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos ❗❗❗")
 
 st.subheader(f"Número de plazas estimadas para {provincia}.*")
 st.line_chart(p[1],use_container_width=True)
@@ -287,6 +287,7 @@ df_verano = df_verano[selec]
 st.bar_chart(df_verano, use_container_width=True)
 
 
+st.markdown("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos ❗❗❗")
 
 """
 ## Estudio por país de orgen.
