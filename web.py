@@ -282,10 +282,6 @@ st.markdown("*Indicador basado en el precio medio comparado con rangos de años 
 
 
 st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
-expander = st.beta_expander("Sobre la gráfica")
-expander.markdown(f"""La gráfica muestra la variación del precio medio de los vuelos a {provincia} dependiendo del país de origen de los turistas. 
-El porcentaje se corresponde con la variation del precio en {number} días.""")
-
 df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
 df_verano = df_verano.rename("% var precio")
 selec = abs(df_verano) > 0.01
