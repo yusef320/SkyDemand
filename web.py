@@ -252,7 +252,7 @@ selec = abs(df_verano) > 1
 df_verano = df_verano[selec]
 df_verano = df_verano.rename("Nº de plazas")
 st.bar_chart(df_verano, width=600, height=380)
-st.markdown("*189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320 ) ")
+st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
 st.subheader(f"País de origen de las plazas.")
 num = df.groupby("Ciudad de destino")["Es directo"].sum()
