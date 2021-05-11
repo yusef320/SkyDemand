@@ -135,9 +135,11 @@ st.markdown(hide_menu_style,unsafe_allow_html=True)
 #Comprobamos si hay una ultima actualización para los datos
 try:
     dia = datetime.datetime.now() #Día de hoy
+    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=0
 except:
     dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
+    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=1
     
 df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
