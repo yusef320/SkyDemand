@@ -74,6 +74,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
         elif rang == "Día":
             d = d.loc[d["Mes"]==x[0]]
             d = d.loc[d["Dia"]==x[1]]
+        d = d.loc[d["Es directo"]==1]
         df_verano = d.groupby(a)["Precio"].mean()
         df_demanda = d.groupby(a)["Es directo"].sum()*189
         s= round(df_verano[mercado],2)
@@ -141,6 +142,8 @@ except:
     dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=1
+
+    
 df = df.loc[df["Es directo"]==1]
 delta = dia - datetime.datetime(2021,4,18)
 delta = delta.days +1
