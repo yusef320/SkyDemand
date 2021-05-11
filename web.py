@@ -110,14 +110,14 @@ def color(provincia, num):
     if provincia == "Tenerife":
         max, min = 200,120 #rango obtenido mediante busquedas en Google flights
     else:
-        max, min = 150,90
+        max, min = 150,100
 
     if num > max:
-        return "#F91212"
+        return "#33FF00"
     elif num>min and num<max:
         return "#FFFB00"
     else:
-        return "#33FF00"
+        return "#F91212"
 ############################################################
 ####                CONFIGURAMOS LA PÁGINA              ####
 ############################################################
@@ -275,10 +275,8 @@ col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
 col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
 col2.line_chart(p[0],use_container_width=True)
-st.markdown("""Verde = demanda baja,
-            Amarillo = demanda media y 
-            Rojo = demanda alta""")
-st.markdown("*Indicador basado en el precio medio comparado con rangos de años anteriores.")
+st.markdown("""*Rojo (demanda baja), amarillo (demanda media) y verde (demanda alta)*""")
+st.markdown("**Indicador basado en el precio medio comparado con rangos de años anteriores.*")
 
 
 st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
@@ -306,10 +304,10 @@ try:
     col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
     col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])) #semaforo basado valores obtenidos de Google Flights
     col2.line_chart(p2[0],use_container_width=True)
-    st.markdown("""Verde = demanda baja, Amarillo = demanda media y Rojo = demanda alta""")
-    st.markdown("*Indicador basado en el precio medio comparado con rangos de años anteriores.")
+    st.markdown("""*Rojo (demanda baja), amarillo (demanda media) y verde (demanda alta)*""")
+    st.markdown("**Indicador basado en el precio medio comparado con rangos de años anteriores.*")
 except:
-    st.code("No hay vuelos para este día.")
+    st.code(f"No hay vuelos desde {mercado} para día.")
         
 
 st.text("")
