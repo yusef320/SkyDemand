@@ -244,7 +244,7 @@ st.markdown("**<---------- Consejo: modifica los valores en el panel lateral.**"
 
 st.subheader(f"Número de plazas estimadas para {provincia}.*")
 st.line_chart(p[1],use_container_width=True)
-st.markdown("*189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320 ) ")
+st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
 st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
 df_verano = df.groupby("País origen")["Es directo"].sum() * 189
