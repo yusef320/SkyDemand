@@ -142,7 +142,6 @@ except:
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=1
     
-df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
 delta = dia - datetime.datetime(2021,4,18)
 delta = delta.days +1
 
