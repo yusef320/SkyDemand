@@ -8,64 +8,44 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from PIL import Image
+import plotly.express as px
+
 
 ############################################
 #####           FUNCIONES               ####
 ############################################
 
 @st.cache
-def predicciónDem(fec, datos, oferta):
+def predicción(fec, datos, oferta, dato):
     """
-    Modelo predictivo para la fluctucación de las tarifas aéreas.
+    Modelo predictivo.
     """
     p = pd.concat([datos, oferta], axis=1)
     p = p.dropna(axis=0, how="any")
     demanda = []
-    train = p.drop(["Precio medio"], axis=1)
-    test = p["Precio medio"]
+    train = p.drop([dato], axis=1)
+    test = p[dato]
     X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
     i=0
     for elemento in pred:
-        if i >= 2: break
+        if i >= 3: break
         demanda.append(round(elemento,2))
         i+=1
-    demanda.append(p["Precio medio"][0])
+    demanda.append(p[dato][0])
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
         demanda.append(np.NaN)
 
-    return pd.Series(data=demanda, index=fec, name="Predicción precio")
+    if dato == "Nº de plazas":
+        name = "Pred. nº de plazas"
+    else:
+        name = "Predicción precio"
 
-@st.cache
-def predicciónVul(fec, datos, oferta):
-    """
-    Modelo predictivo para la fluctucación del número de vuelos.
-    """
-    p = pd.concat([datos, oferta], axis=1)
-    p = p.dropna(axis=0, how="any")
-    demanda = []
-    train = p.drop(["Nº de plazas"], axis=1)
-    test = p["Nº de plazas"]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
-    regr = LinearRegression()
-    regr.fit(X_train, Y_train)
-    pred = regr.predict(X_train)
-    i=0
-    for elemento in pred:
-        if i >= 2: break
-        demanda.append(round(elemento,2))
-        i+=1
-    demanda.append(p["Nº de plazas"][0])
-    dist = len(fec)-len(demanda)
-
-    for i in range(dist):
-        demanda.append(np.NaN)
-
-    return pd.Series(data=demanda, index=fec, name="Pred. nº de plazas")
+    return pd.Series(data=demanda, index=fec, name=name)
 
 @st.cache
 def variacion(provincia,delta, mercado, rang, x,i):
@@ -73,38 +53,29 @@ def variacion(provincia,delta, mercado, rang, x,i):
     Devuelve un dataframe con la variación de las tarifas
     y el número de vuelos asi como la predicción para ambas.
     """
-    datos,fec,oferta  = [np.NaN,np.NaN], [], [np.NaN,np.NaN]
+    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
     else:
         a = "País origen"
 
-    for z in range(1,3):
+    for z in range(1,4):
         dia = datetime.datetime.now() + datetime.timedelta(days=z-i)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
         fec.append(fecha)
-
-    d2 = pd.read_csv(f'2021-04-18.csv', delimiter=';')
-    d2 = d2.loc[d2["Ciudad de destino"] == provincia]
-    if rang == "Mes":
-        d2 = d2.loc[d2["Mes"]==x]
-    elif rang == "Día":
-        d2 = d2.loc[d2["Mes"]==x[0]]
-        d2 = d2.loc[d2["Dia"]==x[1]]
 
     for p in range(0, delta):
         dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
         d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
         d = d.loc[d["Ciudad de destino"] == provincia]
+        d = d.loc[d["Es directo"]==1]
         if rang == "Mes":
             d = d.loc[d["Mes"]==x]
         elif rang == "Día":
             d = d.loc[d["Mes"]==x[0]]
             d = d.loc[d["Dia"]==x[1]]
         df_verano = d.groupby(a)["Precio"].mean()
-        d = d.loc[d["Es directo"]==1]
-        d2c = d2.loc[d2["Es directo"]==1]
         df_demanda = d.groupby(a)["Es directo"].sum()*189
         s= round(df_verano[mercado],2)
         datos.append(s)
@@ -115,8 +86,8 @@ def variacion(provincia,delta, mercado, rang, x,i):
 
     dat = pd.Series(data=datos, index=fec, name="Precio medio")
     var = pd.Series(data=oferta, index=fec, name="Nº de plazas")
-    pred1 = predicciónDem(fec, dat, var)
-    pred2 = predicciónVul(fec, dat, var)
+    pred1 = predicción(fec, dat, var,"Precio medio")
+    pred2 = predicción(fec, dat, var, "Nº de plazas")
     p = pd.concat([dat, pred1], axis=1)
     v = pd.concat([var, pred2], axis=1)
     return [p,v]
@@ -132,7 +103,21 @@ def enviar(email, provincia):
     conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
     conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada vez que se produzca una fluctuacion importante en la demanda basada en el precio de los vuelos (de mas del 5%) le enviaremos un informe semanal sobre como ha evolucionado el mercado dia a dia.\n\nUn saludo,\n\nel equipo de SkyDemand.")
 
+def color(provincia, num):
+    """
+    devuelve el color del semáforo
+    """
+    if provincia == "Tenerife":
+        max, min = 200,120 #rango obtenido mediante busquedas en Google flights
+    else:
+        max, min = 150,90
 
+    if num > max:
+        return "#F91212"
+    elif num>min and num<max:
+        return "#FFFB00"
+    else:
+        return "#33FF00"
 ############################################################
 ####                CONFIGURAMOS LA PÁGINA              ####
 ############################################################
@@ -152,17 +137,19 @@ st.markdown(hide_menu_style,unsafe_allow_html=True)
 try:
     dia = datetime.datetime.now() #Día de hoy
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+    df = df.loc[df["Es directo"]==1]
     i=0
     delta = dia - datetime.datetime(2021,4,18)
     delta = delta.days +1
 except:
     dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+    df = df.loc[df["Es directo"]==1]
     i=1
     delta = dia - datetime.datetime(2021,4,18)
     delta = delta.days +1
 
-########################################################### 
+###########################################################
 ####                CUERPO DE LA PÁGINA                ####
 ###########################################################
 
@@ -232,66 +219,78 @@ if a:
     else:
         a = False
         st.sidebar.text("Email incorrecto, intentelo de nuevo.")
-        
+
 #Parte central
 
 image = Image.open('logo.png')
 st.image(image, width=300)
 f"""
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
-
 Última actualización: 2021-{dia.month:02d}-{dia.day:02d}
 """
 expander = st.beta_expander("Información sobre la web.")
 expander.markdown("""
 #### ¿Qué ofrecemos?
 Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
-
 #### ¿Cómo se usa?
 Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
-
 #### ¿Cómo funciona?
 Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife puesto que en esa zona hay empresas interesadas.
 Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
 """)
 
-st.subheader(f"Número de plazas estimadas para {provincia}.")
-expander = st.beta_expander("Sobre la gráfica")
-expander.markdown(f"""La gráfica muestra el porcentaje de la variación de demanda de vuelos a {provincia} en función de la volatilidad de los precios. 
-También estudia si la cantidad de vuelos programados a {provincia} cambia. Ofrece, además, una pequeña predicción futura basada en el 
-comportamiento que han tenido los datos hasta el momento.
-""")
 p = variacion(provincia,delta, "todos", rang, x,i)
 
+st.markdown("**<---------- Consejo: modifica los valores en el panel lateral.**")
+
+st.subheader(f"Número de plazas estimadas para {provincia}.*")
 st.line_chart(p[1],use_container_width=True)
+st.markdown("*189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320 ) ")
 
-st.subheader(f"Precio medio de las tarifas hacia {provincia}.")
+st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
+df_verano = df.groupby("País origen")["Es directo"].sum() * 189
+selec = abs(df_verano) > 1
+df_verano = df_verano[selec]
+df_verano = df_verano.rename("Nº de plazas")
+st.bar_chart(df_verano, width=600, height=380)
+st.markdown("*189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320 ) ")
+
+st.subheader(f"País de origen de las plazas.")
+num = df.groupby("Ciudad de destino")["Es directo"].sum()
+df_total = round((df.groupby("País origen")["Es directo"].sum()/num[provincia])*100,2)
+df_total = df_total.rename("% de las plazas")
+df_total = pd.DataFrame(df_total)
+fig = px.pie(df_total, values="% de las plazas", names=df_total.index)
+st.plotly_chart(fig,use_container_width=True)
+
+st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
+df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
+selec = abs(df_verano) > 0.01
+df_verano = df_verano[selec]
+df_verano = df_verano.rename("""Nº de plazas""")
+st.bar_chart(df_verano, use_container_width=True)
 
 
-if p[0]["Precio medio"][-3] > 150:
-    col = "#F91212"
-elif p[0]["Precio medio"][-3] > 80 and p[0]["Precio medio"][-3] < 150:
-    col = "#FFFB00"
-else:
-    col = "#33FF00"
-    
-        
+st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
+
 col1, col2 = st.beta_columns([1, 7])
-col1.color_picker("""Semáforo de demanda""",col)
+col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
+col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][0]))
 col2.line_chart(p[0],use_container_width=True)
+st.markdown("""Verde = demanda baja,
+            Amarillo = demanda media y 
+            Rojo = demanda alta""")
+st.markdown("*Indicador basado en el precio medio comparado con rangos de años anteriores.")
 
 
-if number > 1:
-    days = "días"
-else:
-    days = "día"     
-
-st.subheader("Variación por país de origen.")
+st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
 expander = st.beta_expander("Sobre la gráfica")
 expander.markdown(f"""La gráfica muestra la variación del precio medio de los vuelos a {provincia} dependiendo del país de origen de los turistas. 
-El porcentaje se corresponde con la variación del precio en {number} {days}.""")
-df_verano = round((df.groupby("País origen")["% var. precio"].mean()/df2.groupby("País origen")["% var. precio"].mean()-1)*100 ,2)
-selec = abs(df_verano) > 0.2
+El porcentaje se corresponde con la variation del precio en {number} días.""")
+
+df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
+df_verano = df_verano.rename("% var precio")
+selec = abs(df_verano) > 0.01
 df_verano = df_verano[selec]
 st.bar_chart(df_verano, use_container_width=True)
 
@@ -304,48 +303,28 @@ Selecciona un país de la lista y obten los datos filtrados con las llegadas par
 mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia","Países Bajos","Bélgica"))
 df = df.loc[df["País origen"]==mercado]
 df2 = df2.loc[df2["País origen"]==mercado]
+p2 = variacion(provincia,delta, mercado, rang, x,i)
+st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
+st.line_chart(p2[1],use_container_width=True)
 
-try:
-    st.subheader(f"Fluctución del mercado procedentes {mercado}.")
-    expander = st.beta_expander("Sobre la gráfica")
-    expander.markdown(f"""La gráfica muestra el porcentaje de la variación de demanda de vuelos con origen {mercado} en función de la volatilidad de los precios. 
-    También estudia si la cantidad de vuelos programados desde {mercado} hacia {provincia} cambia. Ofrece, además, una pequeña predicción futura basada en el 
-    comportamiento que han tenido los datos hasta el momento.
-    """)
-    st.text("")
-    p = variacion(provincia,delta, mercado, rang, x,i)
-    st.line_chart(p,use_container_width=True)
-
-    col1, col2 = st.beta_columns([5, 3])
-    j = round((df.groupby("Ciudad origen")["% var. precio"].mean()/df2.groupby("Ciudad origen")["% var. precio"].mean()-1)*100,2)
-    selec = abs(j) > 0.2
-    j = j[selec]
-    col1.subheader(f"Variación por ciudad de {mercado}.")
-    if j.empty == False:
-        expander = col1.beta_expander("Sobre la gráfica")
-        expander.markdown(f"""La gráfica muestra la variación del precio medio de los vuelos provenientes de {mercado} segregados por ciudad de origen de los turistas. 
-        El porcentaje se corresponde con la variación del precio en {number} {days}.""")
-        col1.bar_chart(j, use_container_width=True)
-        col2.subheader("")
-        col2.text("")
-        col2.table(j)
-    else:
-        st.code("No se ha producido ninguna variación por ciudad para esta seleción.")
-except:
-    st.code("No existen datos para esta selección, modifiquela para solucionarlo.")
+st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
+col1, col2 = st.beta_columns([1, 7])
+col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
+col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][0])) #semaforo basado valores obtenidos de Google Flights
+col2.line_chart(p2[0],use_container_width=True)
+st.markdown("""Verde = demanda baja, Amarillo = demanda media y Rojo = demanda alta""")
+st.markdown("*Indicador basado en el precio medio comparado con rangos de años anteriores.")
 
 
+st.text("")
 """
 ## Sobre nosotros
-
 SkyDemand es un proyecto desarrollado íntegramente por 
 estudiantes del Grado de Ciencia de Datos de la Universidad Politécnica de Valencia.
 Nuestro objetivo es proveer a pequeños y medianos negocios de una herramienta útil para 
 analizar y predecir la afluencia de turistas, permitiéndoles 
 así tomar decisiones relevantes como las fechas de apertura o la
 duración de los contratos
-
-
 """
 st.write("Todo nuestro código en [Github](https://github.com/yusef320/SkyDemand) ❤️")
 
