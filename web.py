@@ -317,8 +317,8 @@ SkyDemand es un proyecto desarrollado íntegramente por
 estudiantes del Grado de Ciencia de Datos de la Universidad Politécnica de Valencia.
 Nuestro objetivo es proveer a pequeños y medianos negocios de una herramienta útil para 
 analizar y predecir la afluencia de turistas, permitiéndoles 
-así tomar decisiones relevantes como las fechas de apertura o la
-duración de los contratos
+así tomar decisiones relevantes como las fechas de apertura,los precios de sus productos, la
+duración de los contratos o donde enfocar su publicidad.
 """
 st.write("Todo nuestro código en [Github](https://github.com/yusef320/SkyDemand) ❤️")
 
