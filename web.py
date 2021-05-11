@@ -275,7 +275,7 @@ col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
 col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
 col2.line_chart(p[0],use_container_width=True)
-st.markdown("""*🔴 (demanda baja), 🟡 (demanda media) y 🟢 (demanda alta).*""")
+st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
 st.markdown("**Indicador basado en el precio medio comparado con rangos de años anteriores.*")
 
 
@@ -304,7 +304,7 @@ try:
     col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
     col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])) #semaforo basado valores obtenidos de Google Flights
     col2.line_chart(p2[0],use_container_width=True)
-    st.markdown("""*🔴 (demanda baja), 🟡 (demanda media) y 🟢 (demanda alta).*""")
+    st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
     st.markdown("**Indicador basado en el precio medio comparado con rangos de años anteriores.*")
 except:
     st.code(f"No hay vuelos desde {mercado} para día.")
