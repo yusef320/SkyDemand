@@ -108,9 +108,9 @@ def color(provincia, num):
     devuelve el color del semáforo
     """
     if provincia == "Tenerife":
-        max, min = 200,120 #rango obtenido mediante busquedas en Google flights
+        max, min = 190,120 #rango obtenido mediante busquedas en Google flights
     else:
-        max, min = 150,100
+        max, min = 150,90
 
     if num > max:
         return "#33FF00"
