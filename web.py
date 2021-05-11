@@ -69,7 +69,6 @@ def variacion(provincia,delta, mercado, rang, x,i):
         dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
         d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
         d = d.loc[d["Ciudad de destino"] == provincia]
-        d = d.loc[d["Es directo"]==1]
         if rang == "Mes":
             d = d.loc[d["Mes"]==x]
         elif rang == "Día":
@@ -136,18 +135,14 @@ st.markdown(hide_menu_style,unsafe_allow_html=True)
 #Comprobamos si hay una ultima actualización para los datos
 try:
     dia = datetime.datetime.now() #Día de hoy
-    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    df = df.loc[df["Es directo"]==1]
     i=0
-    delta = dia - datetime.datetime(2021,4,18)
-    delta = delta.days +1
 except:
     dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
-    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    df = df.loc[df["Es directo"]==1]
     i=1
-    delta = dia - datetime.datetime(2021,4,18)
-    delta = delta.days +1
+    
+df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+delta = dia - datetime.datetime(2021,4,18)
+delta = delta.days +1
 
 ###########################################################
 ####                CUERPO DE LA PÁGINA                ####
@@ -272,7 +267,6 @@ st.bar_chart(df_verano, use_container_width=True)
 
 
 st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
-
 col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
 col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][0]))
