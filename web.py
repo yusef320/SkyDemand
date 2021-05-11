@@ -141,7 +141,7 @@ except:
     dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=1
-    
+df = df.loc[df["Es directo"]==1]
 delta = dia - datetime.datetime(2021,4,18)
 delta = delta.days +1
 
@@ -305,10 +305,11 @@ st.line_chart(p2[1],use_container_width=True)
 st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
 col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
-col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][0])) #semaforo basado valores obtenidos de Google Flights
+col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][0]))#semaforo basado valores obtenidos de Google Flights
 col2.line_chart(p2[0],use_container_width=True)
 st.markdown("""Verde = demanda baja, Amarillo = demanda media y Rojo = demanda alta""")
 st.markdown("*Indicador basado en el precio medio comparado con rangos de años anteriores.")
+st.text(p2[0]["Predicción precio"][0])
 
 
 st.text("")
