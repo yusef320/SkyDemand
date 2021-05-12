@@ -144,7 +144,6 @@ except:
     i=1
 
     
-df = df.loc[df["Es directo"]==1]
 delta = dia - datetime.datetime(2021,4,18)
 delta = delta.days +1
 
@@ -247,8 +246,9 @@ st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}
 st.line_chart(p[1],use_container_width=True)
 st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
-st.subheader(f"Número de plazas estimadas para {provincia} por país.*"
-df_verano = df.groupby(f"País origen")["Es directo"].sum() * 189
+st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
+st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
+df_verano = df.groupby(f"País origen")["Es directo"].count() * 189
 selec = abs(df_verano) > 1
 df_verano = df_verano[selec]
 df_verano = df_verano.rename("Nº de plazas")
@@ -266,7 +266,7 @@ st.plotly_chart(fig,use_container_width=True)
 
 st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
 st.markdown(f"Aumento o disminución de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
-df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
+df_verano = (df.groupby("País origen")["Es directo"].count() * 189)-(df2.groupby("País origen")["Es directo"].count()*189)
 selec = abs(df_verano) > 0.01
 df_verano = df_verano[selec]
 df_verano = df_verano.rename("""Nº de plazas""")
@@ -275,7 +275,6 @@ st.bar_chart(df_verano, use_container_width=True)
 
 st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
 st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el el rango escogido.")
-
 col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
 col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
@@ -285,6 +284,7 @@ st.markdown("**En función del precio medio de las tarifas indica el estado de l
 
 
 st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
+df = df.loc[df["Es directo"]==1]
 df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
 df_verano = df_verano.rename("% var precio")
 selec = abs(df_verano) > 0.01
