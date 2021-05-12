@@ -193,7 +193,7 @@ st.sidebar.markdown(f"""
 #### Newsletter
 Recibe un email una vez a la semana con información relevante para {provincia} antes que nadie.
 """)
-email = st.sidebar.text_input(value='ejemplo@mail.com')
+email = st.sidebar.text_input("¡Suscríbete!",'ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
 
 usuario = st.secrets["usuario"]
@@ -282,6 +282,7 @@ st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el el r
 col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
 col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
+st.text(p[0]["Predicción precio"][2])
 col2.line_chart(p[0],use_container_width=True)
 st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
 st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
