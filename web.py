@@ -193,7 +193,7 @@ st.sidebar.markdown(f"""
 #### Newsletter
 Recibe un email una vez a la semana con la información relevante para {provincia}.
 """)
-col1,col2 = st.sidebar.beta_columns = [2,1]
+col1,col2 = st.sidebarbeta_columns([2,1]) 
 
 email = col1.text_input(f'Suscríbete a nuestro newsletter sobre {provincia}', 'ejemplo@mail.com')
 a = col2.button("Suscribir")
@@ -224,8 +224,8 @@ image = Image.open('logo.png')
 st.image(image, width=300)
 f"""
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
-Última actualización: 2021-{dia.month:02d}-{dia.day:02d}
 """
+st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
 expander = st.beta_expander("Información sobre la web.")
 expander.markdown("""
 #### ¿Qué ofrecemos?
