@@ -193,7 +193,7 @@ st.sidebar.markdown(f"""
 #### Newsletter
 Recibe un email una vez a la semana con información relevante para {provincia} antes que nadie.
 """)
-email = st.sidebar.text_input('', 'ejemplo@mail.com')
+email = st.sidebar.text_input(value='ejemplo@mail.com')
 a = st.sidebar.button("Suscribir")
 
 usuario = st.secrets["usuario"]
