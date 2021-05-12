@@ -114,9 +114,9 @@ def color(provincia, num):
     else:
         max, min = 150,100
 
-    if num > max:
+    if num >= max:
         return "#33FF00"
-    elif num>min and num<max:
+    elif num>=min and num<max:
         return "#FFFB00"
     else:
         return "#F91212"
