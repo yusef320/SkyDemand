@@ -32,7 +32,7 @@ def predicción(fec, datos, oferta, dato):
     i=0
     for elemento in pred:
         if i >= 3: break
-        demanda.append(round(elemento,0))
+        demanda.append(round(elemento+100000,0))
         i+=1
     demanda.append(p[dato][0])
     dist = len(fec)-len(demanda)
