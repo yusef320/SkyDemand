@@ -126,7 +126,7 @@ def color(provincia, num):
 
 
 img = Image.open("logopag.png")
-st.set_page_config(page_title="SkyDemand",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
+st.set_page_config(layout="wide",page_title="SkyDemand",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
