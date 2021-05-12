@@ -109,8 +109,10 @@ def color(provincia, num):
     """
     if provincia == "Tenerife":
         max, min = 190,120 #rango obtenido mediante busquedas en Google flights
+    elif provincia == "Valencia":
+        max, min = 140,90
     else:
-        max, min = 150,90
+        max, min = 150,100
 
     if num > max:
         return "#33FF00"
@@ -238,7 +240,7 @@ Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofr
 
 p = variacion(provincia,delta, "todos", rang, x,i)
 
-st.markdown("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos ❗❗❗")
+st.code("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos.")
 
 st.subheader(f"Número de plazas estimadas para {provincia}.*")
 st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}.")
@@ -296,7 +298,7 @@ df_verano = df_verano[selec]
 st.bar_chart(df_verano, use_container_width=True)
 
 
-st.markdown("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos ❗❗❗")
+st.code("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos.")
 
 """
 ## Estudio por país de orgen.
@@ -318,7 +320,7 @@ try:
     st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
     st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
 except:
-    st.code(f"No hay vuelos desde {mercado} para día.")
+    st.code("No hay datos para esta selección, modifíquela.")
         
 
 st.text("")
