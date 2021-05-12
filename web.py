@@ -315,6 +315,7 @@ try:
     col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])) #semaforo basado valores obtenidos de Google Flights
     col2.line_chart(p2[0],use_container_width=True)
     st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
+    st.text(p2[0]["Predicción precio"][2]))
     st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
 except:
     st.code("No hay datos para esta selección, modifíquela.")
