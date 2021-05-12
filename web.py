@@ -247,7 +247,8 @@ st.line_chart(p[1],use_container_width=True)
 st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
 st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
-df_verano = df.groupby("País origen")["Es directo"].sum() * 189
+st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}")
+df_verano = df.groupby(f"País origen")["Es directo"].sum() * 189
 selec = abs(df_verano) > 1
 df_verano = df_verano[selec]
 df_verano = df_verano.rename("Nº de plazas")
@@ -255,6 +256,7 @@ st.bar_chart(df_verano, width=600, height=380)
 st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
 st.subheader(f"País de origen de las plazas.")
+st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
 num = df.groupby("Ciudad de destino")["Es directo"].sum()
 df_total = round((df.groupby("País origen")["Es directo"].sum()/num[provincia])*100,2)
 df_total = df_total.rename("% de las plazas")
@@ -263,6 +265,7 @@ fig = px.pie(df_total, values="% de las plazas", names=df_total.index)
 st.plotly_chart(fig,use_container_width=True)
 
 st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
+st.markdown(f"Aumento o disminución de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
 df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
 selec = abs(df_verano) > 0.01
 df_verano = df_verano[selec]
@@ -271,12 +274,14 @@ st.bar_chart(df_verano, use_container_width=True)
 
 
 st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
+st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el el rango escogido.")
+
 col1, col2 = st.beta_columns([1, 7])
 col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
 col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
 col2.line_chart(p[0],use_container_width=True)
 st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
-st.markdown("**Indicador basado en el precio medio comparado con rangos de años anteriores.*")
+st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
 
 
 st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
@@ -293,7 +298,8 @@ st.markdown("🢀 Modifica los valores en el panel lateral para cambiar el rango
 ## Estudio por país de orgen.
 Selecciona un país de la lista y obten los datos filtrados con las llegadas para el origen escogido.
 """
-mercado = st.selectbox("Elige un mercado",("Reino Unido","Alemania", "Francia","Países Bajos","Bélgica"))
+#("Reino Unido","Alemania", "Francia","Países Bajos","Bélgica")
+mercado = st.selectbox("Elige un mercado",df_total.index)
 
 try:
     p2 = variacion(provincia,delta, mercado, rang, x,i)
@@ -306,7 +312,7 @@ try:
     col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])) #semaforo basado valores obtenidos de Google Flights
     col2.line_chart(p2[0],use_container_width=True)
     st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
-    st.markdown("**Indicador basado en el precio medio comparado con rangos de años anteriores.*")
+    st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
 except:
     st.code(f"No hay vuelos desde {mercado} para día.")
         
