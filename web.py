@@ -247,9 +247,12 @@ st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a3
 
 st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
 st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
+d = df.loc[df["Es directo"]==1]   
+df_total = d.groupby("País origen")["Es directo"].sum()
 df_verano = df.groupby(f"País origen")["Es directo"].count() * 189
 selec = abs(df_verano) > 1
 df_verano = df_verano[selec]
+df_verano = df_verano[df_total.index]
 df_verano = df_verano.rename("Nº de plazas")
 st.bar_chart(df_verano, width=600, height=380)
 st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
