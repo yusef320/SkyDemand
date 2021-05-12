@@ -222,7 +222,7 @@ f"""
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
 """
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
-expander = st.beta_expander("Información sobre la web.")
+expander = st.beta_expander("Información sobre la web.", True)
 expander.markdown("""
 #### ¿Qué ofrecemos?
 Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
