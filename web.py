@@ -53,7 +53,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
     Devuelve un dataframe con la variación de las tarifas
     y el número de vuelos asi como la predicción para ambas.
     """
-    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN], [], []
+    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
@@ -87,10 +87,10 @@ def variacion(provincia,delta, mercado, rang, x,i):
     dat = pd.Series(data=datos, index=fec, name="Precio medio")
     var = pd.Series(data=oferta, index=fec, name="Nº de plazas")
     pred1 = predicción(fec, dat, var,"Precio medio")
-    #pred2 = predicción(fec, dat, var, "Nº de plazas")
+    pred2 = predicción(fec, dat, var, "Nº de plazas")
     p = pd.concat([dat, pred1], axis=1)
-    #v = pd.concat([var, pred2], axis=1)
-    return [p,var]
+    v = pd.concat([var, pred2], axis=1)
+    return [p,v]
 
 def enviar(email, provincia):
     """
