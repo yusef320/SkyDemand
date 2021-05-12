@@ -143,7 +143,7 @@ except:
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=1
 
-    
+df = df.loc[df["Es directo"]==1]   
 delta = dia - datetime.datetime(2021,4,18)
 delta = delta.days +1
 
@@ -284,7 +284,6 @@ st.markdown("**En función del precio medio de las tarifas indica el estado de l
 
 
 st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
-df = df.loc[df["Es directo"]==1]
 df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
 df_verano = df_verano.rename("% var precio")
 selec = abs(df_verano) > 0.01
