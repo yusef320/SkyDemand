@@ -74,9 +74,9 @@ def variacion(provincia,delta, mercado, rang, x,i):
         elif rang == "Día":
             d = d.loc[d["Mes"]==x[0]]
             d = d.loc[d["Dia"]==x[1]]
+        df_demanda = d.groupby(a)["Es directo"].count()*189
         d = d.loc[d["Es directo"]==1]
         df_verano = d.groupby(a)["Precio"].mean()
-        df_demanda = d.groupby(a)["Es directo"].sum()*189
         s= round(df_verano[mercado],2)
         datos.append(s)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
@@ -243,11 +243,12 @@ p = variacion(provincia,delta, "todos", rang, x,i)
 st.markdown("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos ❗❗❗")
 
 st.subheader(f"Número de plazas estimadas para {provincia}.*")
+st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}.")
 st.line_chart(p[1],use_container_width=True)
 st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
-st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
-st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}")
+st.subheader(f"Número de plazas estimadas para {provincia} por país.*"
+st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
 df_verano = df.groupby(f"País origen")["Es directo"].sum() * 189
 selec = abs(df_verano) > 1
 df_verano = df_verano[selec]
@@ -256,7 +257,7 @@ st.bar_chart(df_verano, width=600, height=380)
 st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
 st.subheader(f"País de origen de las plazas.")
-st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
+st.markdown(f"Diagrama de tartas con los paises de origen y el nº de plazas que representan.")
 num = df.groupby("Ciudad de destino")["Es directo"].sum()
 df_total = round((df.groupby("País origen")["Es directo"].sum()/num[provincia])*100,2)
 df_total = df_total.rename("% de las plazas")
