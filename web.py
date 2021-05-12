@@ -143,7 +143,6 @@ except:
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=1
 
-df = df.loc[df["Es directo"]==1]   
 delta = dia - datetime.datetime(2021,4,18)
 delta = delta.days +1
 
@@ -255,18 +254,21 @@ df_verano = df_verano.rename("Nº de plazas")
 st.bar_chart(df_verano, width=600, height=380)
 st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
+
 st.subheader(f"País de origen de las plazas.")
 st.markdown(f"Diagrama de tartas con los paises de origen y el nº de plazas que representan.")
+df = df.loc[df["Es directo"]==1]   
+df2 = df2.loc[df2["Es directo"]==1] 
 num = df.groupby("Ciudad de destino")["Es directo"].sum()
 df_total = round((df.groupby("País origen")["Es directo"].sum()/num[provincia])*100,2)
 df_total = df_total.rename("% de las plazas")
 df_total = pd.DataFrame(df_total)
 fig = px.pie(df_total, values="% de las plazas", names=df_total.index)
 st.plotly_chart(fig,use_container_width=True)
-
+  
 st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
 st.markdown(f"Aumento o disminución de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
-df_verano = (df.groupby("País origen")["Es directo"].count() * 189)-(df2.groupby("País origen")["Es directo"].count()*189)
+df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
 selec = abs(df_verano) > 0.01
 df_verano = df_verano[selec]
 df_verano = df_verano.rename("""Nº de plazas""")
