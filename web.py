@@ -89,7 +89,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
     pred1 = predicción(fec, dat, var,"Precio medio")
     #pred2 = predicción(fec, dat, var, "Nº de plazas")
     p = pd.concat([dat, pred1], axis=1)
-    v = pd.concat([var, pred2], axis=1)
+    #v = pd.concat([var, pred2], axis=1)
     return [p,var]
 
 def enviar(email, provincia):
