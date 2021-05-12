@@ -328,7 +328,7 @@ analizar y predecir la afluencia de turistas, permitiéndoles
 así tomar decisiones relevantes como las fechas de apertura,los precios de sus productos, la
 duración de los contratos o donde enfocar su publicidad.
 """
-st.write("Todo nuestro código en [Github](https://github.com/yusef320/SkyDemand) ❤️")
+st.write("Todo nuestro código en [Github](https://github.com/yusef320/SkyDemand).")
 
 image = Image.open('agradecimientos.png')
 st.image(image)
