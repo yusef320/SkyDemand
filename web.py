@@ -323,22 +323,26 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     
     p2 = variacion(provincia,delta, mercado, rang, x,i)
-    st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
-    st.text(f"{rango}.")
-    st.line_chart(p2[1],use_container_width=True)
-
-    st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
-    st.text(f"{rango}.")
-    col1, col2 = st.beta_columns([1, 7])
     try:
-        col1.color_picker("""Semáforo de demanda *""",color(provincia, p[0]["Precio medio"][3]))
-        col1.color_picker("""Predicción del semáforo *""",color(provincia, p[0]["Predicción precio"][2]))
+        st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
+        st.text(f"{rango}.")
+        st.line_chart(p2[1],use_container_width=True)
+
+        st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
+        st.text(f"{rango}.")
+        col1, col2 = st.beta_columns([1, 7])
+        try:
+            col1.color_picker("""Semáforo de demanda *""",color(provincia, p[0]["Precio medio"][3]))
+            col1.color_picker("""Predicción del semáforo *""",color(provincia, p[0]["Predicción precio"][2]))
+        except:
+            col1.color_picker("""Semáforo de demanda """,color(provincia, p[0]["Precio medio"][3]))
+            col1.color_picker("""Predicción del semáforo""",color(provincia, p[0]["Predicción precio"][2]))
+        col2.line_chart(p[0],use_container_width=True)
+        st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
+        st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
     except:
-        col1.color_picker("""Semáforo de demanda """,color(provincia, p[0]["Precio medio"][3]))
-        col1.color_picker("""Predicción del semáforo""",color(provincia, p[0]["Predicción precio"][2]))
-    col2.line_chart(p[0],use_container_width=True)
-    st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
-    st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
+        st.markdown("**No hay datos para esta selección, modifíquela.**")
+
 else:
     st.text("")
     st.code("Próxiamente estarán disponibles los análisis para su selección.")
