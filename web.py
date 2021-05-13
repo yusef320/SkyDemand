@@ -175,7 +175,7 @@ df2["% var. precio"] = df2["Precio"]
 rang = st.sidebar.radio("Escoge un rango", ["Todo el verano","Mes","Día"])
 if rang == "Mes":
     mes = st.sidebar.radio("Escoge un mes", ["Junio","Julio","Agosto"])
-    rango = f"Rango: {mes}"
+    rango = f"el mes de{mes}"
     if mes == "Junio":
         x = 6
         df = df.loc[df["Mes"]==6]
@@ -192,14 +192,14 @@ elif rang == "Día":
     date = st.sidebar.date_input("Selecciona una fecha",min_value=datetime.datetime(2021,6,1),
                                  max_value=datetime.datetime(2021,8,31), value=datetime.datetime(2021,6,1))
     x = [date.month, date.day]
-    rango = f"Rango: fecha {x[1]}/{x[0]}/2021"
+    rango = f"el día {x[1]}/{x[0]}/2021"
     df = df.loc[df["Mes"]==x[0]]
     df2 = df2.loc[df2["Mes"]==x[0]]
     df = df.loc[df["Dia"]==x[1]]
     df2 = df2.loc[df2["Dia"]==x[1]]
 else:
     x=0
-    rango = "Rango: todo el verano (junio, julio y agosto)"
+    rango = "todo el verano (junio, julio y agosto)"
 
 st.sidebar.text("")
 st.sidebar.markdown(f""" 
@@ -243,13 +243,13 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
 
     Nuestra misión es ayudar a pequeños y medianos negocios dependientes del turismo internacional a tomar decisiones relevantes sobre la planificación y promoción de la
-    temporada en función de estos datos. Entre estas decisiones incluimos *fijar fechas de apertura, diseñar campañas de promoción, establecer tarifas o
-    estimar la duración de los contratos de la plantilla y de los suministros*.
+    temporada en función de estos datos. Entre estas decisiones incluimos **fijar fechas de apertura, diseñar campañas de promoción, establecer tarifas o
+    estimar la duración de los contratos de la plantilla y de los suministros***.
 
 
     #### ¿En qué se basa?
     La oferta de vuelos por las aerolíneas cambia diariamente ajustándose a la demanda existente. 
-    Usando la API de SkyScanner, *efectuamos 8000 búsquedas diarias*, recoginedo la oferta de vuelos desde
+    Usando la API de SkyScanner, **efectuamos 8000 búsquedas diarias**, recoginedo la oferta de vuelos desde
     los principales países origen (Reino Unido, blabla) hacia los dos principales aeropuertos de la Comunitat Valenciana (Alicante y València).
     También incluimos Tenerife, y próximamente Málaga y Mallorca, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
 
@@ -265,15 +265,14 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
     p = variacion(provincia,delta, "todos", rang, x,i)
 
-    st.subheader(f"Número de plazas estimadas para {provincia}.*")
-    st.markdown(f"Número de plazas programadas por las aerolíneas hacia {provincia}.")
-    st.text(f"{rango}.")
+    st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} para {rango}.")
+    st.markdown(f"""Mostramos la estimación diaria del número de plazas programadas en vuelos con destino {provincia} para el período elegido.
+    Dicha estimación se obtiene considerando que, en promedio, cada vuelo tienen una capacidad de 189 personas*.""")
     st.line_chart(p[1],use_container_width=True)
-    st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o Airbus A320).* ")
+    st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")
 
-    st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
-    st.markdown(f"Número de plazas programadas por las aerolíneas hacia {provincia} por país de origen.")
-    st.text(f"{rango}.")
+    st.subheader(f"Número de plazas programadas para {provincia} por país de proveniencia.*")
+    st.markdown(f"""Mostramos la estimación diaria del número de plazas programadas en vuelos con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
     d = df.loc[df["Es directo"]==1]   
     df_total = d.groupby("País origen")["Es directo"].sum()
     df_verano = df.groupby(f"País origen")["Es directo"].count() * 189
@@ -282,12 +281,9 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     df_verano = df_verano[df_total.index]
     df_verano = df_verano.rename("Nº de plazas")
     st.bar_chart(df_verano, width=600, height=380)
-    st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o Airbus A320).* ")
 
-
-    st.subheader(f"País de origen de las plazas.")
-    st.markdown(f"Gráfico circular con los países de origen y el número de plazas que representan.")
-    st.text(f"{rango}.")
+    st.subheader(f"Porcentaje que representa cada país del total de operaciones.")
+    st.markdown(f"Gráfico circular con los países de origen y el porcentaje del total de operaciones representa para {rango}.")
     df = df.loc[df["Es directo"]==1]   
     df2 = df2.loc[df2["Es directo"]==1] 
     num = df.groupby("Ciudad de destino")["Es directo"].sum()
@@ -297,9 +293,8 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     fig = px.pie(df_total, values="% de las plazas", names=df_total.index)
     st.plotly_chart(fig,use_container_width=True)
 
-    st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
-    st.markdown(f"Aumento o disminución de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
-    st.text(f"{rango}. Variación de los últimos {number} días.")
+    st.subheader(f"Variación de número de plazas por país de origen en los últimos {number} días.")
+    st.markdown(f"Muestra como varía el número de el número de plazas programadas por las aerolineas hacia {provincia} por país de origen en los últimos {number} días para {rango}.")
     df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
     selec = abs(df_verano) > 0.01
     df_verano = df_verano[selec]
@@ -307,7 +302,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     st.bar_chart(df_verano, use_container_width=True)
 
 
-    st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
+    st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} para {rango}.")
     st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el rango escogido.")
     st.text(f"{rango}.")
     col1, col2 = st.beta_columns([1, 7])
