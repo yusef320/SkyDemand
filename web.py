@@ -206,7 +206,7 @@ st.sidebar.markdown(f"""
 #### Newsletter
 """)
 email = st.sidebar.text_input(f"Recibe un email una vez a la semana con información relevante para {provincia}.",'ejemplo@mail.com')
-a = st.sidebar.button("Suscribir")
+a = st.sidebar.button("¡Suscríbete!")
 usuario = st.secrets["usuario"]
 contra = st.secrets["contra"]
 
@@ -219,7 +219,7 @@ if a:
         email2 = email1[1].split(".")
         if len(email2) >= 2:
             enviar(email, provincia)
-            st.sidebar.text("¡Suscripción creada con éxito!")
+            st.sidebar.text("¡Ya te has suscrito!")
         else:
             a = False
             st.sidebar.text("Email incorrecto, intentelo de nuevo.")
@@ -251,12 +251,12 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     La oferta de vuelos por las aerolíneas cambia diariamente ajustándose a la demanda existente. 
     Usando la API de SkyScanner efectuamos **8000 búsquedas diarias**, recogiendo así la oferta de vuelos desde
     los principales países de origen (**Reino Unido, Alemania, Francia, Bélgica, Países Bajos, República Checa, Suecia, Finlandia, Italia, Dinamarca, Suiza y Luxemburgo**) 
-    hacia los dos principales aeropuertos de la Comunitat Valenciana (Alicante y Valencia).
-    También incluimos Tenerife, y próximamente Málaga y Mallorca, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
+    hacia los dos principales aeropuertos de la Comunitat Valenciana (**Alicante** y **Valencia**).
+    También incluimos **Tenerife** y, próximamente, Málaga y Mallorca, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
 
 
-    Con los datos recogidos, mostramos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos. 
-    Además, para facilitar que puedas ocuparte de tu negocio, te puedes suscribir a nuestra newsletter para recibir alertas de los cambios más significativos 
+    Con los datos recogidos, mostramos **análisis y predicciones en tiempo real**, ofreciendo así una idea exacta de la fluctuación de **precio y cantidad de los vuelos**. 
+    Además, para facilitar que puedas ocuparte de tu negocio, te puedes suscribir a nuestra **newsletter** para recibir alertas de los cambios más significativos 
     en la demanda.
 
 
@@ -267,13 +267,13 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     p = variacion(provincia,delta, "todos", rang, x,i)
 
     st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} para {rango}.")
-    st.markdown(f"""Mostramos la estimación diaria del número de plazas programadas en vuelos con destino {provincia} para el período elegido.
-    Dicha estimación se obtiene considerando que, en promedio, cada vuelo tienen una capacidad de 189 personas*.""")
+    st.markdown(f"""Muestra la estimación diaria del **número de plazas** programadas en vuelos con destino {provincia} para el período elegido.
+    Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*.""")
     st.line_chart(p[1],use_container_width=True)
     st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")
 
     st.subheader(f"Número de plazas programadas para {provincia} por país de origen.")
-    st.markdown(f"""Mostramos la estimación diaria del número de plazas en vuelos programados con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
+    st.markdown(f"""Muestra la estimación diaria del **número de plazas** en vuelos programados con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
     d = df.loc[df["Es directo"]==1]   
     df_total = d.groupby("País origen")["Es directo"].sum()
     df_verano = df.groupby(f"País origen")["Es directo"].count() * 189      # por ser 189 el número medio de pasajeros en un vuelo comercial
@@ -284,7 +284,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     st.bar_chart(df_verano, width=600, height=380)
 
     st.subheader(f"Porcentaje que representa cada país del total de operaciones.")
-    st.markdown(f"Gráfico circular con los países de origen y el porcentaje del total de operaciones representa para {rango}.")
+    st.markdown(f"Gráfico circular con los **países de origen** y el **porcentaje** del total de operaciones que representa para {rango}.")
     df = df.loc[df["Es directo"]==1]   
     df2 = df2.loc[df2["Es directo"]==1] 
     num = df.groupby("Ciudad de destino")["Es directo"].sum()
@@ -295,7 +295,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     st.plotly_chart(fig,use_container_width=True)
 
     st.subheader(f"Variación de número de plazas por país de origen en los últimos {number} días.")
-    st.markdown(f"Muestra como varía el número de el número de plazas en vuelos programados por las aerolíneas hacia {provincia} por país de origen en los últimos {number} días para {rango}.")
+    st.markdown(f"Muestra como varía el **número de plazas** en vuelos programados con destino {provincia} por país de origen en los últimos {number} días para {rango}.")
     df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
     selec = abs(df_verano) > 0.01
     df_verano = df_verano[selec]
@@ -304,7 +304,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
 
     st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} para {rango}.")
-    st.markdown(f"Muestra el **comportamiento del precio medio** para todos los vuelos en el rango escogido hacia {provincia}. En función de dicho precio se hace una **estimación de la demanda** basandonos en años anteriores que se muestra en **forma de semáforo**.")
+    st.markdown(f"Muestra el comportamiento del **precio medio** de todos los vuelos hacia {provincia} en el rango escogido. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en forma de **semáforo**.")
     col1, col2 = st.beta_columns([1, 7])       
     col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
     col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
@@ -314,7 +314,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
 
     st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
-    st.markdown(f"Muestra como se ha **comportado el precio medio** de los vuelos hacia {provincia} **por país** en los últimos {number} días para {rango}.")
+    st.markdown(f"Muestra el comportamiento del **precio medio** de los vuelos hacia {provincia} **por país** en los últimos {number} días para {rango}.")
     df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
     df_verano = df_verano.rename("% var precio")
     selec = abs(df_verano) > 0.01
@@ -329,14 +329,14 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     mercado = st.selectbox("Elige un mercado",df_total.index)
     try:
         p2 = variacion(provincia,delta, mercado, rang, x,i)
-        st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} con origen {mercado} para {rango}.")
-        st.markdown(f"""Mostramos la **estimación diaria del número de plazas** programadas en vuelos con destino {provincia} provenientes de {mercado} para el período elegido.
-        Dicha estimación se obtiene considerando que, en promedio, cada vuelo tienen una capacidad de 189 personas*.""")
+        st.subheader(f"Número de plazas en vuelos programados por las aerolíneas hacia {provincia} con origen {mercado} para {rango}.")
+        st.markdown(f"""Muestra la estimación diaria del **número de plazas** en vuelos programados con destino {provincia} provenientes de {mercado} para el período elegido.
+        Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*.""")
         st.line_chart(p2[1],use_container_width=True)
         st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")    
 
-        st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} con origen {mercado} para {rango}.")
-        st.markdown(f"Muestra el **comportamiento del precio medio** para todos los vuelos en el rango escogido hacia {provincia} que *provienen de {mercado}*. En función de dicho precio se hace una **estimación de la demanda** basandonos en años anteriores que se muestra en **forma de semáforo**.")
+        st.subheader(f"Precio medio en euros de los precios de los vuelos hacia {provincia} con origen {mercado} para {rango}.")
+        st.markdown(f"Muestra el comportamiento del **precio medio** para todos los vuelos en el rango escogido hacia {provincia} que provienen de {mercado}. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en **forma de semáforo**.")
 
         col1, col2 = st.beta_columns([1, 7])       
         col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
@@ -345,7 +345,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
         st.markdown("""🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*""")
         st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
     except: 
-        st.code("No hay disponibles análisis para esta selección, por favor, modifíquela.")
+        st.code("No hay disponibles análisis para esta selección. Por favor, modifíquela.")
 
   
 
@@ -360,7 +360,7 @@ st.text("")
 SkyDemand es un proyecto desarrollado íntegramente por estudiantes de la Universidad Politécnica de Valencia. Somos Joan, Pablo, Miguel, Yusef y Pablo, estudiamos primero del grado de Ciencia de Datos y este proyecto se encuadra en el marco de la asignatura Proyecto I.
 Nuestro objetivo es proveer a pequeños y medianos negocios de una herramienta útil para analizar y predecir la afluencia de turistas, permitiéndoles así tomar decisiones relevantes como las fechas de apertura, los precios, la duración de los contratos o la correcta colocación de publicidad.
 """
-st.write("Síguenos en twitter [@skydemand](https://twitter.com/skydemand).\nTodo nuestro código en [Github](https://github.com/yusef320/SkyDemand) ;)")
+st.write("Síguenos en Twitter: [@skydemand](https://twitter.com/skydemand).\nTodo nuestro código en [Github](https://github.com/yusef320/SkyDemand) ;)")
 
 
 image = Image.open('agradecimientos.png')
