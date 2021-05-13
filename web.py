@@ -10,7 +10,9 @@ from sklearn.model_selection import train_test_split
 from PIL import Image
 import plotly.express as px
 from email.mime.text import MIMEText
+from state import count_sessions
 
+count_sessions()
 
 ############################################
 #####           FUNCIONES               ####
