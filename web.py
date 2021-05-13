@@ -317,7 +317,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     """
     ## Estudio por país de orgen.
-    Selecciona un país de la lista y obten los datos filtrados con las llegadas para el origen escogido.
+    Selecciona un país de la lista y obtén los datos filtrados con las llegadas para el origen escogido.
     """
     mercado = st.selectbox("Elige un mercado",df_total.index)
 
@@ -349,12 +349,8 @@ else:
 st.text("")
 """
 ## Sobre nosotros
-SkyDemand es un proyecto desarrollado íntegramente por 
-estudiantes del Grado de Ciencia de Datos de la Universidad Politécnica de Valencia.
-Nuestro objetivo es proveer a pequeños y medianos negocios de una herramienta útil para 
-analizar y predecir la afluencia de turistas, permitiéndoles 
-así tomar decisiones relevantes como las fechas de apertura,los precios de sus productos, la
-duración de los contratos o donde enfocar su publicidad.
+SkyDemand es un proyecto desarrollado íntegramente por estudiantes de la Universidad Politécnica de Valencia. Somos Joan, Pablo, Miguel, Yusef y Pablo, estudiamos primero del grado de Ciencia de Datos y este proyecto se encuadra en el marco de la asignatura Proyecto I.
+Nuestro objetivo es proveer a pequeños y medianos negocios de una herramienta útil para analizar y predecir la afluencia de turistas, permitiéndoles así tomar decisiones relevantes como las fechas de apertura, los precios o la duración de los contratos.
 """
 st.write("Todo nuestro código en [Github](https://github.com/yusef320/SkyDemand).")
 
