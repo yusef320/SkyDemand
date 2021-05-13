@@ -322,7 +322,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     mercado = st.selectbox("Elige un mercado",df_total.index)
 
     
-    p = variacion(provincia,delta, mercado, rang, x,i)
+    p2 = variacion(provincia,delta, mercado, rang, x,i)
     st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
     st.text(f"{rango}.")
     st.line_chart(p2[1],use_container_width=True)
