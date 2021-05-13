@@ -335,7 +335,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")    
         
     st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} con origen {mercado} para {rango}.")
-    st.markdown(f"Muestra el **comportamiento del precio medio** para todos los vuelos en el rango escogido hacia {provincia} que *provienen de {mnercado}*. En función de dicho precio se hace una **estimación de la demanda** basandonos en años anteriores que se muestra en **forma de semáforo**.")
+    st.markdown(f"Muestra el **comportamiento del precio medio** para todos los vuelos en el rango escogido hacia {provincia} que *provienen de {mercado}*. En función de dicho precio se hace una **estimación de la demanda** basandonos en años anteriores que se muestra en **forma de semáforo**.")
     
     col1, col2 = st.beta_columns([1, 7])       
     col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
