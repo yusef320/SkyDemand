@@ -12,36 +12,46 @@ from github import Github
 import smtplib
 import imaplib
 import email
+from email.mime.text import MIMEText
+from calendar import monthrange
 
-def semanaInfo(mercados, prov):
-    """
-    Crea un informe de la variación diaria durante la última semana
-    """
-    text = ""
-    texto = ""
+################################################
+####               FUNCIONES                ####
+################################################
+
+def newsletter(mercados, prov, d, d2,):
+    d = d.loc[d["Ciudad de destino"] == prov]
+    d2 = d2.loc[d2["Ciudad de destino"] == prov]
+    plaztotal = d.groupby("Ciudad de destino")["Es directo"].count()*189
+    plazas = d.groupby("País origen")["Es directo"].count()*189
+    varPlazas = df_verano = round((d.groupby("País origen")["Es directo"].mean()/d2.groupby("País origen")["Es directo"].mean()-1)*100 ,2)
+    texto = f"El número de plazas estimadas para {prov} es de {plaztotal[prov]}"
+    precioMediototal = d.groupby("Ciudad de destino")["Precio"].mean()
+    precioMedio = d.groupby("País origen")["Precio"].mean()
+    varPrecio = df_verano = round((d.groupby("País origen")["Precio"].mean()/d2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
+
+    texto += f" y precio medio se situó en {round(precioMediototal[prov],2)}€.\n\nPor paises emisores la variación ha sido la siguiente:\n\n"
     for mercado in mercados:
-        text = ""
-        for i in range(1,8):
-            dia = datetime.datetime.now() - datetime.timedelta(days=i-1)
-            dia2 = datetime.datetime.now() - datetime.timedelta(days=i)
-            d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-            d2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
-            d = d.loc[d["Ciudad de destino"] == prov]
-            d2 = d2.loc[d2["Ciudad de destino"] == prov]
-            df_verano = (d.groupby("País origen")["Precio"].mean()/d2.groupby("País origen")["Precio"].mean()-1)*100
-            s= round(df_verano[mercado],2)
-            text += f"\t{dia.day:02d}/{dia.month:02d}  {s}% \n"
-            dia = dia2
-        texto += f"{mercado} (en la ultima semana):\n\n"
-        texto += text+"\n\n"
-    return texto
+        texto += f"\t{mercado}:  El número de plazas es {plazas[mercado]}, una variación del {varPlazas[mercado]}%  , una . El precio medio se situo en un {round(precioMedio[mercado],2)}€, lo que significa una diferencia del {varPrecio[mercado]}% en comparación a la semana pasada.\n\n"
+
+    text = f"Buenas,\n\nSegún nuestros análisis, le informamos que durante la última semana el comportamiento ha sido el siguiente:\n\n{texto}Entra en https://tinyurl.com/skydemand para infomación más detallada.\n\nPara darse de baja enviar un email con el asunto: CANCELAR."
+
+    return text
+
+def enviarEmails(mails,texto,prov):
+    text_type = "plain"
+    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    server.login('EMAIL',"CONTRASEÑA")
+    for mail in mails:
+        msg = MIMEText(texto, text_type, 'utf-8')
+        msg['Subject'] = f"Info turística {prov}"
+        msg['From'] = 'EMAIL'
+        msg['To'] = mail
+        server.send_message(msg)
+    server.quit()
 
 def emails():
-    """
-    Devuelve una lista con los emails suscritos al newsletter
-    """
-    
-    host = 'TU HOST'
+    host = 'imap.gmail.com'
     username = 'USUARIO'
     password = 'CONTRASEÑA'
 
@@ -70,11 +80,9 @@ def emails():
     return [newslt_VLC, newslt_ALC, newslt_TCI]
 
 def subirArchivo(nombreArchivo):
-    """
-    Permite subir automaticamente un archivo a un repositorio de github.
-    """
-    g = Github(login_or_token=('TOKEN DE GITHUB'))
-    repo = g.get_user().get_repo('NOMBRE DEL REPOSITORIO')
+    g = Github(login_or_token=('TOKEN GITHUB'))
+
+    repo = g.get_user().get_repo('rep')
     all_files = []
     contents = repo.get_contents('')
     while contents:
@@ -133,13 +141,23 @@ def vuelosEnMes(anio, mes, orgien, destino, lista):
     elif destino == "TFS" and orgien == "TLS":
         j=1
 
-    for i in range(1,32):
-        if i == 31 and mes == 6: break
+    dia = datetime.datetime.now()
+    m = dia.month
+    d = dia.day
+    var =1
+    rang = monthrange(2021, mes)[1]
+    if m > mes:
+        return lista
+    elif m == mes:
+        rang = monthrange(2021, mes)[1]
+        var = (date(2021, mes, rang) - date(2021, mes, d)).days
+
+    for i in range(var,rang+1):
         vuelo= []
         url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/ES/EUR/es-ES/{orgien}-sky/{destino}-sky/{anio}-{mes:02d}-{i:02d}"
         headers = {
-            'x-rapidapi-key': "KEY DE LA API SKYSCANNER",
-            'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+            'x-rapidapi-key': "API KEY",
+            'x-rapidapi-host': "API HOST"
             }
         response = requests.request("GET", url, headers=headers)
         d = response.json()
@@ -170,23 +188,20 @@ def vuelosEnMes(anio, mes, orgien, destino, lista):
             break
     return lista
 
-####                Iniciamos el programa               ####
+################################################
+####               PROGRAMA                 ####
+################################################
 
-starttime = time.time() #iniciamos un contador
-
-while True: #bucle temporal
-    
+starttime = time.time() #iniciamos el tiempo para nuestro bucle temporal
+while True:
     today = date.today()
     print(today)
     lista = []
     orig = ["VLC", "TFS", "ALC"] #codigo IATA del aeropuerto de destino
-    aeropuertos = ["FRA", "DUS", "BER", "MUC", "HAM","NRN","STR", "BRU", "CRL", "VIE", "CPH", "HEL","TLS","CDG","ORY","BVA",
+    aeropuertos = ["FRA", "DUS", "BER", "MUC","HHN","LEJ","HAM","NRN","STR", "BRU", "CRL", "VIE", "CPH", "HEL","TLS","CDG","ORY","BVA",
                    "MRS","NCE","NTE","LYS","LUX","AMS","EIN","LHR","LTN", "LGW", "EDI","GLA","LPL","BHX","STN","MAN",
-                   "NCL","BHD","BRS","PRG","ARN","ZRH","GVA"] #principales aeropuertos europeos
-    
-    ####                Recolectamos los datos              ####                
-    
-    for destino in orig:
+                   "NCL","BHD","BRS","PRG","ARN","ZRH","GVA","DUB","ORK","SNN","FCO","MXP","VCE"] #principales aeropuertos europeos
+    for destino in orig: #recolcetamos los datos para cada provincia
         print(f"Recolectando datos de {destino}")
         for aeropueto in aeropuertos: #estudiamos todos los aeropuertos de la lista
             print(aeropueto)
@@ -199,7 +214,7 @@ while True: #bucle temporal
 
     print("Recolección de datos terminada")
 
-    ####                Creamos un DataFrame y despues lo convertimos a CSV             ####
+    ####                Creamos un DataFrame con los datos de la lista                  ####
 
     df = pd.DataFrame(lista, columns=["Fecha", "Mes" ,"Fecha de busqueda", "Precio","Moneda","Es directo",
                                       "Aerolinea", "Origen", "Destino", "Ciudad origen", "País origen","Ciudad de destino"])
@@ -209,44 +224,26 @@ while True: #bucle temporal
 
     df["Dia"] = df["Fecha"].map(diaDelMes)
     df.to_csv (f"{today}.csv",sep=';', index=False, header=True)
-    subirArchivo(f"{today}.csv") #subimos el archivo a nuestro repositorio de github 
-    
-    ####                Comparamos los datos para ver si se ha producido una variación importante               ####
-    
-    dia = datetime.datetime.now() - datetime.timedelta(days=1)
-    df2 = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    var = {}
-    print("Analizando variación")
-    provincias=["Valencia", "Alicante", "Tenerife"]
-    for prov in provincias:
-        print(prov)
-        listaDem = []
-        d = df.loc[df["Ciudad de destino"] == prov]
-        d2 = df2.loc[df2["Ciudad de destino"] == prov]
-        for mercado in ["Reino Unido", "Alemania","Francia",]:
-            df_verano = (d.groupby("País origen")["Precio"].mean()/d2.groupby("País origen")["Precio"].mean()-1)*100
-            s = round(df_verano[mercado],2)
-            print(mercado, s)
-            if s > 5 or s < -5: #La variación tiene que ser superior al 5% para enviar un informe
-                listaDem.append(mercado)
-        var[prov] = listaDem # diccionario con todos los mercados en lo que hay variación
+    subirArchivo(f"{today}.csv")
+    dia = datetime.datetime.now() - datetime.timedelta(days=7)
+    if dia.today().weekday() == 5:
+        try:
+            df2 = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+            provincias=["Valencia", "Alicante", "Tenerife"]
+            mercados=["Reino Unido", "Alemania", "Francia", "Bélgica","Países Bajos"]
 
-    ####                Enviamos los emails en caso de que se produzca una variación                ####
-    
-    listaMails = emails()
-    conn = smtplib.SMTP("HOST", 587)
-    conn.ehlo()
-    conn.starttls()
-    conn.login("USUARIO","CONTRASEÑA")
-    i=0
-    print("Enviando emails")
-    for prov in provincias:
-        if var[prov] != []:
-            info = semanaInfo(var[prov],prov)
-            for email in listaMails[i]:
-                conn.sendmail("USUARIO",email,f"Subject:Demanda turistica {prov}\n\nSaludos cordiales,\n\nSegun nuestro ultimo analisis, le informamos de la variacion en la demanda turistica producida en los siguientes mercados:\n\n{info}\n\nSaludos cordiales de parte del quipo de touristData.\n\nPara darse de baja enviar un email con el ausnto: CANCELAR.")
-            i+=1
-    conn.quit()
-    print("Programa finalizado con exito")
+            ####                Iniciando mail              #####
 
-    time.sleep(86400.0 - ((time.time() - starttime) % 86400.0)) #se repite en 24 horas.
+            i=0
+            print("Enviando emails")
+            mails = emails()
+            for prov in provincias:
+                info = newsletter(mercados,prov,df,df2)
+                enviarEmails(mails[i],info,prov)
+                i+=1
+            print("Programa finalizado con exito")
+        except:
+            enviarEmails(["EMAIL DE EMERGENCIA"],"SE HA PRODUCIDO UN ERROR","ERROR")
+            print("Error con los emails")
+
+    time.sleep(86400.0 - ((time.time() - starttime) % 86400.0))
