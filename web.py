@@ -232,7 +232,7 @@ Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses 
 Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife puesto que en esa zona hay empresas interesadas.
 Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
 """)
-expander.code("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos.")
+expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
 
 p = variacion(provincia,delta, "todos", rang, x,i)
 
