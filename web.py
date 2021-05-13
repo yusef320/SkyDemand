@@ -134,13 +134,6 @@ def color(provincia, num):
 
 img = Image.open("logopag.png")
 st.set_page_config(layout="wide",page_title="SkyDemand",page_icon=img,initial_sidebar_state="expanded", ) #configuramos la página
-hide_menu_style = """
-        <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        </style>
-        """
-st.markdown(hide_menu_style,unsafe_allow_html=True)
 
 #Comprobamos si hay una ultima actualización para los datos
 try:
