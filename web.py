@@ -271,7 +271,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     st.line_chart(p[1],use_container_width=True)
     st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")
 
-    st.subheader(f"Número de plazas programadas para {provincia} por país de proveniencia.*")
+    st.subheader(f"Número de plazas programadas para {provincia} por país de origen.*")
     st.markdown(f"""Mostramos la estimación diaria del número de plazas programadas en vuelos con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
     d = df.loc[df["Es directo"]==1]   
     df_total = d.groupby("País origen")["Es directo"].sum()
@@ -303,8 +303,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
 
     st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} para {rango}.")
-    st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el rango escogido.")
-    st.text(f"{rango}.")
+    st.markdown(f"Muestra el **comportamiento del precio medio** para todos los vuelos en el rango escogido hacia {provincia}. En función de dicho precio se hace una **estimación de la demanda** basandonos en años anteriores que se muestra en **forma de semáforo**.")
     col1, col2 = st.beta_columns([1, 7])
     try:
         col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
@@ -318,7 +317,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
 
     st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
-    st.text(f"{rango}. Variación de los ultimos {number} días.")
+    st.markdown(f"Muestra como se ha **comportado el precio medio** de los vuelos hacia {provincia} **por país** en los últimos {number} días para {rango}.")
     df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
     df_verano = df_verano.rename("% var precio")
     selec = abs(df_verano) > 0.01
@@ -333,12 +332,15 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     mercado = st.selectbox("Elige un mercado",df_total.index)
     try:
         p2 = variacion(provincia,delta, mercado, rang, x,i)
-        st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
-        st.text(f"{rango}.")
+        st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} con origen {mercado} para {rango}.")
+        st.markdown(f"""Mostramos la **estimación diaria del número de plazas** programadas en vuelos con destino {provincia} provenientes de {mercado} para el período elegido.
+        Dicha estimación se obtiene considerando que, en promedio, cada vuelo tienen una capacidad de 189 personas*.""")
         st.line_chart(p2[1],use_container_width=True)
-
-        st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
-        st.text(f"{rango}.")
+        st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")
+        
+        st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} con origen {mercado} para {rango}.")
+        st.markdown(f"Muestra el **comportamiento del precio medio** para todos los vuelos en el rango escogido hacia {provincia} que *provienen de {mnercado}*. En función de dicho precio se hace una **estimación de la demanda** basandonos en años anteriores que se muestra en **forma de semáforo**.")
+    
         col1, col2 = st.beta_columns([1, 7])
         try:
             col1.color_picker("""Semáforo de demanda *""",color(provincia, p[0]["Precio medio"][3]))
@@ -350,7 +352,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
         st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
         st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
     except:
-        st.markdown("**No hay datos para esta selección, modifíquela.**")
+        st.markdown("**No hay datos para esta selección, modifique su selección.**")
 
 else:
     st.text("")
