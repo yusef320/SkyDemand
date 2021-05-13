@@ -320,10 +320,8 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     Selecciona un país de la lista y obtén los datos filtrados con las llegadas para el origen escogido.
     """
     mercado = st.selectbox("Elige un mercado",df_total.index)
-
-    
-    p2 = variacion(provincia,delta, mercado, rang, x,i)
     try:
+        p2 = variacion(provincia,delta, mercado, rang, x,i)
         st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
         st.text(f"{rango}.")
         st.line_chart(p2[1],use_container_width=True)
