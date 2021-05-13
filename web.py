@@ -99,7 +99,7 @@ def enviar(email, provincia):
     """
     text_type = "plain"
     server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.login(usuario,contraseña)
+    server.login(usuario,contra)
     texto = f"Le damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada viernes recibirá un email con un resumen semanal de con datos relevantes como el precio, el bnúmero de plazas, y su fluctuación.\n\nUn saludo,\n\nel equipo de SkyDemand."
     msg = MIMEText(texto, text_type, 'utf-8')
     msg['Subject'] = "Bienvenido"
