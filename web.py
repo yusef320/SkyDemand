@@ -222,18 +222,18 @@ f"""
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
 """
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
-expander = st.beta_expander("Información sobre la web.", True)
-expander.markdown("""
-#### ¿Qué ofrecemos?
-Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
-#### ¿Cómo se usa?
-Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
-#### ¿Cómo funciona?
-Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife, y próximamente Málaga y Mallorca puesto que son zonas donde hay un gran número de empresas interesadas.
-Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
-""")
-expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
 if provincia in ["Alicante","Tenerife","Valencia"]:
+    expander = st.beta_expander("Información sobre la web.", True)
+    expander.markdown("""
+    #### ¿Qué ofrecemos?
+    Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
+    #### ¿Cómo se usa?
+    Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
+    #### ¿Cómo funciona?
+    Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife, y próximamente Málaga y Mallorca puesto que son zonas donde hay un gran número de empresas interesadas.
+    Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
+    """)
+    expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
     p = variacion(provincia,delta, "todos", rang, x,i)
 
     st.subheader(f"Número de plazas estimadas para {provincia}.*")
