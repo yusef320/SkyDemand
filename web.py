@@ -352,7 +352,7 @@ st.text("")
 SkyDemand es un proyecto desarrollado íntegramente por estudiantes de la Universidad Politécnica de Valencia. Somos Joan, Pablo, Miguel, Yusef y Pablo, estudiamos primero del grado de Ciencia de Datos y este proyecto se encuadra en el marco de la asignatura Proyecto I.
 Nuestro objetivo es proveer a pequeños y medianos negocios de una herramienta útil para analizar y predecir la afluencia de turistas, permitiéndoles así tomar decisiones relevantes como las fechas de apertura, los precios o la duración de los contratos.
 """
-st.write("Síguenos en twitter [@skydemand](https://twitter.com/skydemand). Todo nuestro código en [Github](https://github.com/yusef320/SkyDemand).")
+st.write("Síguenos en twitter [@skydemand](https://twitter.com/skydemand).\nTodo nuestro código en [Github](https://github.com/yusef320/SkyDemand) ;)")
 
 
 image = Image.open('agradecimientos.png')
