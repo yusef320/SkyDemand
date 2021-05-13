@@ -244,23 +244,24 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     Nuestra misión es ayudar a pequeños y medianos negocios dependientes del turismo internacional a tomar decisiones relevantes sobre la planificación y promoción de la
     temporada en función de estos datos. Entre estas decisiones incluimos **fijar fechas de apertura, diseñar campañas de promoción, establecer tarifas o
-    estimar la duración de los contratos de la plantilla y de los suministros***.
+    estimar la duración de los contratos de la plantilla y de los suministros**.
 
 
     #### ¿En qué se basa?
     La oferta de vuelos por las aerolíneas cambia diariamente ajustándose a la demanda existente. 
-    Usando la API de SkyScanner **efectuamos 8000 búsquedas diarias** recogiendo la oferta de vuelos desde
-    los principales países origen (**Reino Unido, Alemania, Francia, Bélgica, Países Bajos, República Checa, Suecia, Finlandia, Italia, Dinamarca, Suiza y Luxemburgo**) hacia los dos principales aeropuertos de la Comunitat Valenciana (Alicante y Valencia).
+    Usando la API de SkyScanner efectuamos **8000 búsquedas diarias**, recogiendo así la oferta de vuelos desde
+    los principales países de origen (**Reino Unido, Alemania, Francia, Bélgica, Países Bajos, República Checa, Suecia, Finlandia, Italia, Dinamarca, Suiza y Luxemburgo**) 
+    hacia los dos principales aeropuertos de la Comunitat Valenciana (Alicante y Valencia).
     También incluimos Tenerife, y próximamente Málaga y Mallorca, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
 
 
     Con los datos recogidos, mostramos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos. 
-    Además, para que facilitar que te puedas ocupar de tu negocio, te puedes suscribir a nuestra newsletter para recibir las alertas en los cambios más significativos 
+    Además, para facilitar que puedas ocuparte de tu negocio, te puedes suscribir a nuestra newsletter para recibir alertas de los cambios más significativos 
     en la demanda.
 
 
     #### ¿Cómo se usa?
-    En la barra lateral debes ajustar los parámetros disponibles *ciudad* y *rango dtemporal* (días, meses o todo el verano). Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
+    En la barra lateral debes ajustar los parámetros disponibles *ciudad* y *rango temporal* (días, meses o todo el verano). Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
     """)
     expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
     p = variacion(provincia,delta, "todos", rang, x,i)
@@ -271,8 +272,8 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     st.line_chart(p[1],use_container_width=True)
     st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")
 
-    st.subheader(f"Número de plazas programadas para {provincia} por país de origen.*")
-    st.markdown(f"""Mostramos la estimación diaria del número de plazas programadas en vuelos con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
+    st.subheader(f"Número de plazas programadas para {provincia} por país de origen.")
+    st.markdown(f"""Mostramos la estimación diaria del número de plazas en vuelos programados con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
     d = df.loc[df["Es directo"]==1]   
     df_total = d.groupby("País origen")["Es directo"].sum()
     df_verano = df.groupby(f"País origen")["Es directo"].count() * 189
@@ -294,7 +295,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     st.plotly_chart(fig,use_container_width=True)
 
     st.subheader(f"Variación de número de plazas por país de origen en los últimos {number} días.")
-    st.markdown(f"Muestra como varía el número de el número de plazas programadas por las aerolineas hacia {provincia} por país de origen en los últimos {number} días para {rango}.")
+    st.markdown(f"Muestra como varía el número de el número de plazas en vuelos programados por las aerolíneas hacia {provincia} por país de origen en los últimos {number} días para {rango}.")
     df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
     selec = abs(df_verano) > 0.01
     df_verano = df_verano[selec]
@@ -308,7 +309,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
     col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
     col2.line_chart(p[0],use_container_width=True)
-    st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
+    st.markdown("""🔴 *(demanda baja)*    🟡 *(demanda media)*    🟢 *(demanda alta)*""")
     st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
 
 
@@ -364,3 +365,4 @@ st.write("Síguenos en twitter [@skydemand](https://twitter.com/skydemand).\nTod
 
 image = Image.open('agradecimientos.png')
 st.image(image)
+
