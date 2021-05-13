@@ -217,9 +217,8 @@ if a:
 #Parte central
 
 image = Image.open('logo.png')
-#st.image(image, width=300)
+st.image(image, width=250)
 f"""
-# *Sky*Demand
 Comprueba como cambia los vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
 """
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
