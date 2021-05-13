@@ -342,7 +342,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
         col1.color_picker("""Predicción del semáforo *""",color(provincia, p[0]["Predicción precio"][2]))
         col2.line_chart(p[0],use_container_width=True)
         st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
-        st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")        
+        st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")       
 
     except:
         st.markdown("**No hay datos para esta selección, modifique su selección.**")
