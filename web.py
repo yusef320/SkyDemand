@@ -229,91 +229,93 @@ Nuestra web proporciona información amplia, fiable y actualizada aceeca de la a
 #### ¿Cómo se usa?
 Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
 #### ¿Cómo funciona?
-Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife puesto que en esa zona hay empresas interesadas.
+Efectuando 7500 búsquedas diarias, usando la API de SkyScanner, recogemos la oferta de vuelos de distintas aerolíneas hacia los dos principales aeropuertos de la Comunidad Valenciana, Alicante y Valencia. También incluimos Tenerife, y próximamente Málaga y Mallorca puesto que son zonas donde hay un gran número de empresas interesadas.
 Con los datos recogidos, efectuamos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos.
 """)
 expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
+if provincia in ["Alicante","Tenerife","Valencia"]:
+    p = variacion(provincia,delta, "todos", rang, x,i)
 
-p = variacion(provincia,delta, "todos", rang, x,i)
+    st.subheader(f"Número de plazas estimadas para {provincia}.*")
+    st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}.")
+    st.line_chart(p[1],use_container_width=True)
+    st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
-st.subheader(f"Número de plazas estimadas para {provincia}.*")
-st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}.")
-st.line_chart(p[1],use_container_width=True)
-st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
-
-st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
-st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
-d = df.loc[df["Es directo"]==1]   
-df_total = d.groupby("País origen")["Es directo"].sum()
-df_verano = df.groupby(f"País origen")["Es directo"].count() * 189
-selec = abs(df_verano) > 1
-df_verano = df_verano[selec]
-df_verano = df_verano[df_total.index]
-df_verano = df_verano.rename("Nº de plazas")
-st.bar_chart(df_verano, width=600, height=380)
-st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
-
-
-st.subheader(f"País de origen de las plazas.")
-st.markdown(f"Diagrama de tartas con los paises de origen y el nº de plazas que representan.")
-df = df.loc[df["Es directo"]==1]   
-df2 = df2.loc[df2["Es directo"]==1] 
-num = df.groupby("Ciudad de destino")["Es directo"].sum()
-df_total = round((df.groupby("País origen")["Es directo"].sum()/num[provincia])*100,2)
-df_total = df_total.rename("% de las plazas")
-df_total = pd.DataFrame(df_total)
-fig = px.pie(df_total, values="% de las plazas", names=df_total.index)
-st.plotly_chart(fig,use_container_width=True)
-  
-st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
-st.markdown(f"Aumento o disminución de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
-df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
-selec = abs(df_verano) > 0.01
-df_verano = df_verano[selec]
-df_verano = df_verano.rename("""Nº de plazas""")
-st.bar_chart(df_verano, use_container_width=True)
+    st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
+    st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
+    d = df.loc[df["Es directo"]==1]   
+    df_total = d.groupby("País origen")["Es directo"].sum()
+    df_verano = df.groupby(f"País origen")["Es directo"].count() * 189
+    selec = abs(df_verano) > 1
+    df_verano = df_verano[selec]
+    df_verano = df_verano[df_total.index]
+    df_verano = df_verano.rename("Nº de plazas")
+    st.bar_chart(df_verano, width=600, height=380)
+    st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
 
-st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
-st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el el rango escogido.")
-col1, col2 = st.beta_columns([1, 7])
-col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
-col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
-col2.line_chart(p[0],use_container_width=True)
-st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
-st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
+    st.subheader(f"País de origen de las plazas.")
+    st.markdown(f"Diagrama de tartas con los paises de origen y el nº de plazas que representan.")
+    df = df.loc[df["Es directo"]==1]   
+    df2 = df2.loc[df2["Es directo"]==1] 
+    num = df.groupby("Ciudad de destino")["Es directo"].sum()
+    df_total = round((df.groupby("País origen")["Es directo"].sum()/num[provincia])*100,2)
+    df_total = df_total.rename("% de las plazas")
+    df_total = pd.DataFrame(df_total)
+    fig = px.pie(df_total, values="% de las plazas", names=df_total.index)
+    st.plotly_chart(fig,use_container_width=True)
+
+    st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
+    st.markdown(f"Aumento o disminución de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
+    df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
+    selec = abs(df_verano) > 0.01
+    df_verano = df_verano[selec]
+    df_verano = df_verano.rename("""Nº de plazas""")
+    st.bar_chart(df_verano, use_container_width=True)
 
 
-st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
-df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
-df_verano = df_verano.rename("% var precio")
-selec = abs(df_verano) > 0.01
-df_verano = df_verano[selec]
-st.bar_chart(df_verano, use_container_width=True)
-
-
-"""
-## Estudio por país de orgen.
-Selecciona un país de la lista y obten los datos filtrados con las llegadas para el origen escogido.
-"""
-#("Reino Unido","Alemania", "Francia","Países Bajos","Bélgica")
-mercado = st.selectbox("Elige un mercado",df_total.index)
-
-try:
-    p2 = variacion(provincia,delta, mercado, rang, x,i)
-    st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
-    st.line_chart(p2[1],use_container_width=True)
-
-    st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
+    st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
+    st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el el rango escogido.")
     col1, col2 = st.beta_columns([1, 7])
-    col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
-    col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])) #semaforo basado valores obtenidos de Google Flights
-    col2.line_chart(p2[0],use_container_width=True)
+    col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
+    col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
+    col2.line_chart(p[0],use_container_width=True)
     st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
     st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
-except:
-    st.markdown("**No hay datos para esta selección, modifíquela.**")
-        
+
+
+    st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
+    df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
+    df_verano = df_verano.rename("% var precio")
+    selec = abs(df_verano) > 0.01
+    df_verano = df_verano[selec]
+    st.bar_chart(df_verano, use_container_width=True)
+
+
+    """
+    ## Estudio por país de orgen.
+    Selecciona un país de la lista y obten los datos filtrados con las llegadas para el origen escogido.
+    """
+    #("Reino Unido","Alemania", "Francia","Países Bajos","Bélgica")
+    mercado = st.selectbox("Elige un mercado",df_total.index)
+
+    try:
+        p2 = variacion(provincia,delta, mercado, rang, x,i)
+        st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
+        st.line_chart(p2[1],use_container_width=True)
+
+        st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
+        col1, col2 = st.beta_columns([1, 7])
+        col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
+        col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])) #semaforo basado valores obtenidos de Google Flights
+        col2.line_chart(p2[0],use_container_width=True)
+        st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
+        st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
+    except:
+        st.markdown("**No hay datos para esta selección, modifíquela.**")
+else:
+    st.markdown("Próxiamente estarán disponibles los análisis para su selección.")
+
 
 st.text("")
 """
