@@ -159,7 +159,7 @@ delta = delta.days +1
 ###########################################################
 
 # Barra lateral
-
+st.sidebar.text("")
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca (Próximamente)","Málaga (Próximamente)"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 7, 21)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
