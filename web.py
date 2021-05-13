@@ -206,7 +206,7 @@ st.sidebar.markdown(f"""
 #### Newsletter
 """)
 email = st.sidebar.text_input(f"Reciba un email una vez a la semana con información relevante para {provincia}.",'ejemplo@mail.com')
-a = st.sidebar.button("¡Suscríbete!")
+a = st.sidebar.button("Suscribirme")
 usuario = st.secrets["usuario"]
 contra = st.secrets["contra"]
 
@@ -219,7 +219,7 @@ if a:
         email2 = email1[1].split(".")
         if len(email2) >= 2:
             enviar(email, provincia)
-            st.sidebar.text("¡Ya te has suscrito!")
+            st.sidebar.text("¡Ya se ha suscrito!")
         else:
             a = False
             st.sidebar.text("Email incorrecto, inténtelo de nuevo.")
