@@ -199,7 +199,7 @@ elif rang == "Día":
     df2 = df2.loc[df2["Dia"]==x[1]]
 else:
     x=0
-    rango = "Rango: todo el verano (Junio, julio y agosto)"
+    rango = "Rango: todo el verano (junio, julio y agosto)"
 
 st.sidebar.text("")
 st.sidebar.markdown(f""" 
@@ -239,7 +239,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     expander = st.beta_expander("Información sobre la web.", True)
     expander.markdown("""
     #### ¿Qué ofrecemos?
-    Nuestra web proporciona información amplia, fiable y actualizada aceeca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis.
+    Nuestra web proporciona información amplia, fiable y actualizada acerca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes, como pueden ser prever las fechas de apertura o fijar precios y duración de contratos, en función de estos análisis.
     #### ¿Cómo se usa?
     Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
     #### ¿Cómo funciona?
@@ -250,13 +250,13 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     p = variacion(provincia,delta, "todos", rang, x,i)
 
     st.subheader(f"Número de plazas estimadas para {provincia}.*")
-    st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}.")
+    st.markdown(f"Número de plazas programadas por las aerolíneas hacia {provincia}.")
     st.text(f"{rango}.")
     st.line_chart(p[1],use_container_width=True)
-    st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
+    st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o Airbus A320).* ")
 
     st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
-    st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
+    st.markdown(f"Número de plazas programadas por las aerolíneas hacia {provincia} por país de origen.")
     st.text(f"{rango}.")
     d = df.loc[df["Es directo"]==1]   
     df_total = d.groupby("País origen")["Es directo"].sum()
@@ -266,11 +266,11 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     df_verano = df_verano[df_total.index]
     df_verano = df_verano.rename("Nº de plazas")
     st.bar_chart(df_verano, width=600, height=380)
-    st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
+    st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o Airbus A320).* ")
 
 
     st.subheader(f"País de origen de las plazas.")
-    st.markdown(f"Diagrama de tartas con los paises de origen y el nº de plazas que representan.")
+    st.markdown(f"Gráfico circular con los países de origen y el número de plazas que representan.")
     st.text(f"{rango}.")
     df = df.loc[df["Es directo"]==1]   
     df2 = df2.loc[df2["Es directo"]==1] 
@@ -283,7 +283,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
     st.markdown(f"Aumento o disminución de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
-    st.text(f"{rango}. Variación de los ultimos {number} días.")
+    st.text(f"{rango}. Variación de los últimos {number} días.")
     df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
     selec = abs(df_verano) > 0.01
     df_verano = df_verano[selec]
@@ -292,7 +292,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
 
     st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
-    st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el el rango escogido.")
+    st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el rango escogido.")
     st.text(f"{rango}.")
     col1, col2 = st.beta_columns([1, 7])
     try:
@@ -303,7 +303,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
         col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
     col2.line_chart(p[0],use_container_width=True)
     st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
-    st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
+    st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
 
 
     st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
@@ -338,7 +338,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
             col1.color_picker("""Predicción del semáforo*""",color(provincia, p2[0]["Predicción precio"][2]))
         col2.line_chart(p2[0],use_container_width=True)                 
         st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
-        st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
+        st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
     except:
         st.markdown("**No hay datos para esta selección, modifíquela.**")
 else:
