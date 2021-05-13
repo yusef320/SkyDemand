@@ -314,7 +314,8 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     except:
         st.markdown("**No hay datos para esta selección, modifíquela.**")
 else:
-    st.markdown("Próxiamente estarán disponibles los análisis para su selección.")
+    st.text("")
+    st.code("Próxiamente estarán disponibles los análisis para su selección.")
 
 
 st.text("")
