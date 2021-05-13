@@ -236,7 +236,7 @@ Comprueba cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio
 """
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
 if provincia in ["Alicante","Tenerife","Valencia"]:
-    expander = st.beta_expander(**"Información sobre la web"**, False)
+    expander = st.beta_expander("Información sobre la web", False)
     expander.markdown("""
     #### Nuestra misión
     SkyDemand proporciona información fiable y actualizada acerca de la afluencia prevista de turistas extranjeros a determinados aeropuertos españoles.
@@ -309,7 +309,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
     col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
     col2.line_chart(p[0],use_container_width=True)
-    st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
+    st.markdown("""🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*""")
     st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
 
 
@@ -342,7 +342,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
         col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
         col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2]))
         col2.line_chart(p2[0],use_container_width=True)
-        st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
+        st.markdown("""🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*""")
         st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
     except: 
         st.code("No hay disponibles análisis para esta selección, por favor, modifíquela.")
