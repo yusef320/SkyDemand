@@ -12,7 +12,7 @@ import plotly.express as px
 from email.mime.text import MIMEText
 from state import count_sessions
 
-count_sessions()
+print(count_sessions())
 
 ############################################
 #####           FUNCIONES               ####
