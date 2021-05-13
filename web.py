@@ -162,7 +162,7 @@ delta = delta.days +1
 # Barra lateral
 st.sidebar.text("")
 st.sidebar.text("")
-provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Palma de Mallorca (Próximamente)","Málaga (Próximamente)"))
+provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Palma de Mallorca (Próximamente)"))
 number = st.sidebar.slider("Elija el rango en días entre los datos", 7, 21)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
@@ -252,7 +252,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     Usando la API de SkyScanner efectuamos **8000 búsquedas diarias**, recogiendo así la oferta de vuelos desde
     los principales países de origen (**Reino Unido, Alemania, Francia, Bélgica, Países Bajos, República Checa, Suecia, Finlandia, Italia, Dinamarca, Suiza y Luxemburgo**) 
     hacia los dos principales aeropuertos de la Comunitat Valenciana (**Alicante** y **Valencia**).
-    También incluimos **Tenerife** y, próximamente, **Málaga** y **Palma de Mallorca**, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
+    También incluimos **Tenerife** y, próximamente, **Palma de Mallorca**, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
 
 
     Con los datos recogidos, mostramos **análisis y predicciones en tiempo real**, ofreciendo así una idea exacta de la fluctuación de **precio y cantidad de los vuelos**. 
