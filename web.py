@@ -239,7 +239,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     expander = st.beta_expander("Información sobre la web.", True)
     expander.markdown("""
     #### ¿Qué ofrecemos?
-    Nuestra web proporciona información amplia, fiable y actualizada acerca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes, como pueden ser prever las fechas de apertura o fijar precios y duración de contratos, en función de estos análisis.
+    Nuestra web proporciona información amplia, fiable y actualizada acerca de la afluencia de turistas internacionales a determinados aeropuertos españoles. De esta manera, ayudamos a pequeños y medianos negocios dependientes del turismo estival a tomar decisiones relevantes en función de estos análisis. Estas decisiones pueden ir desde fijar fechas de apertura, precios y duración de contratos hasta elegir un mercado hacia el que orientar más activamente la publicidad.
     #### ¿Cómo se usa?
     Ajustando los parámetros disponibles (ciudad y rango de tiempo en días, meses o todo el verano) recogidos en la pestaña desplegable lateral. Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
     #### ¿Cómo funciona?
