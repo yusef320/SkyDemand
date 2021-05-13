@@ -105,6 +105,7 @@ def enviar(email, provincia):
     msg['Subject'] = "Bienvenido"
     msg['From'] = usuario
     msg['To'] = email
+    server.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
     server.send_message(msg)
     server.quit()
     
