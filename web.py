@@ -154,7 +154,7 @@ delta = delta.days +1
 
 # Barra lateral
 
-provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca (Próximamente)"))
+provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca (Próximamente)","Málaga (Próximamente)"))
 number = st.sidebar.slider("Elige el rango en días entre los datos", 7, 21)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
