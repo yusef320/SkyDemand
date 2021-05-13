@@ -9,6 +9,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from PIL import Image
 import plotly.express as px
+from email.mime.text import MIMEText
 
 
 ############################################
@@ -96,13 +97,17 @@ def enviar(email, provincia):
     """
     Suscribe a los emails en el newsletter
     """
-    conn = smtplib.SMTP("smtp.gmail.com", 587)
-    conn.ehlo()
-    conn.starttls()
-    conn.login(usuario,contra)
-    conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
-    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada viernes recivirá un email con un resumen semanal de con datos relevates como el precio y el numero de plazas y su comportamiento.\n\nUn saludo,\n\nel equipo de SkyDemand.")
-
+    text_type = "plain"
+    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    server.login(usuario,contraseña)
+    texto = f"Le damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada viernes recibirá un email con un resumen semanal de con datos relevantes como el precio, el bnúmero de plazas, y su fluctuación.\n\nUn saludo,\n\nel equipo de SkyDemand."
+    msg = MIMEText(texto, text_type, 'utf-8')
+    msg['Subject'] = "Bienvenido"
+    msg['From'] = usuario
+    msg['To'] = email
+    server.send_message(msg)
+    server.quit()
+    
 def color(provincia, num):
     """
     devuelve el color del semáforo
