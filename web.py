@@ -331,13 +331,12 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
         st.text(f"{rango}.")
         col1, col2 = st.beta_columns([1, 7])
         try:
-            col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
-            col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])) #semaforo basado valores obtenidos de Google Flights
+            col1.color_picker("""Semáforo de demanda*""",color(provincia, p2[0]["Precio medio"][3]))
+            col1.color_picker("""Predicción del semáforo*""",color(provincia, p2[0]["Predicción precio"][2]))
         except:
-            col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
-            col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])
-        
-        col2.line_chart(p2[0],use_container_width=True)                   
+            col1.color_picker("""Semáforo de demanda*""",color(provincia, p2[0]["Precio medio"][3]))
+            col1.color_picker("""Predicción del semáforo*""",color(provincia, p2[0]["Predicción precio"][2]))
+        col2.line_chart(p2[0],use_container_width=True)                 
         st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
         st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
     except:
