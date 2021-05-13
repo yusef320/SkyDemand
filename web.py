@@ -230,7 +230,7 @@ if a:
 #Parte central
 
 image = Image.open('logo.png')
-st.image(image, width=250)
+st.image(image, width=500)
 f"""
 Comprueba cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio al mercado. 
 """
