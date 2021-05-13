@@ -163,7 +163,7 @@ delta = delta.days +1
 st.sidebar.text("")
 st.sidebar.text("")
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca (Próximamente)","Málaga (Próximamente)"))
-number = st.sidebar.slider("Elige el rango en días entre los datos", 7, 21)
+number = st.sidebar.slider("Elija el rango en días entre los datos", 7, 21)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
 df = df.loc[df["Ciudad de destino"] == provincia]
@@ -172,9 +172,9 @@ df["% var. precio"] = df["Precio"]
 df2["% var. precio"] = df2["Precio"]
 
     
-rang = st.sidebar.radio("Escoge un rango", ["Todo el verano","Mes","Día"])
+rang = st.sidebar.radio("Escoja un rango", ["Todo el verano","Mes","Día"])
 if rang == "Mes":
-    mes = st.sidebar.radio("Escoge un mes", ["Junio","Julio","Agosto"])
+    mes = st.sidebar.radio("Escoja un mes", ["Junio","Julio","Agosto"])
     rango = f"el mes de{mes}"
     if mes == "Junio":
         x = 6
@@ -189,7 +189,7 @@ if rang == "Mes":
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
 elif rang == "Día":
-    date = st.sidebar.date_input("Selecciona una fecha",min_value=datetime.datetime(2021,6,1),
+    date = st.sidebar.date_input("Seleccione una fecha",min_value=datetime.datetime(2021,6,1),
                                  max_value=datetime.datetime(2021,8,31), value=datetime.datetime(2021,6,1))
     x = [date.month, date.day]
     rango = f"el día {x[1]}/{x[0]}/2021"
@@ -205,7 +205,7 @@ st.sidebar.text("")
 st.sidebar.markdown(f""" 
 #### Newsletter
 """)
-email = st.sidebar.text_input(f"Recibe un email una vez a la semana con información relevante para {provincia}.",'ejemplo@mail.com')
+email = st.sidebar.text_input(f"Reciba un email una vez a la semana con información relevante para {provincia}.",'ejemplo@mail.com')
 a = st.sidebar.button("¡Suscríbete!")
 usuario = st.secrets["usuario"]
 contra = st.secrets["contra"]
@@ -213,7 +213,7 @@ contra = st.secrets["contra"]
 if a:
     email1 = email.split("@")
     if email == "ejemplo@mail.com":
-        st.sidebar.text("Introduce un email")
+        st.sidebar.text("Escriba su email")
         a = False
     elif len(email1) == 2:
         email2 = email1[1].split(".")
@@ -222,18 +222,17 @@ if a:
             st.sidebar.text("¡Ya te has suscrito!")
         else:
             a = False
-            st.sidebar.text("Email incorrecto, intentelo de nuevo.")
+            st.sidebar.text("Email incorrecto, inténtelo de nuevo.")
     else:
         a = False
-        st.sidebar.text("Email incorrecto, intentelo de nuevo.")
+        st.sidebar.text("Email incorrecto, inténtelo de nuevo.")
 
 #Parte central
 
 image = Image.open('logo.png')
 st.image(image, width=500)
 f"""
-Descubre cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio al mercado.\n
-\n
+Descubre cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio al mercado.
 """
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
 if provincia in ["Alicante","Tenerife","Valencia"]:
