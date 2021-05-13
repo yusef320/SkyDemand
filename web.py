@@ -326,26 +326,25 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     Selecciona un país de la lista y obtén los datos filtrados con las llegadas para el origen escogido.
     """
     mercado = st.selectbox("Elige un mercado",df_total.index)
-    try:
-        p2 = variacion(provincia,delta, mercado, rang, x,i)
-        st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} con origen {mercado} para {rango}.")
-        st.markdown(f"""Mostramos la **estimación diaria del número de plazas** programadas en vuelos con destino {provincia} provenientes de {mercado} para el período elegido.
-        Dicha estimación se obtiene considerando que, en promedio, cada vuelo tienen una capacidad de 189 personas*.""")
-        st.line_chart(p2[1],use_container_width=True)
-        st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")
-        
-        st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} con origen {mercado} para {rango}.")
-        st.markdown(f"Muestra el **comportamiento del precio medio** para todos los vuelos en el rango escogido hacia {provincia} que *provienen de {mnercado}*. En función de dicho precio se hace una **estimación de la demanda** basandonos en años anteriores que se muestra en **forma de semáforo**.")
     
-        col1, col2 = st.beta_columns([1, 7])       
-        col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
-        col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2]))
-        col2.line_chart(p2[0],use_container_width=True)
-        st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
-        st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")       
+    p2 = variacion(provincia,delta, mercado, rang, x,i)
+    st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} con origen {mercado} para {rango}.")
+    st.markdown(f"""Mostramos la **estimación diaria del número de plazas** programadas en vuelos con destino {provincia} provenientes de {mercado} para el período elegido.
+    Dicha estimación se obtiene considerando que, en promedio, cada vuelo tienen una capacidad de 189 personas*.""")
+    st.line_chart(p2[1],use_container_width=True)
+    st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")    
+        
+    st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} con origen {mercado} para {rango}.")
+    st.markdown(f"Muestra el **comportamiento del precio medio** para todos los vuelos en el rango escogido hacia {provincia} que *provienen de {mnercado}*. En función de dicho precio se hace una **estimación de la demanda** basandonos en años anteriores que se muestra en **forma de semáforo**.")
+    
+    col1, col2 = st.beta_columns([1, 7])       
+    col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
+    col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2]))
+    col2.line_chart(p2[0],use_container_width=True)
+    st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
+    st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")       
 
-    except:
-        st.markdown("**No hay datos para esta selección, modifique su selección.**")
+  
 
 else:
     st.text("")
