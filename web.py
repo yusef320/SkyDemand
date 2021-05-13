@@ -126,14 +126,7 @@ def color(provincia, num):
         return "#FFFB00"
     else:
         return "#F91212"
-    
-def rang(rango):
-    if rango == "Mes":
-        return f"Rango: {mes}"
-    elif rango == "Día":
-        return f"Rango: fecha {x[1]}/{x[0]}/2021"
-    else:
-        return "Rango: todo el verano (Junio, julio y agosto)"
+
 ############################################################
 ####                CONFIGURAMOS LA PÁGINA              ####
 ############################################################
@@ -177,9 +170,12 @@ df = df.loc[df["Ciudad de destino"] == provincia]
 df2 = df2.loc[df2["Ciudad de destino"] == provincia]
 df["% var. precio"] = df["Precio"]
 df2["% var. precio"] = df2["Precio"]
+
+    
 rang = st.sidebar.radio("Escoge un rango", ["Todo el verano","Mes","Día"])
 if rang == "Mes":
     mes = st.sidebar.radio("Escoge un mes", ["Junio","Julio","Agosto"])
+    rango = f"Rango: {mes}"
     if mes == "Junio":
         x = 6
         df = df.loc[df["Mes"]==6]
@@ -196,12 +192,14 @@ elif rang == "Día":
     date = st.sidebar.date_input("Selecciona una fecha",min_value=datetime.datetime(2021,6,1),
                                  max_value=datetime.datetime(2021,8,31), value=datetime.datetime(2021,6,1))
     x = [date.month, date.day]
+    rango = f"Rango: fecha {x[1]}/{x[0]}/2021"
     df = df.loc[df["Mes"]==x[0]]
     df2 = df2.loc[df2["Mes"]==x[0]]
     df = df.loc[df["Dia"]==x[1]]
     df2 = df2.loc[df2["Dia"]==x[1]]
 else:
     x=0
+    rango = "Rango: todo el verano (Junio, julio y agosto)"
 
 st.sidebar.text("")
 st.sidebar.markdown(f""" 
@@ -253,13 +251,13 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     st.subheader(f"Número de plazas estimadas para {provincia}.*")
     st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia}.")
-    st.text(rang(rang))
+    st.text(rango)
     st.line_chart(p[1],use_container_width=True)
     st.markdown("**189 pasajeros por vuelo (capacidad media de un Boeing 737 o un a320).* ")
 
     st.subheader(f"Número de plazas estimadas para {provincia} por país.*")
     st.markdown(f"Número de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
-    st.text(rang(rang))
+    st.text(rango)
     d = df.loc[df["Es directo"]==1]   
     df_total = d.groupby("País origen")["Es directo"].sum()
     df_verano = df.groupby(f"País origen")["Es directo"].count() * 189
@@ -273,7 +271,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     st.subheader(f"País de origen de las plazas.")
     st.markdown(f"Diagrama de tartas con los paises de origen y el nº de plazas que representan.")
-    st.text(rang(rang))
+    st.text(rango)
     df = df.loc[df["Es directo"]==1]   
     df2 = df2.loc[df2["Es directo"]==1] 
     num = df.groupby("Ciudad de destino")["Es directo"].sum()
@@ -285,7 +283,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     st.subheader(f"Variación de nº de plazas por país de origen en los últimos {number} días.")
     st.markdown(f"Aumento o disminución de plazas programadas por las aerolineas hacia {provincia} por país de origen.")
-    st.text(rang(rang))
+    st.text(rango)
     df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
     selec = abs(df_verano) > 0.01
     df_verano = df_verano[selec]
@@ -295,7 +293,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     st.subheader(f"Precio medio en euros de las tarifas hacia {provincia}.")
     st.markdown(f"Precio medio en euros de los vuelos hacia {provincia} para el el rango escogido.")
-    st.text(rang(rang))
+    st.text(rango)
     col1, col2 = st.beta_columns([1, 7])
     uno = col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
     uno = col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
@@ -305,7 +303,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
 
     st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
-    st.text(f"{rang(rang)}. Separación de {number}.")
+    st.text(f"{rango}. Separación de {number}.")
     df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
     df_verano = df_verano.rename("% var precio")
     selec = abs(df_verano) > 0.01
@@ -323,11 +321,11 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     try:
         p2 = variacion(provincia,delta, mercado, rang, x,i)
         st.subheader(f"Número de plazas estimadas para {provincia} provenientes de {mercado}.*")
-        st.text(rang(rang))
+        st.text(rango)
         st.line_chart(p2[1],use_container_width=True)
 
         st.subheader(f"Precio medio para {provincia} con origen {mercado}.*")
-        st.text(rang(rang))
+        st.text(rango)
         col1, col2 = st.beta_columns([1, 7])
         col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
         dos = col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2])) #semaforo basado valores obtenidos de Google Flights
