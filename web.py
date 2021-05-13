@@ -101,7 +101,7 @@ def enviar(email, provincia):
     conn.starttls()
     conn.login(usuario,contra)
     conn.sendmail(usuario,usuario,f"Subject:Suscripcion {provincia} {email}")
-    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada vez que se produzca una fluctuacion importante en la demanda basada en el precio de los vuelos (de mas del 5%) le enviaremos un informe semanal sobre como ha evolucionado el mercado dia a dia.\n\nUn saludo,\n\nel equipo de SkyDemand.")
+    conn.sendmail(usuario,email,f"Subject:Bienvenido \n\nLe damos la bienvenida al newsletter de SkyDemand sobre {provincia}. Cada viernes recivirá un email con un resumen semanal de con datos relevates como el precio y el numero de plazas y su comportamiento.\n\nUn saludo,\n\nel equipo de SkyDemand.")
 
 def color(provincia, num):
     """
