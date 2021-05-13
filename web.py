@@ -292,8 +292,6 @@ df_verano = df_verano[selec]
 st.bar_chart(df_verano, use_container_width=True)
 
 
-st.code("🢀 Modifica los valores en el panel lateral para cambiar el rango de los datos.")
-
 """
 ## Estudio por país de orgen.
 Selecciona un país de la lista y obten los datos filtrados con las llegadas para el origen escogido.
@@ -314,7 +312,7 @@ try:
     st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
     st.markdown("**En función del precio medio de las tarifas indica el estado de la demanda.*")
 except:
-    st.code("No hay datos para esta selección, modifíquela.")
+    st.markdown("**No hay datos para esta selección, modifíquela.**")
         
 
 st.text("")
