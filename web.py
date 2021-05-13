@@ -244,14 +244,19 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     Nuestra misión es ayudar a pequeños y medianos negocios dependientes del turismo internacional a tomar decisiones relevantes sobre la planificación y promoción de la
     temporada en función de estos datos. Entre estas decisiones incluimos *fijar fechas de apertura, diseñar campañas de promoción, establecer tarifas o
-    estimar la duración de los contratos de la plantilla y de los suministros.
+    estimar la duración de los contratos de la plantilla y de los suministros*.
 
 
     #### ¿En qué se basa?
-    La oferta de vuelos por las aerolíneas cambia diariamente ajustándose a la demanda existente. Usando la API de SkyScanner, efectuamos 8000 búsquedas diarias, recoginedo la oferta de vuelos desde los principales países origen (Reino Unido, blabla) hacia los dos principales aeropuertos de la Comunitat Valenciana (Alicante y València). También incluimos Tenerife, y próximamente Málaga y Mallorca, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
+    La oferta de vuelos por las aerolíneas cambia diariamente ajustándose a la demanda existente. 
+    Usando la API de SkyScanner, *efectuamos 8000 búsquedas diarias*, recoginedo la oferta de vuelos desde
+    los principales países origen (Reino Unido, blabla) hacia los dos principales aeropuertos de la Comunitat Valenciana (Alicante y València).
+    También incluimos Tenerife, y próximamente Málaga y Mallorca, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
 
 
-    Con los datos recogidos, mostramos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos. Además, para que facilitar que te puedas ocupar de tu negocio, te puedes suscribir a nuestra newsletter para recibir las alertas en los cambios más significativos en la demanda.
+    Con los datos recogidos, mostramos análisis y predicciones en tiempo real, ofreciendo así una idea exacta de la fluctuación de precio y cantidad de los vuelos. 
+    Además, para que facilitar que te puedas ocupar de tu negocio, te puedes suscribir a nuestra newsletter para recibir las alertas en los cambios más significativos 
+    en la demanda.
 
 
     #### ¿Cómo se usa?
