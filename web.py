@@ -239,7 +239,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     expander = st.beta_expander("Información sobre la web.", True)
     expander.markdown("""
     #### Nuestra misión
-    SkyDemmand proporciona información fiable y actualizada acerca de la afluencia prevista de turistas extranjeros a determinados aeropuertos españoles.
+    SkyDemand proporciona información fiable y actualizada acerca de la afluencia prevista de turistas extranjeros a determinados aeropuertos españoles.
 
 
     Nuestra misión es ayudar a pequeños y medianos negocios dependientes del turismo internacional a tomar decisiones relevantes sobre la planificación y promoción de la
@@ -276,7 +276,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     st.markdown(f"""Mostramos la estimación diaria del número de plazas en vuelos programados con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
     d = df.loc[df["Es directo"]==1]   
     df_total = d.groupby("País origen")["Es directo"].sum()
-    df_verano = df.groupby(f"País origen")["Es directo"].count() * 189
+    df_verano = df.groupby(f"País origen")["Es directo"].count() * 189      # por ser 189 el número medio de pasajeros en un vuelo comercial
     selec = abs(df_verano) > 1
     df_verano = df_verano[selec]
     df_verano = df_verano[df_total.index]
@@ -309,7 +309,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
     col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
     col2.line_chart(p[0],use_container_width=True)
-    st.markdown("""🔴 *(demanda baja)*    🟡 *(demanda media)*    🟢 *(demanda alta)*""")
+    st.markdown("""🔴 *(demanda baja)*; 🟡 *(demanda media)*; 🟢 *(demanda alta)*""")
     st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
 
 
@@ -323,8 +323,8 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
 
     """
-    ## Estudio por país de orgen.
-    Selecciona un país de la lista y obtén los datos filtrados con las llegadas para el origen escogido.
+    ## Estudio por país de origen.
+    Selecciona un país de la lista y obtén los datos filtrados con las llegadas desde el país escogido.
     """
     mercado = st.selectbox("Elige un mercado",df_total.index)
     try:
@@ -358,7 +358,7 @@ st.text("")
 """
 ## Sobre nosotros
 SkyDemand es un proyecto desarrollado íntegramente por estudiantes de la Universidad Politécnica de Valencia. Somos Joan, Pablo, Miguel, Yusef y Pablo, estudiamos primero del grado de Ciencia de Datos y este proyecto se encuadra en el marco de la asignatura Proyecto I.
-Nuestro objetivo es proveer a pequeños y medianos negocios de una herramienta útil para analizar y predecir la afluencia de turistas, permitiéndoles así tomar decisiones relevantes como las fechas de apertura, los precios o la duración de los contratos.
+Nuestro objetivo es proveer a pequeños y medianos negocios de una herramienta útil para analizar y predecir la afluencia de turistas, permitiéndoles así tomar decisiones relevantes como las fechas de apertura, los precios, la duración de los contratos o la correcta colocación de publicidad.
 """
 st.write("Síguenos en twitter [@skydemand](https://twitter.com/skydemand).\nTodo nuestro código en [Github](https://github.com/yusef320/SkyDemand) ;)")
 
