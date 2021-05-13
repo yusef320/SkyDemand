@@ -34,26 +34,26 @@ def newsletter(mercados, prov, d, d2,):
     for mercado in mercados:
         texto += f"\t{mercado}:  El número de plazas es {plazas[mercado]}, una variación del {varPlazas[mercado]}%  , una . El precio medio se situo en un {round(precioMedio[mercado],2)}€, lo que significa una diferencia del {varPrecio[mercado]}% en comparación a la semana pasada.\n\n"
 
-    text = f"Buenas,\n\nSegún nuestros análisis, le informamos que durante la última semana el comportamiento ha sido el siguiente:\n\n{texto}Entra en https://tinyurl.com/skydemand para infomación más detallada.\n\nPara darse de baja enviar un email con el asunto: CANCELAR."
+    text = f"Buenas,\n\nSegún nuestros análisis, le informamos que durante la última semana el comportamiento ha sido el siguiente:\n\n{texto}Entra en https://bit.ly/skydemand para infomación más detallada.\n\nPara darse de baja enviar un email con el asunto: CANCELAR."
 
     return text
 
 def enviarEmails(mails,texto,prov):
     text_type = "plain"
     server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.login('EMAIL',"CONTRASEÑA")
+    server.login(Usuario, Contraseña)
     for mail in mails:
         msg = MIMEText(texto, text_type, 'utf-8')
         msg['Subject'] = f"Info turística {prov}"
-        msg['From'] = 'EMAIL'
+        msg['From'] = 'skydemand.upv@gmail.com'
         msg['To'] = mail
         server.send_message(msg)
     server.quit()
 
 def emails():
     host = 'imap.gmail.com'
-    username = 'USUARIO'
-    password = 'CONTRASEÑA'
+    username = "USUARIO"
+    password = "Contraseña"
 
     mail = imaplib.IMAP4_SSL(host)
     mail.login(username, password)
@@ -62,6 +62,7 @@ def emails():
     newslt_VLC = []
     newslt_ALC = []
     newslt_TCI = []
+    #newslt_PMI = []
     for num in search_data[0].split():
         email_data = {}
         _, data = mail.fetch(num, '(RFC822)')
@@ -76,13 +77,15 @@ def emails():
                 newslt_ALC.append(palabras_asunto[2])
             elif palabras_asunto[1] == 'Tenerife':
                 newslt_TCI.append(palabras_asunto[2])
+            #elif palabras_asunto[1] == 'Mallorca':
+                #newslt_PMI.append(palabras_asunto[2])      En una semana.
 
-    return [newslt_VLC, newslt_ALC, newslt_TCI]
+    return [newslt_VLC, newslt_ALC, newslt_TCI] #,newslt_PMI
 
 def subirArchivo(nombreArchivo):
     g = Github(login_or_token=('TOKEN GITHUB'))
 
-    repo = g.get_user().get_repo('rep')
+    repo = g.get_user().get_repo('SkyDemand')
     all_files = []
     contents = repo.get_contents('')
     while contents:
@@ -109,6 +112,8 @@ def ciudad(d):
         return "Tenerife"
     if d == "VLC":
         return "Valencia"
+    if d == "PMI":
+        return "Mallorca"
     else: 
         return "Alicante"
 
@@ -130,6 +135,7 @@ def vuelosEnMes(anio, mes, orgien, destino, lista):
     
     """
     j=0
+    
     if destino == "ALC":
         j=1
     elif destino == "VLC" and orgien == "ZRH":
@@ -139,6 +145,22 @@ def vuelosEnMes(anio, mes, orgien, destino, lista):
     elif destino == "TFS" and orgien == "VIE":
         j=1
     elif destino == "TFS" and orgien == "TLS":
+        j=1
+    elif destino == "PMI" and orgien == "STN":
+        j=1
+    elif destino == "PMI" and orgien =="VCE":
+        j=1
+    elif destino == "PMI" and orgien =="SNN":
+        j=1
+    elif destino == "PMI" and orgien =="ZRH":
+        j=1
+    elif destino == "PMI" and orgien =="PRG":
+        j=1
+    elif destino == "PMI" and orgien =="TLS":
+        j=1
+    elif destino == "PMI" and orgien =="VIE":
+        j=1
+    elif destino == "PMI" and orgien =="STR":
         j=1
 
     dia = datetime.datetime.now()
@@ -156,8 +178,8 @@ def vuelosEnMes(anio, mes, orgien, destino, lista):
         vuelo= []
         url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/ES/EUR/es-ES/{orgien}-sky/{destino}-sky/{anio}-{mes:02d}-{i:02d}"
         headers = {
-            'x-rapidapi-key': "API KEY",
-            'x-rapidapi-host': "API HOST"
+            'x-rapidapi-key': "KEY",
+            'x-rapidapi-host': "HOST"
             }
         response = requests.request("GET", url, headers=headers)
         d = response.json()
@@ -197,11 +219,12 @@ while True:
     today = date.today()
     print(today)
     lista = []
-    orig = ["VLC", "TFS", "ALC"] #codigo IATA del aeropuerto de destino
+    orig = ["VLC", "TFS", "ALC", "PMI"] #codigo IATA del aeropuerto de destino
     aeropuertos = ["FRA", "DUS", "BER", "MUC","HHN","LEJ","HAM","NRN","STR", "BRU", "CRL", "VIE", "CPH", "HEL","TLS","CDG","ORY","BVA",
                    "MRS","NCE","NTE","LYS","LUX","AMS","EIN","LHR","LTN", "LGW", "EDI","GLA","LPL","BHX","STN","MAN",
                    "NCL","BHD","BRS","PRG","ARN","ZRH","GVA","DUB","ORK","SNN","FCO","MXP","VCE"] #principales aeropuertos europeos
-    for destino in orig: #recolcetamos los datos para cada provincia
+
+    for destino in orig: #recolcetamos los datos para cada provincia, tarda 10 horas con esta selección
         print(f"Recolectando datos de {destino}")
         for aeropueto in aeropuertos: #estudiamos todos los aeropuertos de la lista
             print(aeropueto)
@@ -231,9 +254,6 @@ while True:
             df2 = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
             provincias=["Valencia", "Alicante", "Tenerife"]
             mercados=["Reino Unido", "Alemania", "Francia", "Bélgica","Países Bajos"]
-
-            ####                Iniciando mail              #####
-
             i=0
             print("Enviando emails")
             mails = emails()
@@ -243,7 +263,7 @@ while True:
                 i+=1
             print("Programa finalizado con exito")
         except:
-            enviarEmails(["EMAIL DE EMERGENCIA"],"SE HA PRODUCIDO UN ERROR","ERROR")
+            enviarEmails(["EMAIL PARA AVISAR DEL ERROR"],"SE HA PRODUCIDO UN ERROR","ERROR")
             print("Error con los emails")
 
     time.sleep(86400.0 - ((time.time() - starttime) % 86400.0))
