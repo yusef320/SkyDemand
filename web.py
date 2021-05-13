@@ -250,7 +250,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     #### ¿En qué se basa?
     La oferta de vuelos por las aerolíneas cambia diariamente ajustándose a la demanda existente. 
     Usando la API de SkyScanner **efectuamos 8000 búsquedas diarias** recogiendo la oferta de vuelos desde
-    los principales países origen (Reino Unido, blabla) hacia los dos principales aeropuertos de la Comunitat Valenciana (Alicante y València).
+    los principales países origen (**Reino Unido, Alemania, Francia, Bélgica, Países Bajos, República Checa, Suecia, Finlandia, Italia, Dinamarca, Suiza y Luxemburgo**) hacia los dos principales aeropuertos de la Comunitat Valenciana (Alicante y Valencia).
     También incluimos Tenerife, y próximamente Málaga y Mallorca, puesto que son zonas donde hemos detectado un gran número de empresas potencialmente interesadas.
 
 
