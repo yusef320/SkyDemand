@@ -236,7 +236,7 @@ Descubre cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio 
 """
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
 if provincia in ["Alicante","Tenerife","Valencia"]:
-    expander = st.beta_expander("Información sobre la web", False)
+    expander = st.beta_expander("Información sobre la web", True)
     expander.markdown("""
     #### Nuestra misión
     SkyDemand proporciona información fiable y actualizada acerca de la afluencia prevista de turistas extranjeros a determinados aeropuertos españoles.
@@ -265,6 +265,12 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     """)
     expander.video("https://youtu.be/c4j9xQrSOG8")
     expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
+    
+    expander = st.beta_expander("Casos de uso", False)
+    expander.markdown("""Una de las potenciales forma de usar SkyDemand es para **adaptar los productos que ofrece** tu empresa al mercado. 
+    Puediendo **cambiar tus precios** en función del precio medio de los vuelos, **contratando más personal** si el número de plazas ofrecidas 
+    aumenta considerablemte o **plantear tu presencia online y campañas publicitarias** a los países con plazas programadas.  """)
+    
     p = variacion(provincia,delta, "todos", rang, x,i)
 
     st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} para {rango}.")
