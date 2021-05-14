@@ -262,15 +262,18 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     #### ¿Cómo se usa?
     En la barra lateral debes ajustar los parámetros disponibles *ciudad* y *rango temporal* (días, meses o todo el verano). Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
-    """)
-    expander.video("https://youtu.be/c4j9xQrSOG8")
-    expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
     
-    expander = st.beta_expander("**Casos de uso**", False)
-    expander.markdown("""Una de las potenciales forma de usar SkyDemand es para **adaptar los productos que ofrece** tu empresa al mercado. 
+    #### ¿Para que me sirve?
+    Una de las potenciales forma de usar SkyDemand es para **adaptar los productos que ofrece** tu empresa al mercado. 
     Puediendo **cambiar tus precios** en función del precio medio de los vuelos, **contratando más personal** si el número de plazas ofrecidas 
-    aumenta considerablemte o **plantear tu presencia online y campañas publicitarias** a los países con plazas programadas.  """)
+    aumenta considerablemte o **plantear tu presencia online y campañas publicitarias** a los países con plazas programadas. 
+    """)
     
+    expander.video("https://youtu.be/c4j9xQrSOG8")
+    expander.text("")
+    expander.markdown("**Recuerda modifica los valores en el panel lateral para cambiar el rango de los datos.**")
+    
+ 
     p = variacion(provincia,delta, "todos", rang, x,i)
 
     st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} para {rango}.")
