@@ -263,6 +263,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     #### ¿Cómo se usa?
     En la barra lateral debes ajustar los parámetros disponibles *ciudad* y *rango temporal* (días, meses o todo el verano). Estos valores se pueden modificar en cualquier momento y el análisis correspondiente se muestra al instante.
     """)
+    expander.video("https://youtu.be/c4j9xQrSOG8")
     expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
     p = variacion(provincia,delta, "todos", rang, x,i)
 
