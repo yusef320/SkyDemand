@@ -162,7 +162,7 @@ delta = delta.days +1
 # Barra lateral
 st.sidebar.text("")
 st.sidebar.text("")
-provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca (Próximamente)"))
+provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca (Próximamente)")) #Necesitamos minimo 7 días recolectando datos para añadir a Mallorca a la web
 number = st.sidebar.slider("Elija el rango en días entre los datos", 7, 21)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
@@ -266,7 +266,7 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
     expander.video("https://youtu.be/c4j9xQrSOG8")
     expander.markdown("🢀 **Modifica los valores en el panel lateral para cambiar el rango de los datos.**")
     
-    expander = st.beta_expander("Casos de uso", False)
+    expander = st.beta_expander("**Casos de uso**", False)
     expander.markdown("""Una de las potenciales forma de usar SkyDemand es para **adaptar los productos que ofrece** tu empresa al mercado. 
     Puediendo **cambiar tus precios** en función del precio medio de los vuelos, **contratando más personal** si el número de plazas ofrecidas 
     aumenta considerablemte o **plantear tu presencia online y campañas publicitarias** a los países con plazas programadas.  """)
