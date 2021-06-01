@@ -69,6 +69,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
     for p in range(0, delta):
         dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
         d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+        d = d.loc[d["Mes"]!=6]
         d = d.loc[d["Ciudad de destino"] == provincia]
         if rang == "Mes":
             d = d.loc[d["Mes"]==x]
@@ -174,7 +175,7 @@ df2["% var. precio"] = df2["Precio"]
     
 rang = st.sidebar.radio("Escoja un rango", ["Todo el verano","Mes","Día"])
 if rang == "Mes":
-    mes = st.sidebar.radio("Escoja un mes", ["Junio","Julio","Agosto"])
+    mes = st.sidebar.radio("Escoja un mes", ["Julio","Agosto"])
     rango = f"el mes de {mes}"
     if mes == "Junio":
         x = 6
@@ -189,8 +190,8 @@ if rang == "Mes":
         df = df.loc[df["Mes"]==8]
         df2 = df2.loc[df2["Mes"]==8]
 elif rang == "Día":
-    date = st.sidebar.date_input("Seleccione una fecha",min_value=datetime.datetime(2021,6,1),
-                                 max_value=datetime.datetime(2021,8,31), value=datetime.datetime(2021,6,1))
+    date = st.sidebar.date_input("Seleccione una fecha",min_value=datetime.datetime(2021,7,1),
+                                 max_value=datetime.datetime(2021,8,31), value=datetime.datetime(2021,7,1))
     x = [date.month, date.day]
     rango = f"el {x[1]}/{x[0]}/2021"
     df = df.loc[df["Mes"]==x[0]]
