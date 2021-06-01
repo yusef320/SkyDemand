@@ -200,7 +200,7 @@ elif rang == "Día":
     df2 = df2.loc[df2["Dia"]==x[1]]
 else:
     x=0
-    rango = "todo el verano (junio, julio y agosto)"
+    rango = "todo el verano (julio y agosto)"
 
 st.sidebar.text("")
 st.sidebar.markdown(f""" 
