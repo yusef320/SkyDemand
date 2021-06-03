@@ -199,6 +199,8 @@ elif rang == "Día":
     df = df.loc[df["Dia"]==x[1]]
     df2 = df2.loc[df2["Dia"]==x[1]]
 else:
+    df = df.loc[df["Mes"]!=6]
+    df2 = df2.loc[df2["Mes"]!=6]
     x=0
     rango = "todo el verano (julio y agosto)"
 
