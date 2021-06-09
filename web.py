@@ -153,8 +153,6 @@ except:
     df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
     i=1
 
-delta = dia - datetime.datetime(2021,4,18)
-delta = delta.days +1
 
 ###########################################################
 ####                CUERPO DE LA PÁGINA                ####
@@ -205,7 +203,7 @@ else:
     rango = "todo el verano (julio y agosto)"
 
 if provincia == "Mallorca":
-    delta = dia - datetime.datetime(2021,5,14)
+    delta = dia - datetime.datetime(2021,5,15)
     delta = delta.days +1
 else: 
     delta = dia - datetime.datetime(2021,4,18)
