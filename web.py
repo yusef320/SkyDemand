@@ -163,7 +163,7 @@ delta = delta.days +1
 # Barra lateral
 st.sidebar.text("")
 st.sidebar.text("")
-provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca (Próximamente)")) #Necesitamos minimo 7 días recolectando datos para añadir a Mallorca a la web
+provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca")) #Necesitamos minimo 7 días recolectando datos para añadir a Mallorca a la web
 number = st.sidebar.slider("Elija el rango en días entre los datos", 7, 21)
 dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
@@ -203,6 +203,13 @@ else:
     df2 = df2.loc[df2["Mes"]!=6]
     x=0
     rango = "todo el verano (julio y agosto)"
+
+if provincia == "Mallorca":
+    delta = dia - datetime.datetime(2021,5,14)
+    delta = delta.days +1
+else: 
+    delta = dia - datetime.datetime(2021,4,18)
+    delta = delta.days +1
 
 st.sidebar.text("")
 st.sidebar.markdown(f""" 
