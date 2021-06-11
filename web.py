@@ -203,10 +203,10 @@ else:
     rango = "todo el verano (julio y agosto)"
 
 if provincia == "Mallorca":
-    delta = dia - datetime.datetime(2021,5,18)
+    delta = dia - datetime.datetime(2021,5,15)
     delta = delta.days + 1
 else: 
-    delta = dia - datetime.datetime(2021,4,16)
+    delta = dia - datetime.datetime(2021,4,18)
     delta = delta.days +1
 
 st.sidebar.text("")
