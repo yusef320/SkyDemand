@@ -303,8 +303,6 @@ if provincia in ["Alicante","Tenerife","Valencia"]:
 
     st.subheader(f"Porcentaje que representa cada país del total de operaciones.")
     st.markdown(f"Gráfico circular con los **países de origen** y el **porcentaje** del total de operaciones que representa para {rango}.")
-    df = df.loc[df["Es directo"]==1]   
-    df2 = df2.loc[df2["Es directo"]==1] 
     num = df.groupby("Ciudad de destino")["Es directo"].sum()
     df_total = round((df.groupby("País origen")["Es directo"].sum()/num[provincia])*100,2)
     df_total = df_total.rename("% de las plazas")
