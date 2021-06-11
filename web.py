@@ -243,7 +243,7 @@ f"""
 Descubre cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio al mercado.
 """
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
-if provincia in ["Alicante","Tenerife","Valencia"]:
+if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
     expander = st.beta_expander("Información sobre la web", True)
     expander.markdown("""
     #### Nuestra misión
