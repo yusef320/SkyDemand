@@ -26,13 +26,13 @@ def predicción(fec, datos, oferta, dato):
     demanda = []
     train = p.drop([dato], axis=1)
     test = p[dato]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.85, random_state=1)
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.75, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
     i=0
     for elemento in pred:
-        if i >= 5: break
+        if i >= 4: break
         demanda.append(round(elemento,0))
         i+=1
     demanda.append(p[dato][0])
@@ -54,14 +54,14 @@ def variacion(provincia,delta, mercado, rang, x,i):
     Devuelve un dataframe con la variación de las tarifas
     y el número de vuelos asi como la predicción para ambas.
     """
-    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN,np.NaN,np.NaN]
+    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
     else:
         a = "País origen"
 
-    for z in range(1,6):
+    for z in range(1,5):
         dia = datetime.datetime.now() + datetime.timedelta(days=z-i)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
         fec.append(fecha)
