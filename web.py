@@ -54,14 +54,14 @@ def variacion(provincia,delta, mercado, rang, x,i):
     Devuelve un dataframe con la variación de las tarifas
     y el número de vuelos asi como la predicción para ambas.
     """
-    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN ], [], [np.NaN,np.NaN,np.NaN]
+    datos,fec,oferta  = [np.NaN,np.NaN ], [], [np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
     else:
         a = "País origen"
 
-    for z in range(1,4):
+    for z in range(1,3):
         dia = datetime.datetime.now() + datetime.timedelta(days=z-i)
         fecha = f"{dia.month:02d}-{dia.day:02d}"
         fec.append(fecha)
