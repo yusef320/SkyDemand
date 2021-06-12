@@ -26,7 +26,7 @@ def predicción(fec, datos, oferta, dato):
     demanda = []
     train = p.drop([dato], axis=1)
     test = p[dato]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.50, random_state=1)
+    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.90, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
