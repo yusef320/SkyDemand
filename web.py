@@ -54,7 +54,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
     Devuelve un dataframe con la variación de las tarifas
     y el número de vuelos asi como la predicción para ambas.
     """
-    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN,np.NaN ], [], [np.NaN,np.NaN,np.NaN,np.NaN,np.NaN]
+    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN,np.NaN,np.NaN]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
