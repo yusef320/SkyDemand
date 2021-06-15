@@ -32,7 +32,7 @@ def predicción(fec, datos, oferta, dato):
     pred = regr.predict(X_train)
     i=0
     for elemento in pred:
-        if i >= 4: break
+        if i >= 5: break
         demanda.append(round(elemento,0))
         i+=1
     demanda.append(p[dato][0])
