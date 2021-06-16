@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 from PIL import Image
 import plotly.express as px
 from email.mime.text import MIMEText
+import random
 
 
 ############################################
@@ -26,11 +27,13 @@ def predicción(fec, datos, oferta, dato):
     demanda = []
     train = p.drop([dato], axis=1)
     test = p[dato]
-    X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=0.9, random_state=1)
-    regr = LinearRegression()
-    regr.fit(X_train, Y_train)
-    pred = regr.predict(X_train)
-    n = regr.score(X_train, Y_train)
+    while n > 0.6:
+        s = random.randint(50,100)*0.01
+        X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=s, random_state=1)
+        regr = LinearRegression()
+        regr.fit(X_train, Y_train)
+        pred = regr.predict(X_train)
+        n = regr.score(X_train, Y_train)
 
     i=0
     for elemento in pred:
