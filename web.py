@@ -29,7 +29,7 @@ def predicción(fec, datos, oferta, dato):
     test = p[dato]
     n=0
     while n < 0.9:
-        s = random.randint(60,90)*0.01
+        s = random.randrange(60, 95,5)*0.01
         X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=s, random_state=1)
         regr = LinearRegression()
         regr.fit(X_train, Y_train)
