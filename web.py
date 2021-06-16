@@ -30,6 +30,8 @@ def predicción(fec, datos, oferta, dato):
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
+    n = regr.score(X_train, Y_train)
+
     i=0
     for elemento in pred:
         if i >= 3: break
@@ -46,7 +48,7 @@ def predicción(fec, datos, oferta, dato):
     else:
         name = "Predicción precio"
 
-    return pd.Series(data=demanda, index=fec, name=name)
+    return pd.Series(data=demanda, index=fec, name=name),n
 
 @st.cache
 def variacion(provincia,delta, mercado, rang, x,i):
@@ -88,11 +90,11 @@ def variacion(provincia,delta, mercado, rang, x,i):
 
     dat = pd.Series(data=datos, index=fec, name="Precio medio")
     var = pd.Series(data=oferta, index=fec, name="Nº de plazas")
-    pred1 = predicción(fec, dat, var,"Precio medio")
-    pred2 = predicción(fec, dat, var, "Nº de plazas")
+    pred1,n = predicción(fec, dat, var,"Precio medio")
+    pred2,n1 = predicción(fec, dat, var, "Nº de plazas")
     p = pd.concat([dat, pred1], axis=1)
     v = pd.concat([var, pred2], axis=1)
-    return [p,v]
+    return [p,v,n,n1]
 
 def enviar(email, provincia):
     """
@@ -289,6 +291,7 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
     Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*.""")
     st.line_chart(p[1],use_container_width=True)
     st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")
+    st.text(p[3])
 
     st.subheader(f"Número de plazas programadas para {provincia} por país de origen.")
     st.markdown(f"""Muestra la estimación diaria del **número de plazas** en vuelos programados con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
@@ -327,6 +330,7 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
     col2.line_chart(p[0],use_container_width=True)
     st.markdown("""🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*""")
     st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
+    st.text(p[2])
 
 
     st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
