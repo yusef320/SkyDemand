@@ -287,7 +287,7 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
     st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} para {rango}.")
     st.markdown(f"""Muestra la estimación diaria del **número de plazas** programadas en vuelos con destino {provincia} para el período elegido.
     Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*.""")
-    st.line_chart(p[1],use_container_width=False)
+    st.line_chart(p[1],use_container_width=True)
     st.markdown("**capacidad media de un Boeing 737 o Airbus A320.*")
 
     st.subheader(f"Número de plazas programadas para {provincia} por país de origen.")
