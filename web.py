@@ -63,7 +63,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
 
     for z in range(1,4):
         dia = datetime.datetime.now() + datetime.timedelta(days=z-i)
-        fecha = f"{dia.month:02d}-{dia.day:02d}"
+        fecha = datetime.date(2021, dia.month, dia.day)
         fec.append(fecha)
 
     for p in range(0, delta):
@@ -81,7 +81,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
         df_verano = d.groupby(a)["Precio"].mean()
         s= round(df_verano[mercado],2)
         datos.append(s)
-        fecha = f"{dia.month:02d}-{dia.day:02d}"
+        fecha = datetime.date(2021, dia.month, dia.day)
         fec.append(fecha)
         o= round(df_demanda[mercado],2)
         oferta.append(o)
