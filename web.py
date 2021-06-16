@@ -28,13 +28,14 @@ def predicción(fec, datos, oferta, dato):
     train = p.drop([dato], axis=1)
     test = p[dato]
     n=0
-    while n < 0.9:
-        s = random.randrange(60, 95,5)*0.01
+    s=0.85
+    while n < 0.8:
         X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=s, random_state=1)
         regr = LinearRegression()
         regr.fit(X_train, Y_train)
         pred = regr.predict(X_train)
         n = regr.score(X_train, Y_train)
+        s = random.randrange(60, 95,5)*0.01
 
     i=0
     for elemento in pred:
