@@ -32,7 +32,8 @@ def predicción(fec, datos, oferta, dato):
     X_train, X_test, Y_train, Y_test = train_test_split(train, test, test_size=s, random_state=1)
     regr = LinearRegression()
     regr.fit(X_train, Y_train)
-    n = regr.score(X_train, Y_train)
+    pred = regr.predict(X_train)
+    n = round(regr.score(X_train, Y_train),2)
         
     i=0
     for elemento in pred:
