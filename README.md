@@ -7,7 +7,7 @@ Entra en [SkyDemand](https://share.streamlit.io/yusef320/skydemand/main/web.py#1
 
 ### Miembros del equipo
   
-  - Yusef Ahsini Ouariaghli - <ahsini30@gmaill.com>
+  - Yusef Ahsini Ouariaghli - Encargado del códgio
   - Pablo Díaz Masa Valencia
   - Miguel Peris Aragón
   - Pablo Vellosillo Montalt
