@@ -164,7 +164,7 @@ st.sidebar.text("")
 st.sidebar.text("")
 provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca")) #Necesitamos minimo 7 días recolectando datos para añadir a Mallorca a la web
 number = st.sidebar.slider("Elija el rango en días entre los datos", 7, 21)
-dia2 = datetime.datetime.now() - datetime.timedelta(days=number+i)
+dia2 = datetime.datetime(2021,6,29) - datetime.timedelta(days=number+i)
 df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
 df = df.loc[df["Ciudad de destino"] == provincia]
 df2 = df2.loc[df2["Ciudad de destino"] == provincia]
