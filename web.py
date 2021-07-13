@@ -67,7 +67,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
         a = "País origen"
 
     for z in range(1,5):
-        dia = datetime.datetime.now() + datetime.timedelta(days=z-i)
+        dia = datetime.datetime(2021,6,29) + datetime.timedelta(days=z-i)
         fecha = datetime.date(2021, dia.month, dia.day)
         fec.append(fecha)
 
