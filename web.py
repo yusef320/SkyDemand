@@ -72,7 +72,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
         fec.append(fecha)
 
     for p in range(0, delta):
-        dia = datetime.datetime.now() - datetime.timedelta(days=p+i)
+        dia = datetime.datetime(2021,6,29) - datetime.timedelta(days=p+i)
         d = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
         d = d.loc[d["Mes"]!=6]
         d = d.loc[d["Ciudad de destino"] == provincia]
@@ -149,14 +149,10 @@ hide_menu_style = """
 st.markdown(hide_menu_style,unsafe_allow_html=True)
 
 #Comprobamos si hay una ultima actualización para los datos
-try:
-    dia = datetime.datetime.now() #Día de hoy
-    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    i=0
-except:
-    dia = datetime.datetime.now() - datetime.timedelta(days=1) #dia de ayer
-    df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
-    i=1
+dia = datetime.datetime(2021,6,29) #Día de hoy
+df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
+i=0
+
 
 print(1)
 ###########################################################
