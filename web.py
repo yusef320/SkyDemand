@@ -245,7 +245,7 @@ Descubre cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio 
 """
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
 if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
-    expander = st.beta_expander("Información sobre la web", True)
+    expander = st.expander("Información sobre la web", True)
     expander.markdown("""
     #### Nuestra misión
     SkyDemand proporciona información fiable y actualizada acerca de la afluencia prevista de turistas extranjeros a determinados aeropuertos españoles.
@@ -322,7 +322,7 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
 
     st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} para {rango}.")
     st.markdown(f"Muestra el comportamiento del **precio medio** de todos los vuelos hacia {provincia} en el rango escogido. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en forma de **semáforo**.")
-    col1, col2 = st.beta_columns([1, 7])       
+    col1, col2 = st.columns([1, 7])       
     col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
     col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
     col2.line_chart(p[0],use_container_width=True)
@@ -356,7 +356,7 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
         st.subheader(f"Precio medio en euros de los precios de los vuelos hacia {provincia} con origen {mercado} para {rango}.")
         st.markdown(f"Muestra el comportamiento del **precio medio** para todos los vuelos en el rango escogido hacia {provincia} que provienen de {mercado}. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en **forma de semáforo**.")
 
-        col1, col2 = st.beta_columns([1, 7])       
+        col1, col2 = st.columns([1, 7])       
         col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
         col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2]))
         col2.line_chart(p2[0],use_container_width=True)
