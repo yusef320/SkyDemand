@@ -34,7 +34,7 @@ def predicción(fec, datos, oferta, dato):
     regr.fit(X_train, Y_train)
     pred = regr.predict(X_train)
     n = round(regr.score(X_train, Y_train),2)
-        
+    #Genera correctamente un modelo de regresión lineal pero esta mal utilizado por la función  
     i=0
     for elemento in pred:
         if i >= 4: break
@@ -328,7 +328,6 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
     col2.line_chart(p[0],use_container_width=True)
     st.markdown("""🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*""")
     st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
-    st.text(p[2])
 
 
     st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
@@ -362,7 +361,7 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
         col2.line_chart(p2[0],use_container_width=True)
         st.markdown("""🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*""")
         st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
-        st.text(p2[2])
+        
     except: 
         st.code("No hay disponibles análisis para esta selección. Por favor, modifíquela.")
 
