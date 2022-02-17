@@ -350,7 +350,7 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
         st.markdown(f"""Muestra la estimación diaria del **número de plazas** en vuelos programados con destino {provincia} provenientes de {mercado} para el período elegido.
         Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*.""")
         st.line_chart(p2[1],use_container_width=True)
-        st.markdown{"**capacidad media de un Boeing 737 o Airbus A320.* ")    
+        st.markdown("**capacidad media de un Boeing 737 o Airbus A320.* ")    
 
         st.subheader(f"Precio medio en euros de los precios de los vuelos hacia {provincia} con origen {mercado} para {rango}.")
         st.markdown(f"Muestra el comportamiento del **precio medio** para todos los vuelos en el rango escogido hacia {provincia} que provienen de {mercado}. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en **forma de semáforo**.")
