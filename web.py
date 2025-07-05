@@ -17,7 +17,7 @@ import random
 #####           FUNCIONES               ####
 ############################################
 
-@st.cache
+@st.cache_data
 def predicción(fec, datos, oferta, dato):
     """
     Modelo predictivo.
@@ -53,7 +53,7 @@ def predicción(fec, datos, oferta, dato):
 
     return pd.Series(data=demanda, index=fec, name=name),n
 
-@st.cache
+@st.cache_data
 def variacion(provincia,delta, mercado, rang, x,i):
     """
     Devuelve un dataframe con la variación de las tarifas
@@ -84,12 +84,16 @@ def variacion(provincia,delta, mercado, rang, x,i):
         df_demanda = d.groupby(a)["Es directo"].count()*189
         d = d.loc[d["Es directo"]==1]
         df_verano = d.groupby(a)["Precio"].mean()
-        s= round(df_verano[mercado],2)
-        datos.append(s)
+        val_precio = df_verano.get(mercado, np.NaN)
+        if pd.notna(val_precio):
+            val_precio = round(val_precio, 2)
+        datos.append(val_precio)
         fecha = datetime.date(2021, dia.month, dia.day)
         fec.append(fecha)
-        o= round(df_demanda[mercado],2)
-        oferta.append(o)
+        val_oferta = df_demanda.get(mercado, np.NaN)
+        if pd.notna(val_oferta):
+            val_oferta = round(val_oferta, 2)
+        oferta.append(val_oferta)
 
     dat = pd.Series(data=datos, index=fec, name="Precio medio")
     var = pd.Series(data=oferta, index=fec, name="Nº de plazas")
@@ -154,95 +158,94 @@ df = pd.read_csv(f'2021-{dia.month:02d}-{dia.day:02d}.csv', delimiter=';')
 i=0
 
 
-print(1)
 ###########################################################
 ####                CUERPO DE LA PÁGINA                ####
 ###########################################################
 
 # Barra lateral
-st.sidebar.text("")
-st.sidebar.text("")
-provincia = st.sidebar.selectbox("Seleccione una ciudad",("Valencia", "Alicante", "Tenerife","Mallorca")) #Necesitamos minimo 7 días recolectando datos para añadir a Mallorca a la web
-number = st.sidebar.slider("Elija el rango en días entre los datos", 7, 21)
-dia2 = datetime.datetime(2021,6,29) - datetime.timedelta(days=number+i)
-df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
-df = df.loc[df["Ciudad de destino"] == provincia]
-df2 = df2.loc[df2["Ciudad de destino"] == provincia]
-df["% var. precio"] = df["Precio"]
-df2["% var. precio"] = df2["Precio"]
+with st.sidebar:
+    st.text("")
+    st.text("")
+    provincia = st.selectbox("Seleccione una ciudad", ("Valencia", "Alicante", "Tenerife", "Mallorca"))
+    number = st.slider("Elija el rango en días entre los datos", 7, 21)
+    dia2 = datetime.datetime(2021, 6, 29) - datetime.timedelta(days=number + i)
+    df2 = pd.read_csv(f'2021-{dia2.month:02d}-{dia2.day:02d}.csv', delimiter=';')
+    df = df.loc[df["Ciudad de destino"] == provincia]
+    df2 = df2.loc[df2["Ciudad de destino"] == provincia]
+    df["% var. precio"] = df["Precio"]
+    df2["% var. precio"] = df2["Precio"]
 
-    
-rang = st.sidebar.radio("Escoja un rango", ["Todo el verano","Mes","Día"])
-if rang == "Mes":
-    mes = st.sidebar.radio("Escoja un mes", ["Julio","Agosto"])
-    rango = f"el mes de {mes}"
-    if mes == "Junio":
-        x = 6
-        df = df.loc[df["Mes"]==6]
-        df2 = df2.loc[df2["Mes"]==6]
-    elif mes == "Julio":
-        x = 7
-        df = df.loc[df["Mes"]==7]
-        df2 = df2.loc[df2["Mes"]==7]
-    elif mes == "Agosto":
-        x = 8
-        df = df.loc[df["Mes"]==8]
-        df2 = df2.loc[df2["Mes"]==8]
-elif rang == "Día":
-    date = st.sidebar.date_input("Seleccione una fecha",min_value=datetime.datetime(2021,7,1),
-                                 max_value=datetime.datetime(2021,8,31), value=datetime.datetime(2021,7,1))
-    x = [date.month, date.day]
-    rango = f"el {x[1]}/{x[0]}/2021"
-    df = df.loc[df["Mes"]==x[0]]
-    df2 = df2.loc[df2["Mes"]==x[0]]
-    df = df.loc[df["Dia"]==x[1]]
-    df2 = df2.loc[df2["Dia"]==x[1]]
-else:
-    df = df.loc[df["Mes"]!=6]
-    df2 = df2.loc[df2["Mes"]!=6]
-    x=0
-    rango = "todo el verano (julio y agosto)"
-
-if provincia == "Mallorca":
-    delta = dia - datetime.datetime(2021,5,15)
-    delta = delta.days + 1
-else: 
-    delta = dia - datetime.datetime(2021,4,18)
-    delta = delta.days +1
-
-st.sidebar.text("")
-st.sidebar.markdown(f""" 
-#### Newsletter
-""")
-email = st.sidebar.text_input(f"Reciba un email una vez a la semana con información relevante para {provincia}.",'ejemplo@mail.com')
-a = st.sidebar.button("Suscribirme")
-usuario = st.secrets["usuario"]
-contra = st.secrets["contra"]
-
-if a:
-    email1 = email.split("@")
-    if email == "ejemplo@mail.com":
-        st.sidebar.text("Escriba su email")
-        a = False
-    elif len(email1) == 2:
-        email2 = email1[1].split(".")
-        if len(email2) >= 2:
-            enviar(email, provincia)
-            st.sidebar.text("¡Ya se ha suscrito!")
-        else:
-            a = False
-            st.sidebar.text("Email incorrecto, inténtelo de nuevo.")
+    rang = st.radio("Escoja un rango", ["Todo el verano", "Mes", "Día"])
+    if rang == "Mes":
+        mes = st.radio("Escoja un mes", ["Julio", "Agosto"])
+        rango = f"el mes de {mes}"
+        if mes == "Junio":
+            x = 6
+            df = df.loc[df["Mes"] == 6]
+            df2 = df2.loc[df2["Mes"] == 6]
+        elif mes == "Julio":
+            x = 7
+            df = df.loc[df["Mes"] == 7]
+            df2 = df2.loc[df2["Mes"] == 7]
+        elif mes == "Agosto":
+            x = 8
+            df = df.loc[df["Mes"] == 8]
+            df2 = df2.loc[df2["Mes"] == 8]
+    elif rang == "Día":
+        date = st.date_input(
+            "Seleccione una fecha",
+            min_value=datetime.datetime(2021, 7, 1),
+            max_value=datetime.datetime(2021, 8, 31),
+            value=datetime.datetime(2021, 7, 1),
+        )
+        x = [date.month, date.day]
+        rango = f"el {x[1]}/{x[0]}/2021"
+        df = df.loc[df["Mes"] == x[0]]
+        df2 = df2.loc[df2["Mes"] == x[0]]
+        df = df.loc[df["Dia"] == x[1]]
+        df2 = df2.loc[df2["Dia"] == x[1]]
     else:
-        a = False
-        st.sidebar.text("Email incorrecto, inténtelo de nuevo.")
+        df = df.loc[df["Mes"] != 6]
+        df2 = df2.loc[df2["Mes"] != 6]
+        x = 0
+        rango = "todo el verano (julio y agosto)"
+
+    if provincia == "Mallorca":
+        delta = dia - datetime.datetime(2021, 5, 15)
+        delta = delta.days + 1
+    else:
+        delta = dia - datetime.datetime(2021, 4, 18)
+        delta = delta.days + 1
+
+    st.text("")
+    st.markdown("#### Newsletter")
+    email = st.text_input(
+        f"Reciba un email una vez a la semana con información relevante para {provincia}.",
+        "ejemplo@mail.com",
+    )
+    suscribirme = st.button("Suscribirme")
+    usuario = st.secrets["usuario"]
+    contra = st.secrets["contra"]
+
+    if suscribirme:
+        email1 = email.split("@")
+        if email == "ejemplo@mail.com":
+            st.error("Escriba su email")
+        elif len(email1) == 2:
+            email2 = email1[1].split(".")
+            if len(email2) >= 2:
+                enviar(email, provincia)
+                st.success("¡Ya se ha suscrito!")
+            else:
+                st.error("Email incorrecto, inténtelo de nuevo.")
+        else:
+            st.error("Email incorrecto, inténtelo de nuevo.")
 
 #Parte central
 
 image = Image.open('logo.png')
 st.image(image, width=300)
-f"""
-Descubre cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio al mercado.
-"""
+st.write("Descubre cómo cambia la oferta de vuelos hacia tu ciudad y adelanta tu negocio al mercado.")
 st.text(f"Última actualización: 2021-{dia.month:02d}-{dia.day:02d}")
 if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
     expander = st.expander("Información sobre la web", True)
@@ -283,87 +286,113 @@ if provincia in ["Alicante","Tenerife","Valencia","Mallorca"]:
     expander.markdown("**Recuerda modifica los valores en el panel lateral para cambiar el rango de los datos.**")
     
  
-    p = variacion(provincia,delta, "todos", rang, x,i)
-
-    st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} para {rango}.")
-    st.markdown(f"""Muestra la estimación diaria del **número de plazas** programadas en vuelos con destino {provincia} para el período elegido.
-    Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*.""")
-    st.line_chart(p[1],use_container_width=True)
-    st.markdown("**capacidad media de un Boeing 737 o Airbus A320.* ")
-
-    st.subheader(f"Número de plazas programadas para {provincia} por país de origen.")
-    st.markdown(f"""Muestra la estimación diaria del **número de plazas** en vuelos programados con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}.""")
-    d = df.loc[df["Es directo"]==1]   
+    p = variacion(provincia, delta, "todos", rang, x, i)
+    d = df.loc[df["Es directo"] == 1]
     df_total = d.groupby("País origen")["Es directo"].sum()
-    df_verano = df.groupby(f"País origen")["Es directo"].count() * 189      # por ser 189 el número medio de pasajeros en un vuelo comercial
+    df_verano = df.groupby("País origen")["Es directo"].count() * 189
     selec = abs(df_verano) > 1
     df_verano = df_verano[selec]
     df_verano = df_verano[df_total.index]
     df_verano = df_verano.rename("Nº de plazas")
-    st.bar_chart(df_verano, width=600, height=380)
+    tabs = st.tabs(["Análisis general", "Por país de origen"])
 
-    st.subheader(f"Porcentaje que representa cada país del total de operaciones.")
-    st.markdown(f"Gráfico circular con los **países de origen** y el **porcentaje** del total de operaciones que representa para {rango}.")
-    num = d.groupby("Ciudad de destino")["Es directo"].sum()
-    df_total = round((df_verano/df_verano.sum())*100,2)
-    df_total = df_total.rename("% de las plazas")
-    df_total = pd.DataFrame(df_total)
-    fig = px.pie(df_total, values="% de las plazas", names=df_total.index)
-    st.plotly_chart(fig,use_container_width=True)
+    with tabs[0]:
+        st.subheader(f"Número de plazas programadas por las aerolíneas para {provincia} para {rango}.")
+        st.markdown(
+            f"""Muestra la estimación diaria del **número de plazas** programadas en vuelos con destino {provincia} para el período elegido.
+        Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*."""
+        )
+        st.line_chart(p[1], use_container_width=True)
+        st.markdown("**capacidad media de un Boeing 737 o Airbus A320.* ")
 
-    st.subheader(f"Variación de número de plazas por país de origen en los últimos {number} días.")
-    st.markdown(f"Muestra como varía el **número de plazas** en vuelos programados con destino {provincia} por país de origen en los últimos {number} días para {rango}.")
-    df_verano = (df.groupby("País origen")["Es directo"].sum() * 189)-(df2.groupby("País origen")["Es directo"].sum()*189)
-    selec = abs(df_verano) > 0.01
-    df_verano = df_verano[selec]
-    df_verano = df_verano.rename("""Nº de plazas""")
-    st.bar_chart(df_verano, use_container_width=True)
+        st.subheader(f"Número de plazas programadas para {provincia} por país de origen.")
+        st.markdown(
+            f"""Muestra la estimación diaria del **número de plazas** en vuelos programados con destino {provincia} segmentada por los distintos países de origen de las rutas para {rango}."""
+        )
+        st.bar_chart(df_verano, width=600, height=380)
 
+        st.subheader("Porcentaje que representa cada país del total de operaciones.")
+        st.markdown(
+            f"Gráfico circular con los **países de origen** y el **porcentaje** del total de operaciones que representa para {rango}."
+        )
+        df_share = round((df_verano / df_verano.sum()) * 100, 2)
+        df_share = df_share.rename("% de las plazas")
+        df_share = pd.DataFrame(df_share)
+        fig = px.pie(df_share, values="% de las plazas", names=df_share.index)
+        st.plotly_chart(fig, use_container_width=True)
 
-    st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} para {rango}.")
-    st.markdown(f"Muestra el comportamiento del **precio medio** de todos los vuelos hacia {provincia} en el rango escogido. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en forma de **semáforo**.")
-    col1, col2 = st.columns([1, 7])       
-    col1.color_picker("""Semáforo de demanda*""",color(provincia, p[0]["Precio medio"][3]))
-    col1.color_picker("""Predicción del semáforo*""",color(provincia, p[0]["Predicción precio"][2]))
-    col2.line_chart(p[0],use_container_width=True)
-    st.markdown("""🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*""")
-    st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
+        st.subheader(f"Variación de número de plazas por país de origen en los últimos {number} días.")
+        st.markdown(
+            f"Muestra como varía el **número de plazas** en vuelos programados con destino {provincia} por país de origen en los últimos {number} días para {rango}."
+        )
+        df_var = (df.groupby("País origen")["Es directo"].sum() * 189) - (
+            df2.groupby("País origen")["Es directo"].sum() * 189
+        )
+        selec = abs(df_var) > 0.01
+        df_var = df_var[selec]
+        df_var = df_var.rename("Nº de plazas")
+        st.bar_chart(df_var, use_container_width=True)
 
-
-    st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
-    st.markdown(f"Muestra el comportamiento del **precio medio** de los vuelos hacia {provincia} **por país** en los últimos {number} días para {rango}.")
-    df_verano = round((df.groupby("País origen")["Precio"].mean()/df2.groupby("País origen")["Precio"].mean()-1)*100 ,2)
-    df_verano = df_verano.rename("% var precio")
-    selec = abs(df_verano) > 0.01
-    df_verano = df_verano[selec]
-    st.bar_chart(df_verano, use_container_width=True)
-
-
-    """
-    ## Estudio por país de origen.
-    Selecciona un país de la lista y obtén los datos filtrados con las llegadas desde el país escogido.
-    """
-    mercado = st.selectbox("Elige un mercado",df_total.index)
-    try:
-        p2 = variacion(provincia,delta, mercado, rang, x,i)
-        st.subheader(f"Número de plazas en vuelos programados por las aerolíneas hacia {provincia} con origen {mercado} para {rango}.")
-        st.markdown(f"""Muestra la estimación diaria del **número de plazas** en vuelos programados con destino {provincia} provenientes de {mercado} para el período elegido.
-        Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*.""")
-        st.line_chart(p2[1],use_container_width=True)
-        st.markdown("**capacidad media de un Boeing 737 o Airbus A320.* ")    
-
-        st.subheader(f"Precio medio en euros de los precios de los vuelos hacia {provincia} con origen {mercado} para {rango}.")
-        st.markdown(f"Muestra el comportamiento del **precio medio** para todos los vuelos en el rango escogido hacia {provincia} que provienen de {mercado}. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en **forma de semáforo**.")
-
-        col1, col2 = st.columns([1, 7])       
-        col1.color_picker("""Semáforo de demanda *""",color(provincia, p2[0]["Precio medio"][3]))
-        col1.color_picker("""Predicción del semáforo *""",color(provincia, p2[0]["Predicción precio"][2]))
-        col2.line_chart(p2[0],use_container_width=True)
-        st.markdown("""🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*""")
+        st.subheader(f"Precio medio en euros de las tarifas hacia {provincia} para {rango}.")
+        st.markdown(
+            f"Muestra el comportamiento del **precio medio** de todos los vuelos hacia {provincia} en el rango escogido. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en forma de **semáforo**."
+        )
+        col1, col2 = st.columns([1, 7])
+        col1.color_picker("Semáforo de demanda*", color(provincia, p[0]["Precio medio"][3]))
+        col1.color_picker("Predicción del semáforo*", color(provincia, p[0]["Predicción precio"][2]))
+        col2.line_chart(p[0], use_container_width=True)
+        st.markdown("🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*")
         st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
-        
-    except: 
-        st.code("No hay disponibles análisis para esta selección. Por favor, modifíquela.")
+
+        st.subheader(f"Variación de tarifas por país de origen en los últimos {number} días.")
+        st.markdown(
+            f"Muestra el comportamiento del **precio medio** de los vuelos hacia {provincia} **por país** en los últimos {number} días para {rango}."
+        )
+        df_price = round(
+            (df.groupby("País origen")["Precio"].mean() / df2.groupby("País origen")["Precio"].mean() - 1) * 100,
+            2,
+        )
+        df_price = df_price.rename("% var precio")
+        selec = abs(df_price) > 0.01
+        df_price = df_price[selec]
+        st.bar_chart(df_price, use_container_width=True)
+
+    with tabs[1]:
+        st.markdown(
+            """
+        ## Estudio por país de origen.
+        Selecciona un país de la lista y obtén los datos filtrados con las llegadas desde el país escogido.
+        """
+        )
+        mercado = st.selectbox("Elige un mercado", df_total.index)
+        try:
+            p2 = variacion(provincia, delta, mercado, rang, x, i)
+            st.subheader(
+                f"Número de plazas en vuelos programados por las aerolíneas hacia {provincia} con origen {mercado} para {rango}."
+            )
+            st.markdown(
+                f"""Muestra la estimación diaria del **número de plazas** en vuelos programados con destino {provincia} provenientes de {mercado} para el período elegido.
+        Dicha estimación se obtiene considerando que, en promedio, cada vuelo tiene una capacidad de 189 personas*."""
+            )
+            st.line_chart(p2[1], use_container_width=True)
+            st.markdown("**capacidad media de un Boeing 737 o Airbus A320.* ")
+
+            st.subheader(
+                f"Precio medio en euros de los precios de los vuelos hacia {provincia} con origen {mercado} para {rango}."
+            )
+            st.markdown(
+                f"Muestra el comportamiento del **precio medio** para todos los vuelos en el rango escogido hacia {provincia} que provienen de {mercado}. En función de dicho precio se genera una estimación de la demanda, basándonos en años anteriores, que se muestra en **forma de semáforo**."
+            )
+
+            col1, col2 = st.columns([1, 7])
+            col1.color_picker("Semáforo de demanda *", color(provincia, p2[0]["Precio medio"][3]))
+            col1.color_picker("Predicción del semáforo *", color(provincia, p2[0]["Predicción precio"][2]))
+            col2.line_chart(p2[0], use_container_width=True)
+            st.markdown("🔴 *demanda baja*; 🟡 *demanda media*; 🟢 *demanda alta*")
+            st.markdown("**Indica el estado de la demanda en función del precio medio de las tarifas.*")
+
+        except:
+            st.code("No hay disponibles análisis para esta selección. Por favor, modifíquela.")
 
   
 
