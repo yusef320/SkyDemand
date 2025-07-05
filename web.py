@@ -44,7 +44,7 @@ def predicción(fec, datos, oferta, dato):
     dist = len(fec)-len(demanda)
 
     for i in range(dist):
-        demanda.append(np.NaN)
+        demanda.append(np.nan)
 
     if dato == "Nº de plazas":
         name = "Pred. nº de plazas"
@@ -59,7 +59,7 @@ def variacion(provincia,delta, mercado, rang, x,i):
     Devuelve un dataframe con la variación de las tarifas
     y el número de vuelos asi como la predicción para ambas.
     """
-    datos,fec,oferta  = [np.NaN,np.NaN,np.NaN,np.NaN], [], [np.NaN,np.NaN,np.NaN,np.NaN]
+    datos, fec, oferta = [np.nan, np.nan, np.nan, np.nan], [], [np.nan, np.nan, np.nan, np.nan]
     if mercado == "todos":
         a = "Ciudad de destino"
         mercado = provincia
@@ -84,13 +84,13 @@ def variacion(provincia,delta, mercado, rang, x,i):
         df_demanda = d.groupby(a)["Es directo"].count()*189
         d = d.loc[d["Es directo"]==1]
         df_verano = d.groupby(a)["Precio"].mean()
-        val_precio = df_verano.get(mercado, np.NaN)
+        val_precio = df_verano.get(mercado, np.nan)
         if pd.notna(val_precio):
             val_precio = round(val_precio, 2)
         datos.append(val_precio)
         fecha = datetime.date(2021, dia.month, dia.day)
         fec.append(fecha)
-        val_oferta = df_demanda.get(mercado, np.NaN)
+        val_oferta = df_demanda.get(mercado, np.nan)
         if pd.notna(val_oferta):
             val_oferta = round(val_oferta, 2)
         oferta.append(val_oferta)
